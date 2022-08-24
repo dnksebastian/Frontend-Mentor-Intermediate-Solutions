@@ -9,7 +9,7 @@
 
 | Challange name | Live Page | Repository |
 | :------------: | :-------: | :--------: |
-| 1 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
+| Chat App CSS Illustration | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/chat-app-css-illustration-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/chat-app-css-illustration-master" target="_blank">Repo</a>  |
 | 2 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 | 3 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 | 4 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
