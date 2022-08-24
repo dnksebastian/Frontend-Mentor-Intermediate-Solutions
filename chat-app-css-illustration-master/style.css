@@ -1,0 +1,90 @@
+/* General and reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --custom-pale-violet: hsl(276, 100%, 81%);
+  --custom-moderate-violet: hsl(276, 55%, 52%);
+  --custom-desaturated-dark-violet: hsl(271, 15%, 43%);
+  --custom-grayish-blue: hsl(206, 6%, 79%);
+  --custom-very-dark-desaturated-violet: hsl(271, 36%, 24%);
+  --custom-dark-grayish-violet: hsl(270, 7%, 64%);
+
+  /* #### Gradients
+
+These two colors are the vibrant background colors you see throughout the design and are applied as a linear gradient:
+
+- Light Magenta: hsl(293, 100%, 63%)
+- Light Violet: hsl(264, 100%, 61%) */
+
+  /* ### Secondary
+
+- White: hsl(0, 0%, 100%)
+- Light Grayish Violet (app background): hsl(270, 20%, 96%)
+- Very Dark Desaturated Violet (submit button background): hsl(271, 36%, 24%)
+- Very Light Magenta (radio button outline): hsl(289, 100%, 72%) */
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+  font-family: "Rubik", sans-serif;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+/* Main styles */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 255, 0.11);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  background-color: cornflowerblue;
+}
+
+/* Footer styles */
+
+footer {
+  margin-top: auto;
+  background-color: beige;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Media queries */
+
+@media screen and (min-width: 1000px) {
+
+  .hero-container {
+    flex-direction: row;
+    width: 50%;
+  }
+
+
+}
