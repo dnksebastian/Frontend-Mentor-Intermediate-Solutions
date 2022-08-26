@@ -13,7 +13,10 @@
   --custom-very-dark-desaturated-violet: hsl(271, 36%, 24%);
   --custom-dark-grayish-violet: hsl(270, 7%, 64%);
 
+
   /* #### Gradients
+
+ 
 
 These two colors are the vibrant background colors you see throughout the design and are applied as a linear gradient:
 
@@ -131,6 +134,10 @@ main {
 .content-container p {
   font-size: 1.6rem;
   line-height: 2.8rem;
+}
+
+.asd {
+  background-color: var(--gradient);
 }
 
 /* Footer styles */
