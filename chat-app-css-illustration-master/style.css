@@ -255,6 +255,7 @@ footer {
 
 /* Media queries */
 
+
 @media screen and (min-width: 1000px) {
 
   body::before {
