@@ -201,15 +201,83 @@ main {
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  min-width: 23rem;
+}
+
+.message-history-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+
+.messagein, .messageout, .chat-option {
+  font-size: .8rem;
+  max-width: 13rem;
+  padding: .7rem;
+  border-radius: .9rem;
+  line-height: 1rem;
+}
+
+.messageout {
+  background-color: hsla(276, 100%, 81%, 0.3);
+  color: var(--custom-moderate-violet);
+}
+
+.messageout:nth-of-type(6) {
+  margin-top: 1rem;
+}
+/* not exactly sure why last-of-type doesnt work here */
+
+.messagein {
+  background-color: var(--custom-white);
+  align-self: flex-end;
+  padding: .5rem .8rem;
 }
 
 .chat-pictures {
+  margin-top: .5rem;
   display: flex;
+  gap: .7rem;
+  align-self: flex-end;
 }
 
 .chat-img-wrap {
-  height: 1rem;
-  width: 1rem;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.chat-option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  background: linear-gradient(90deg,hsl(293, 100%, 63%), hsl(264, 100%, 61%) );
+  padding: 1rem;
+  padding-right: 1.7rem;
+  max-width: 16rem;
+  margin-top: -.3rem;
+}
+
+.option {
+  display: flex;
+  gap: .3rem;
+}
+
+.circle {
+  border: 1px solid white;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 100%;
+}
+
+.price {
+  border: 1px solid green;
+  font-size: 1.2rem;
+  margin-left: auto;
 }
 
 
@@ -274,7 +342,7 @@ footer {
     border-radius: 40rem 40rem 0 0;
   }
 
-  
+
 
   .hero-container {
     flex-direction: row;
