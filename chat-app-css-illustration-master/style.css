@@ -41,6 +41,10 @@ img {
   height: 100%;
 }
 
+span {
+  display: block;
+}
+
 html {
   font-size: 10px;
   font-family: "Rubik", sans-serif;
@@ -100,7 +104,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(100, 148, 237, 0.2);
   padding: 2rem 1rem 1rem 1rem;
   gap: 5rem;
 }
@@ -199,7 +202,6 @@ main {
 .chat-body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1;
   min-width: 23rem;
 }
@@ -214,15 +216,15 @@ main {
 
 .messagein, .messageout, .chat-option {
   font-size: .8rem;
-  max-width: 13rem;
+  max-width: 12.6rem;
   padding: .7rem;
-  border-radius: .9rem;
   line-height: 1rem;
 }
 
 .messageout {
-  background-color: hsla(276, 100%, 81%, 0.3);
+  background-color: hsla(276, 100%, 81%, 0.2);
   color: var(--custom-moderate-violet);
+  border-radius: .9rem .9rem .9rem .2rem;
 }
 
 .messageout:nth-of-type(6) {
@@ -234,6 +236,7 @@ main {
   background-color: var(--custom-white);
   align-self: flex-end;
   padding: .5rem .8rem;
+  border-radius: .9rem .9rem .2rem .9rem;
 }
 
 .chat-pictures {
@@ -257,14 +260,17 @@ main {
   color: white;
   background: linear-gradient(90deg,hsl(293, 100%, 63%), hsl(264, 100%, 61%) );
   padding: 1rem;
+  padding-left: .7rem;
   padding-right: 1.7rem;
   max-width: 16rem;
   margin-top: -.3rem;
+  border-radius: .9rem .9rem .9rem .3rem;
 }
 
 .option {
   display: flex;
-  gap: .3rem;
+  align-items: center;
+  gap: .7rem;
 }
 
 .circle {
@@ -275,18 +281,40 @@ main {
 }
 
 .price {
-  border: 1px solid green;
   font-size: 1.2rem;
   margin-left: auto;
+  font-weight: bold;
 }
 
 
 .message-input-wrap {
-  border: 1px solid red;
-  width: 80%;
+  margin-top: 1rem;
+  background-color: white;
+  width: 90%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   align-self: center;
+  padding-top: .4rem;
+  padding-bottom: .4rem;
+  padding-right: .1rem;
+  padding-left: 1.8rem;
+  border-radius: 1.5rem;
+}
+
+.message-input-wrap span {
+  font-size: .9rem;
+}
+
+.send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #3D2650;
+  border-radius: 50%;
+  height: 2.4rem;
+  width: 2.4rem;
 }
 
 .content-container {
