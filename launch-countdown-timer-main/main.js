@@ -5,47 +5,84 @@ const hoursTile = document.getElementById("hours");
 const minutesTile = document.getElementById("minutes");
 const secondsTile = document.getElementById("seconds");
 
-console.log(daysTile, hoursTile, minutesTile, secondsTile);
+// Timer functions
 
-// Timer script
+const currentDate = new Date();
+const targetDate = new Date(currentDate);
+targetDate.setDate(targetDate.getDate() + 10)
 
-const visitTime = Date.now();
-const targetTimestamp = visitTime + 10 * 24 * 60 * 60 * 1000;
-const targetDate = new Date(targetTimestamp);
+const timeBetween = (targetDate - currentDate) / 1000;
 
+console.log(currentDate);
 console.log(targetDate);
+console.log(timeBetween);
 
-// Functions & Variables
+let preTime
 
-const countTime = () => {
-  const currentTime = Date.now();
+setInterval(() => {
+  const current = new Date()
+  const timeBetweenDates = Math.ceil((targetDate - current) / 1000)
 
-  const days = Math.floor(
-    targetDate / (24 * 60 * 60 * 1000) - currentTime / (24 * 60 * 60 * 1000)
-  );
+  flipAll(timeBetweenDates);
 
-  let hours = Math.floor(
-    (targetDate / (1000 * 60 * 60) - currentTime / (1000 * 60 * 60)) % 24
-  );
-  hours = hours < 10 ? `0${hours}` : hours;
-
-  let minutes = Math.floor(
-    (targetDate / (1000 * 60) - currentTime / (1000 * 60)) % 60
-  );
-  minutes = minutes < 10 ? `0${minutes}` : minutes;
-
-  let seconds = Math.floor((targetDate / 1000 - currentTime / 1000) % 60);
-
-  seconds = seconds < 10 ? `0${seconds}` : seconds;
+  preTime = timeBetweenDates
+}, 250)
 
 
-  daysTile.textContent = days;
-  hoursTile.textContent = hours;
-  minutesTile.textContent = minutes;
-  secondsTile.textContent = seconds;
-};
+function flipAll(timeBetween) {
+  let day = Math.floor(timeBetween / (24 * 60 * 60)) % 24;
+  let hour = Math.floor(timeBetween / (60 * 60)) % 60;
+  hour = hour < 10 ? `0${hour}` : hour;
+  let min = Math.floor(timeBetween / 60) % 60;
+  min = min < 10 ? `0${min}` : min;
+  let sec = timeBetween % 60;
+  sec = sec < 10 ? `0${sec}` : sec;
+
+  flip(daysTile, day);
+  flip(hoursTile, hour);
+  flip(minutesTile, min);
+  flip(secondsTile, sec);
+}
 
 
-// Event listeners & calls
+function flip(flipTile, newNumber) {
+  const topHalf = flipTile.querySelector(".top-flipcard");
+  let startNumber = parseInt(topHalf.textContent);
 
-// setInterval(countTime, 1000);
+  if (flipTile !== daysTile) {
+    startNumber = startNumber < 10 ? `0${startNumber}` : startNumber;
+  }
+
+  
+  if (newNumber === startNumber) return
+
+
+  const bottomHalf = flipTile.querySelector(".bot-flipcard");
+
+  const topFlip = document.createElement("div");
+  topFlip.classList.add("top-flip");
+  const bottomFlip = document.createElement("div");
+  bottomFlip.classList.add("bot-flip");
+
+
+  topHalf.textContent = startNumber;
+  bottomHalf.textContent = startNumber;
+  topFlip.textContent = startNumber;
+  bottomFlip.textContent = newNumber;
+
+  topFlip.addEventListener("animationstart", (e) => {
+    topHalf.textContent = newNumber;
+  });
+
+  topFlip.addEventListener("animationend", (e) => {
+    topFlip.remove();
+  });
+
+  bottomFlip.addEventListener("animationend", (e) => {
+    bottomHalf.textContent = newNumber;
+    bottomFlip.remove();
+  });
+
+  flipTile.append(topFlip, bottomFlip);
+  
+}

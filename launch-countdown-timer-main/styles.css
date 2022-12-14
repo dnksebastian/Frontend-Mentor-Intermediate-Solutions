@@ -1,5 +1,7 @@
 /* General styles, reset & typography */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -83,7 +85,6 @@ main {
   color: var(--custom-white);
   text-transform: uppercase;
   text-align: center;
-  /* background-color: rgba(255, 217, 0, 0.429); */
 }
 
 h1 {
@@ -97,59 +98,94 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  /* background-color: rgba(0, 128, 128, 0.356); */
+  gap: 1.5rem;
+  background-color: rgba(0, 128, 128, 0.356);
 }
 
 .counter-tile {
   width: 25%;
-  /* background-color: rgba(255, 0, 0, 0.377); */
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-direction: column;
 }
 
 .time-value {
-  height: 6.8rem;
   position: relative;
-  background-color: var(--custom-dark-desaturated-blue);
-  /* border: 1px solid yellow; */
-  border-radius: 0.5rem;
-  /* padding: 1rem; */
-  font-size: 3.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  color: var(--custom-soft-red);
+
+  background-color: var(--custom-very-dark-blue);
+  font-size: 3.6rem;
   font-weight: bold;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 0.5rem 0 var(--custom-most-dark-blue);
+}
+
+.time-value .top-flip {
+  position: absolute;
+  width: 100%;
+
+  animation: flip-down 250ms ease-in;
+  transform-origin: bottom;
+}
+
+@keyframes flip-down {
+
+  100% {
+    transform: rotateX(90deg);
+  }
+
+}
+
+.time-value .bot-flip {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  animation: flip-bottom 250ms ease-out 250ms;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+
+  100% {
+    transform: rotateX(0deg);
+  }
+
+}
+
+
+
+.top-flipcard,
+.bot-flipcard,
+.time-value .top-flip,
+.time-value .bot-flip {
+  /* height: .75em; */
+  height: .9em;
+  padding: 0.4em 0.25em;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
 }
 
 .top-flipcard,
-.bot-flipcard {
-  display: inline;
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 50%;
-  /* padding: 1rem; */
-  /* height: 100%; */
-  line-height: 6.7rem;
+.time-value .top-flip {
+  background-color: #2C2C44;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: .15em;
+  border-bottom-right-radius: .15em;
 }
 
-.top-flipcard {
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 0, 0, 0.441);
-  /* transform: rotateX(0deg);
-    animation: flip-top 0.5s ease-in forwards; */
-}
-
-.bot-flipcard {
-  line-height: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 128, 128, 0.33);
-  /* height: 50%; */
-  /* animation: flip-bottom 0.5s ease-out 0.5s;
-    transform-origin: top;
-    transform: rotateX(90deg); */
+.bot-flipcard,
+.time-value .bot-flip {
+  align-items: flex-end;
+  background-color: #34364F;
+  border-top-left-radius: .15em;
+  border-top-right-radius: .15em;
 }
 
 .tile-label {
