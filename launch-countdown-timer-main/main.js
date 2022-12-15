@@ -30,7 +30,7 @@ setInterval(() => {
 
 function flipAll(timeBetween) {
   let day = Math.floor(timeBetween / (24 * 60 * 60)) % 24;
-  let hour = Math.floor(timeBetween / (60 * 60)) % 60;
+  let hour = Math.floor(timeBetween / (60 * 60)) % 24;
   hour = hour < 10 ? `0${hour}` : hour;
   let min = Math.floor(timeBetween / 60) % 60;
   min = min < 10 ? `0${min}` : min;
