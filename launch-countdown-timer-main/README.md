@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/launch-countdown-timer-1QkmEIgxep](https://www.frontendmentor.io/solutions/launch-countdown-timer-1QkmEIgxep)
 - Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/launch-countdown-timer-main/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/launch-countdown-timer-main/)
 
 ## My process
