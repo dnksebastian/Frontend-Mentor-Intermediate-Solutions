@@ -9,25 +9,24 @@ const secondsTile = document.getElementById("seconds");
 
 const currentDate = new Date();
 const targetDate = new Date(currentDate);
-targetDate.setDate(targetDate.getDate() + 10)
+targetDate.setDate(targetDate.getDate() + 10);
 
 const timeBetween = (targetDate - currentDate) / 1000;
 
-console.log(currentDate);
-console.log(targetDate);
-console.log(timeBetween);
+// console.log(currentDate);
+// console.log(targetDate);
+// console.log(timeBetween);
 
-let preTime
+let preTime;
 
 setInterval(() => {
-  const current = new Date()
-  const timeBetweenDates = Math.ceil((targetDate - current) / 1000)
+  const current = new Date();
+  const timeBetweenDates = Math.ceil((targetDate - current) / 1000);
 
   flipAll(timeBetweenDates);
 
-  preTime = timeBetweenDates
-}, 250)
-
+  preTime = timeBetweenDates;
+}, 250);
 
 function flipAll(timeBetween) {
   let day = Math.floor(timeBetween / (24 * 60 * 60)) % 24;
@@ -44,7 +43,6 @@ function flipAll(timeBetween) {
   flip(secondsTile, sec);
 }
 
-
 function flip(flipTile, newNumber) {
   const topHalf = flipTile.querySelector(".top-flipcard");
   let startNumber = parseInt(topHalf.textContent);
@@ -53,9 +51,7 @@ function flip(flipTile, newNumber) {
     startNumber = startNumber < 10 ? `0${startNumber}` : startNumber;
   }
 
-  
-  if (newNumber === startNumber) return
-
+  if (newNumber === startNumber) return;
 
   const bottomHalf = flipTile.querySelector(".bot-flipcard");
 
@@ -63,7 +59,6 @@ function flip(flipTile, newNumber) {
   topFlip.classList.add("top-flip");
   const bottomFlip = document.createElement("div");
   bottomFlip.classList.add("bot-flip");
-
 
   topHalf.textContent = startNumber;
   bottomHalf.textContent = startNumber;
@@ -84,5 +79,4 @@ function flip(flipTile, newNumber) {
   });
 
   flipTile.append(topFlip, bottomFlip);
-  
 }
