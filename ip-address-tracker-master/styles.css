@@ -1,0 +1,31 @@
+/* General styles, typography and reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  /* Colors: */
+  --custom-very-dark-gray: hsla(0, 0%, 17%, 0%);
+  --custom-dark-gray: hsla(0, 0%, 59%, 0%);
+}
+
+html {
+  font-family: "Rubik", sans-serif;
+  font-size: 10px;
+}
+
+/* Mobile styles */
+
+/* Media queries */
