@@ -15,10 +15,15 @@ ul {
   list-style: none;
 }
 
+button {
+  cursor: pointer;
+  transition: .3s;
+}
+
 :root {
   /* Colors: */
-  --custom-very-dark-gray: hsla(0, 0%, 17%, 0%);
-  --custom-dark-gray: hsla(0, 0%, 59%, 0%);
+  --custom-very-dark-gray: hsla(0, 0%, 17%, 100%);
+  --custom-dark-gray: hsla(0, 0%, 59%, 100%);
 }
 
 html {
@@ -28,4 +33,231 @@ html {
 
 /* Mobile styles */
 
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: url(./images/pattern-bg.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  /* background-position-x: left 55%; */
+  background-size: auto 30rem;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#data-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding: 2.5rem 2rem;
+  /* background-color: rgba(0, 128, 128, 0.227); */
+  min-height: 30rem;
+}
+
+h1 {
+  font-size: 2.55rem;
+  font-weight: 500;
+  color: white;
+}
+
+form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5.7rem;
+  padding: 1.5rem .5rem 1rem .5rem;
+  /* background-color: pink; */
+}
+
+#ip-input {
+  font: inherit;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--custom-very-dark-gray);
+  border: 1px solid transparent;
+  width: 100%;
+  border-radius: 1.5rem 0 0 1.5rem;
+  padding: 1.6rem 0rem 1.6rem 2rem;
+  outline: none;
+}
+
+#ip-input::placeholder {
+  color: var(--custom-dark-gray);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+#submit-btn {
+  border: 1px solid transparent;
+  border-radius: 0 1.5rem 1.5rem 0;
+  background-color: black;
+  font-size: 0;
+  background-image: url(./images/icon-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#submit-btn:hover, #submit-btn:focus-visible {
+  background-color: var(--custom-very-dark-gray);
+}
+
+#results-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+#results-wrapper ul {
+  background-color: white;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 2rem 2rem;
+}
+
+li {
+  /* background-color: pink; */
+  text-align: center;
+  padding: .5rem 1rem;
+}
+
+#results-wrapper span {
+  display: block;
+}
+
+.result-label {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  color: var(--custom-dark-gray);
+}
+
+.result-value {
+  margin-top: .7rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+
+
+#map-wrapper {
+  /* position: relative;
+  bottom: 0;
+  left: 0; */
+  /* background-color: pink; */
+  width: 100%;
+  z-index: 2;
+}
+
+#map {
+  height: calc(100vh - 30rem);
+}
+
+footer {
+  padding: 0 0 1rem 0;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
 /* Media queries */
+
+@media screen and (min-width: 875px) {
+  body {
+    background-size: 100% 28rem;
+  }
+
+  #data-wrapper {
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5; */
+    /* width: 100%; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: flex-start; */
+    max-width: 115rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    gap: 1.2rem;
+    padding: 3rem 2rem;
+    /* background-color: rgba(0, 128, 128, 0.227); */
+    min-height: 30rem;
+  }
+
+  h1 {
+    font-size: 3.1rem;
+  }
+
+  form {
+    max-width: 57rem;
+  }
+
+  #ip-input {
+    padding: 1.6rem 0rem 1.6rem 2.5rem;
+  }
+
+  #ip-input::placeholder {
+    font-size: 1.8rem;
+  }
+
+  #results-wrapper {
+    margin-top: 2.7rem;
+  }
+
+  #results-wrapper ul {
+    flex-direction: row;
+    padding: 3.2rem 2.2rem;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  li {
+    text-align: left;
+    background-color: rgba(0, 128, 128, 0.348);
+    max-width: 20rem;
+  }
+
+  .result-label {
+    font-size: 1.3rem;
+  }
+
+  .result-value {
+    margin-top: 1.2rem;
+    font-size: 2.55rem;
+  }
+
+
+
+  #map {
+    height: calc(100vh - 28rem);
+  }
+
+
+}
