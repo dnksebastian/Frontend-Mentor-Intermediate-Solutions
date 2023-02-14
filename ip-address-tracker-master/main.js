@@ -36,6 +36,7 @@ function getMapData(resData) {
     const userUTC = splitUTC(resData.utc_offset, ":", 3);
     const userTimezone = `UTC ${userUTC}`;
     // This adds a colon to the UTC offset response string
+    
     timezoneValueElement.textContent = userTimezone;
   } else {
     timezoneValueElement.textContent = `${resData.timezone}`;
@@ -98,9 +99,7 @@ errorBtnElement.addEventListener("click", () => {
 
 // Leaflet config
 
-// const map = L.map("map").setView([51.505, -0.09], 13);
-// 43.73220995833685, 7.413886138796648
-const map = L.map("map").setView([43.73220995833685, 7.413886138796648], 13);
+const map = L.map("map").setView([0, 0], 13);
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
