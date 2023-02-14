@@ -17,7 +17,7 @@ ul {
 
 button {
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 :root {
@@ -83,7 +83,7 @@ form {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 5.7rem;
-  padding: 1.5rem .5rem 1rem .5rem;
+  padding: 1.5rem 0.5rem 1rem 0.5rem;
   /* background-color: pink; */
 }
 
@@ -116,7 +116,8 @@ form {
   background-position: center;
 }
 
-#submit-btn:hover, #submit-btn:focus-visible {
+#submit-btn:hover,
+#submit-btn:focus-visible {
   background-color: var(--custom-very-dark-gray);
 }
 
@@ -139,7 +140,7 @@ form {
 li {
   /* background-color: pink; */
   text-align: center;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 #results-wrapper span {
@@ -150,17 +151,15 @@ li {
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .15rem;
+  letter-spacing: 0.15rem;
   color: var(--custom-dark-gray);
 }
 
 .result-value {
-  margin-top: .7rem;
+  margin-top: 0.7rem;
   font-size: 2rem;
   font-weight: 500;
 }
-
-
 
 #map-wrapper {
   /* position: relative;
@@ -183,6 +182,48 @@ footer {
   bottom: 0;
   left: 0;
   z-index: 5;
+}
+
+#error-alert {
+  padding: 3rem;
+  text-align: justify;
+  max-width: 30rem;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0rem 0.5rem 1.5rem 0.2rem var(--custom-dark-gray);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(./images/caution-icon.svg);
+  background-repeat: no-repeat;
+  background-size: 2.5rem;
+  background-position: top 0.5rem left 0.55rem;
+  z-index: 100;
+}
+
+#error-alert h2 {
+  font-size: 2rem;
+}
+
+#error-msg {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+#error-btn {
+  margin-top: 2rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: black;
+}
+
+#error-btn:hover,
+#error-btn:focus-visible {
+  background-color: var(--custom-very-dark-gray);
 }
 
 /* Media queries */
@@ -260,11 +301,7 @@ footer {
     max-width: 20rem;
   }
 
-
-
   #map {
     height: calc(100vh - 28rem);
   }
-
-
 }

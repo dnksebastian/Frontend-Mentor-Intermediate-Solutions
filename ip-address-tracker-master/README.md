@@ -41,11 +41,16 @@ Users should be able to:
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Styling dialog element](https://css-tricks.com/how-to-implement-and-style-the-dialog-element/) - Useful info on how to implement and style the dialog box.
+
+- [IP address validation regexp](https://www.w3resource.com/javascript/form/ip-address-validation.php) - Handy JS snippet used to validate IP address.
+
+- [IP API](https://ipapi.co/) - IP tracker API I've used in this project.
+
+- [Inserting a character into string](https://stackoverflow.com/a/53060314) - JS snippet I've used to format the UTC offset.
 
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+- [Caution icon](https://uxwing.com/caution-icon/) - Icon used in the dialog box.
 

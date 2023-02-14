@@ -38,7 +38,6 @@
         <div class="input-wrapper">
           <label for="ip-address"></label>
           <input id="ip-input" type="text" placeholder="Search for any IP address or domain">
-          <!-- placeholder="192.212.174.101" -->
         </div>
         <button id="submit-btn">Submit</button>
       </form>
@@ -55,7 +54,6 @@
           </li>
           <li>
             <span class="result-label">Timezone</span>
-            <!-- <span class="result-value">UTC add offset value dynamically using the API</span> -->
             <span class="result-value" id="timezone-value">UTC-05:00</span>
           </li>
           <li>
@@ -79,6 +77,12 @@
       Coded by <a href="#">Sebastian</a>.
     </p>
   </footer>
+
+  <dialog id="error-alert">
+    <h2>Something went wrong</h2>
+    <p id="error-msg"></p>
+    <button id="error-btn">Try again</button>
+  </dialog>
 </body>
 
 </html>
