@@ -1,0 +1,108 @@
+/* General styles, reset & typography */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: 300ms;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:root {
+  /* ### Primary */
+
+  --custom-dark-blue: hsla(233, 26%, 24%, 100%);
+  --custom-lime-green: hsla(136, 65%, 51%, 100%);
+  --custom-bright-cyan: hsla(192, 70%, 51%, 100%);
+
+  /* ### Neutral */
+
+  --custom-grayish-blue: hsla(233, 8%, 62%, 100%);
+  --custom-light-grayish-blue: hsla(220, 16%, 96%, 100%);
+  --custom-very-light-gray: hsla(0, 0%, 98%, 100%);
+  --custom-white: hsla(0, 0%, 100%, 100%);
+
+  /* Typography */
+  --custom-ff: "Public Sans", sans-serif;
+}
+
+html {
+  font-family: var(--custom-ff);
+  font-size: 10px;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.base-link {
+  border-radius: 1.5rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 1rem 2rem;
+  color: var(--custom-white);
+  background: var(--custom-lime-green);
+  background: linear-gradient(
+    90deg,
+    var(--custom-lime-green) 0%,
+    var(--custom-bright-cyan) 100%
+  );
+}
+
+/* Mobile styles */
+
+/* Mobile header styles */
+
+#header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  gap: 2rem;
+}
+
+.nav-list {
+  display: none;
+}
+
+header .base-link {
+  display: none;
+}
+
+/* Mobile menu styles */
+
+#mobile-menu-icon {
+  background-image: url(./images/icon-hamburger.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: teal;
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 875px) {
+  header .base-link {
+    display: block;
+  }
+
+  #mobile-menu-icon {
+    display: none;
+  }
+}
