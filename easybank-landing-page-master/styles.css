@@ -48,13 +48,24 @@ html {
 
 body {
   min-height: 100vh;
+  color: var(--custom-grayish-blue);
+  background-color: var(--custom-very-light-gray);
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--custom-dark-blue);
 }
 
 .base-link {
-  border-radius: 1.5rem;
-  font-weight: 700;
-  font-size: 1.3rem;
-  padding: 1rem 2rem;
+  border-radius: 3rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 1.5rem 3.2rem;
   color: var(--custom-white);
   background: var(--custom-lime-green);
   background: linear-gradient(
@@ -69,10 +80,13 @@ body {
 /* Mobile header styles */
 
 #header {
+  position: relative;
+  z-index: 10;
+  background-color: var(--custom-white);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 2rem 3rem;
+  padding: 2.2rem 2.4rem 2.2rem 2.4rem;
   gap: 2rem;
 }
 
@@ -90,9 +104,180 @@ header .base-link {
   background-image: url(./images/icon-hamburger.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-color: teal;
-  width: 3rem;
-  height: 3rem;
+  background-size: 100%;
+  /* background-color: teal; */
+  width: 2.5rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+/* Main mobile styles */
+/* Hero section mobile styles */
+#hero-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  top: -11.2rem;
+  left: 0;
+  z-index: 1;
+}
+
+.hero-illu {
+  overflow: hidden;
+  position: relative;
+  /* background-color: rgba(255, 166, 0, 0.516); */
+  background-image: url(./images/bg-intro-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 115%;
+  background-position: top right;
+  padding: 0 1.5rem;
+}
+
+#hero-img-wrapper {
+  max-width: 50rem;
+  display: block;
+  position: relative;
+  top: -1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@media screen and (min-width: 600px) {
+ #hero-img-wrapper {
+  left: 0;
+  transform: translate(10%, 0);
+} 
+}
+
+#hero-img {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  /* background-color: rgba(255, 192, 203, 0.497); */
+  padding: 1.5rem 2.1rem .5rem 2.1rem;
+}
+
+h1 {
+  font-size: 3.8rem;
+  font-weight: 400;
+}
+
+.hero-content p {
+  padding-bottom: 2rem;
+  padding-top: .5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* Features section mobile styles */
+#features {
+  position: relative;
+  top: -3rem;
+  padding: 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+  background-color: var(--custom-light-grayish-blue);
+}
+
+.features-intro {
+  padding: 1.5rem 1rem;
+  background-color: rgba(0, 128, 128, 0.312);
+}
+
+.features-intro h2 {
+  font-size: 3.1rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.features-intro p {
+  padding-top: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.7;
+}
+
+.features-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feature-tile {
+  max-width: 45rem;
+  padding: 1rem .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  /* background-color: rgba(255, 192, 203, 0.497); */
+}
+
+.feature-tile h3 {
+  padding-top: 1rem;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.feature-tile p {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  padding-top: .5rem;
+}
+
+
+/* Articles section mobile styles */
+#articles {
+  padding: 6rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--custom-very-light-gray);
+}
+
+#articles h2 {
+  font-size: 3.1rem;
+  font-weight: 300;
+}
+
+.articles-wrapper {
+  padding: 1rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.article-tile {
+  overflow: hidden;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 128, 0, 0.427);
+}
+
+.article-img-wrapper {
+  overflow: hidden;
+}
+
+
+
+/* Footer section mobile styles */
+#footer {
+  background-color: var(--custom-dark-blue);
 }
 
 /* Media queries */
