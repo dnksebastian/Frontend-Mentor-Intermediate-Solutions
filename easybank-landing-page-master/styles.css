@@ -51,6 +51,7 @@ body {
   flex-direction: column;
   position: relative;
   min-height: 100vh;
+  min-width: 250px;
   color: var(--custom-grayish-blue);
   background-color: var(--custom-very-light-gray);
 }
@@ -96,7 +97,7 @@ h5 {
   gap: 2rem;
 }
 
-.nav-list {
+#nav-wrapper {
   display: none;
 }
 
@@ -106,7 +107,7 @@ header .base-link {
 
 /* Mobile menu styles */
 
-#mobile-menu-icon {
+.mobile-menu-icon {
   background-image: url(./images/icon-hamburger.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -116,6 +117,67 @@ header .base-link {
   height: 2rem;
   cursor: pointer;
 }
+
+.nav-wrapper {
+  display: none;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 8.8rem;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  min-width: 33rem;
+  padding: 2rem 2rem;
+  background-color: var(--custom-white);
+  border-radius: 1rem;
+  /* overflow: hidden; */
+  z-index: 100;
+}
+
+.backdrop {
+  /* background: linear-gradient(to bottom, rgba(45,49,77,100%) 0%, rgba(255, 255, 255, 0%) 100%); */
+  display: none;
+  background-image: linear-gradient(180deg, rgba(45, 49, 77, 1) 30%, rgba(255, 255, 255, 0.3) 100%);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.menu-active {
+  display: flex;
+}
+
+.mobile-icon-active {
+  background-image: url(./images/icon-close.svg);
+}
+
+.backdrop-visible {
+  display: block;
+}
+
+#nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1rem 1rem;
+}
+
+.top-nav-link {
+  color: var(--custom-dark-blue);
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.top-nav-link:focus-visible, .top-nav-link:hover {
+  color: var(--custom-lime-green);
+}
+
+
+
+
 
 /* Main mobile styles */
 /* Hero section mobile styles */
@@ -167,7 +229,9 @@ header .base-link {
   align-items: center;
   justify-content: center;
   text-align: center;
+  align-self: center;
   gap: 1rem;
+  max-width: 62rem;
   /* background-color: rgba(255, 192, 203, 0.497); */
   padding: 1.5rem 2.1rem .5rem 2.1rem;
 }
@@ -199,6 +263,7 @@ h1 {
 }
 
 .features-intro {
+  max-width: 62rem;
   padding: 1.5rem 1rem;
   background-color: rgba(0, 128, 128, 0.312);
 }
@@ -376,6 +441,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 1rem!important;
 }
 
@@ -394,7 +460,18 @@ h1 {
     display: block;
   }
 
-  #mobile-menu-icon {
+  .mobile-menu-icon {
     display: none;
+  }
+
+
+  .features-wrapper, .articles-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feature-tile {
+    max-width: 42rem;
   }
 }
