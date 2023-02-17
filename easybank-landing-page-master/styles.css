@@ -27,7 +27,7 @@ img {
   /* ### Primary */
 
   --custom-dark-blue: hsla(233, 26%, 24%, 100%);
-  --custom-lime-green: hsla(136, 65%, 51%, 100%);
+  --custom-lime-green: hsla(136, 65%, 51%,100%);
   --custom-bright-cyan: hsla(192, 70%, 51%, 100%);
 
   /* ### Neutral */
@@ -47,10 +47,12 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   min-height: 100vh;
   color: var(--custom-grayish-blue);
   background-color: var(--custom-very-light-gray);
-  position: relative;
 }
 
 h1,
@@ -73,6 +75,10 @@ h5 {
     var(--custom-lime-green) 0%,
     var(--custom-bright-cyan) 100%
   );
+}
+
+.base-link:hover, .base-link:focus-visible {
+  filter: brightness(120%);
 }
 
 /* Mobile styles */
@@ -143,6 +149,7 @@ header .base-link {
 }
 
 @media screen and (min-width: 600px) {
+  /* Threw that in because I thought shifting the image a bit looked good */
  #hero-img-wrapper {
   left: 0;
   transform: translate(10%, 0);
@@ -241,7 +248,7 @@ h1 {
 
 /* Articles section mobile styles */
 #articles {
-  padding: 6rem 0rem;
+  padding: 6rem 0rem 7.5rem 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -263,21 +270,121 @@ h1 {
 
 .article-tile {
   overflow: hidden;
+  max-width: 40rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 128, 0, 0.427);
+  align-items: center;
 }
+
 
 .article-img-wrapper {
   overflow: hidden;
+  max-height: 20rem;
+  width: 100%;
 }
 
+.article-img {
+  width: 100%;
+}
+
+.article-helper {
+  background-color: var(--custom-white);
+  padding: 3rem 3rem 4.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.article-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  transition: .3s;
+}
+
+.article-title:hover, .article-title:focus-visible {
+  cursor: pointer;
+  color: var(--custom-lime-green);
+}
+
+.article-desc {
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
 
 
 /* Footer section mobile styles */
 #footer {
+  flex: 1;
+  padding: 4rem 2rem 4rem 2rem;
   background-color: var(--custom-dark-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+#footer .helper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.footer-logo-wrapper {
+  filter: invert(100%) saturate(100%) hue-rotate(180deg) brightness(120%);
+}
+
+#social-icons {
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  min-width: 2.5rem;
+  transition: .3s;
+}
+
+.social-icon:hover, .social-icon:focus-visible {
+  cursor: pointer;
+  filter: invert(60%) sepia(90%) saturate(350%) hue-rotate(90deg) brightness(120%);
+}
+
+.menu-helper {
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+#footer-menu {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+
+.footer-link {
+  color: var(--custom-grayish-blue);
+  font-size: 1.5rem;
+}
+
+.footer-link:active, .footer-link:hover {
+  color: var(--custom-lime-green);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem!important;
+}
+
+#ea-copy {
+  font-size: 1.5rem;
+}
+
+.attribution a {
+  color: var(--custom-lime-green);
 }
 
 /* Media queries */
