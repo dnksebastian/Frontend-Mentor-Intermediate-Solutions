@@ -50,6 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-x: hidden;
   min-height: 100vh;
   min-width: 250px;
   color: var(--custom-grayish-blue);
@@ -99,9 +100,9 @@ h5 {
   gap: 2rem;
 }
 
-.nav-wrapper {
+/* .nav-wrapper {
   display: none;
-}
+} */
 
 header .base-link {
   display: none;
@@ -211,14 +212,6 @@ header .base-link {
   top: -1rem;
   left: 50%;
   transform: translate(-50%, 0);
-}
-
-@media screen and (min-width: 600px) {
-  /* Threw that in because I thought shifting the image a bit looked good */
-  #hero-img-wrapper {
-    left: 0;
-    transform: translate(10%, 0);
-  }
 }
 
 #hero-img {
@@ -459,11 +452,19 @@ h1 {
 
 /* Media queries */
 
-@media screen and (min-width: 875px) {
+@media screen and (min-width: 750px) {
+
   /* Header medium screen styles */
 
-  header {
+  #header {
     justify-content: space-between;
+    padding: 0rem 5% 0rem 5%;
+    gap: 1rem;
+  }
+
+  #header > * {
+    align-self: stretch;
+    margin-top: 3rem;
   }
 
   .nav-wrapper {
@@ -474,24 +475,34 @@ h1 {
     transform: none;
     min-width: auto;
     padding: 0;
-    /* background-color: var(--custom-white); */
-    /* border-radius: 1rem; */
-    /* overflow: hidden; */
-    /* z-index: auto; */
   }
 
   #nav-list {
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 2rem;
+    padding: 0 0rem 0 0rem;
+    align-items: stretch
   }
 
   .top-nav-link {
-    font-weight: 1.5rem;
+    color: var(--custom-grayish-blue);
+    font-size: 1.5rem;
+    display: block;
+    height: 100%;
+    border-bottom: 0px solid transparent;
+    transition: .1s;
   }
 
-  header .base-link {
+  .top-nav-link:hover, .top-nav-link:focus-visible {  
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(to right, var(--custom-lime-green),var(--custom-bright-cyan)) 1;
+  }
+
+  #header .base-link {
     display: block;
     max-width: 20rem;
+    margin-top: 1.7rem;
+    margin-bottom: 1.7rem;
   }
 
   .mobile-menu-icon {
@@ -499,6 +510,56 @@ h1 {
   }
 
   /* Hero medium screen styles */
+
+  #hero-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 1fr;
+    padding: 0;
+  }
+
+  .hero-illu {
+    overflow: visible;
+    position: relative;
+    background-image: url(./images/bg-intro-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: 160% 160%;
+    background-position: bottom 33% left 5%;
+    padding: 0rem 0rem;
+  }
+
+  #hero-img-wrapper {
+    max-width: 40rem;
+    margin: 3rem 0 3rem auto;
+    position: absolute;
+    top: -11.7rem;
+    right: 0;
+    left: 0;
+    transform: translate(17%, 0);
+  }
+
+  .hero-content {
+    margin: 3rem 0rem 3rem auto;
+    max-width: 40rem;
+    justify-self: center;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 3.4rem;
+  }
+
+  /* Features mid screen styles */
+
+  #features {
+    position: static;
+  }
+  
 
   .features-wrapper,
   .articles-wrapper {
@@ -534,6 +595,51 @@ h1 {
   }
 }
 
-@media screen and (min-width: 1000px) {
-  /* Todo */
+@media screen and (min-width: 1375px) {
+
+  /* 1375 */
+
+  #header {
+    padding: 0rem 11.5% 0rem 11.5%;
+    gap: 2rem;
+  }
+
+  #nav-list {
+    gap: 2.7rem;
+    padding: 0 2rem 0 4rem;
+  }
+
+  /* Hero desktop styles */
+  
+  #hero-img-wrapper {
+    max-width: 76rem;
+    margin: 0 0 0 auto;
+  }
+  
+  .hero-content {
+    align-items: flex-start;
+    margin: 15rem 0 15rem 10rem;
+    max-width: 48rem;
+    padding: 2rem 1rem 2rem 3rem;
+  }
+  
+  h1 {
+    font-size: 5.3rem;
+    line-height: 1.2;
+  }
+  
+  .hero-content p {
+    padding-bottom: 2.5rem;
+    padding-top: 1.2rem;
+    padding-right: 1rem;
+    font-size: 1.7rem;
+  }
+
+
+  /* Features desktop styles */
+
+
+
+
+
 }
