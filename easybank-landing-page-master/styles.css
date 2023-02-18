@@ -558,19 +558,59 @@ h1 {
 
   #features {
     position: static;
+    padding: 8rem 2rem 7rem 2rem;
+  align-items: flex-start;
+  text-align: left;
+  }
+
+  .features-intro {
+    align-self: center;
+    text-align: center;
+    padding: 2rem 2rem 1.5rem 2rem;
   }
   
+  .features-intro h2 {
+    font-size: 3.9rem;
+  }
+  
+  .features-intro p {
+    padding-top: 2.5rem;
+    font-size: 1.7rem;
+  }
 
-  .features-wrapper,
-  .articles-wrapper {
+  .features-wrapper {
+    padding: 1.8rem 1rem;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .feature-tile {
-    max-width: 42rem;
+    max-width: 40%;
+    padding: 1rem .5rem 1rem 1rem;
+    text-align: center;
+    align-self: stretch;
+    gap: 2rem;
   }
+
+  .feature-tile h3 {
+    padding-top: 1.7rem;
+    font-size: 2.3rem;
+  }
+  
+  .feature-tile p {
+    font-size: 1.6rem;
+    padding-top: 0.7rem;
+  }
+
+
+  /* Articles mid screen styles */
+
+
+             /* Todo */
+
+
+  /* Footer mid screen styles */
 
   #footer {
     padding: 4rem 4rem;
@@ -637,6 +677,36 @@ h1 {
 
 
   /* Features desktop styles */
+
+  #features {
+    padding: 8rem 5rem 7rem 10rem;
+  }
+
+  .features-intro {
+    align-self: flex-start;
+    text-align: left;
+    max-width: 75rem;
+    padding: 2rem 5.5rem 1.5rem 6.5rem;
+  }
+
+  .features-wrapper {
+    padding: 1.8rem 1rem 1.8rem 5.5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: flex-start;
+    gap: .5rem;
+  }
+
+  .feature-tile {
+    max-width: 28rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Articles desktop styles */
+
+
+  /* Footer desktop styles */
 
 
 
