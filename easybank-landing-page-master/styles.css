@@ -46,11 +46,15 @@ html {
   font-size: 10px;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-x: hidden;
   min-height: 100vh;
   min-width: 250px;
   color: var(--custom-grayish-blue);
@@ -345,6 +349,7 @@ h1 {
 
 .article-img {
   width: 100%;
+  height: 100%;
 }
 
 .article-helper {
@@ -453,7 +458,6 @@ h1 {
 /* Media queries */
 
 @media screen and (min-width: 750px) {
-
   /* Header medium screen styles */
 
   #header {
@@ -481,7 +485,7 @@ h1 {
     flex-direction: row;
     gap: 2rem;
     padding: 0 0rem 0 0rem;
-    align-items: stretch
+    align-items: stretch;
   }
 
   .top-nav-link {
@@ -490,12 +494,18 @@ h1 {
     display: block;
     height: 100%;
     border-bottom: 0px solid transparent;
-    transition: .1s;
+    transition: 0.1s;
   }
 
-  .top-nav-link:hover, .top-nav-link:focus-visible {  
+  .top-nav-link:hover,
+  .top-nav-link:focus-visible {
     border-bottom: 4px solid transparent;
-    border-image: linear-gradient(to right, var(--custom-lime-green),var(--custom-bright-cyan)) 1;
+    border-image: linear-gradient(
+        to right,
+        var(--custom-lime-green),
+        var(--custom-bright-cyan)
+      )
+      1;
   }
 
   #header .base-link {
@@ -559,8 +569,8 @@ h1 {
   #features {
     position: static;
     padding: 8rem 2rem 7rem 2rem;
-  align-items: flex-start;
-  text-align: left;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .features-intro {
@@ -568,11 +578,11 @@ h1 {
     text-align: center;
     padding: 2rem 2rem 1.5rem 2rem;
   }
-  
+
   .features-intro h2 {
     font-size: 3.9rem;
   }
-  
+
   .features-intro p {
     padding-top: 2.5rem;
     font-size: 1.7rem;
@@ -587,7 +597,7 @@ h1 {
 
   .feature-tile {
     max-width: 40%;
-    padding: 1rem .5rem 1rem 1rem;
+    padding: 1rem 0.5rem 1rem 1rem;
     text-align: center;
     align-self: stretch;
     gap: 2rem;
@@ -597,18 +607,45 @@ h1 {
     padding-top: 1.7rem;
     font-size: 2.3rem;
   }
-  
+
   .feature-tile p {
     font-size: 1.6rem;
     padding-top: 0.7rem;
   }
 
-
   /* Articles mid screen styles */
 
+  #articles {
+    padding: 9rem 5% 2.7rem 11.5%;
+    align-items: center;
+    gap: 4rem;
+  }
 
-             /* Todo */
+  #articles h2 {
+    font-size: 4rem;
+  }
 
+  .articles-wrapper {
+    max-width: 70rem;
+    padding: 1rem 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .article-tile {
+    max-width: 40%;
+    align-self: stretch;
+  }
+
+  .article-img-wrapper {
+    max-height: 15rem;
+    flex: 1;
+  }
+
+  .article-helper {
+    flex: 1;
+  }
 
   /* Footer mid screen styles */
 
@@ -622,8 +659,8 @@ h1 {
     align-items: flex-start !important;
   }
 
-  .copy {
-    align-items: flex-end !important;
+  .social-icon {
+    min-width: 1.5rem;
   }
 
   #footer-menu {
@@ -632,12 +669,23 @@ h1 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     justify-items: start;
+    gap: 1rem;
+  }
+
+  .footer-link {
+    font-size: 1.3rem;
+  }
+
+  .copy {
+    align-items: flex-end !important;
+  }
+
+  #ea-copy {
+    font-size: 1.3rem;
   }
 }
 
 @media screen and (min-width: 1375px) {
-
-  /* 1375 */
 
   #header {
     padding: 0rem 11.5% 0rem 11.5%;
@@ -650,31 +698,30 @@ h1 {
   }
 
   /* Hero desktop styles */
-  
+
   #hero-img-wrapper {
     max-width: 76rem;
     margin: 0 0 0 auto;
   }
-  
+
   .hero-content {
     align-items: flex-start;
     margin: 15rem 0 15rem 10rem;
     max-width: 48rem;
     padding: 2rem 1rem 2rem 3rem;
   }
-  
+
   h1 {
     font-size: 5.3rem;
     line-height: 1.2;
   }
-  
+
   .hero-content p {
     padding-bottom: 2.5rem;
     padding-top: 1.2rem;
     padding-right: 1rem;
     font-size: 1.7rem;
   }
-
 
   /* Features desktop styles */
 
@@ -694,7 +741,7 @@ h1 {
     justify-content: flex-start;
     align-items: flex-start;
     align-self: flex-start;
-    gap: .5rem;
+    gap: 0.5rem;
   }
 
   .feature-tile {
@@ -705,11 +752,55 @@ h1 {
 
   /* Articles desktop styles */
 
+  #articles {
+    align-items: flex-start;
+  }
+
+  .articles-wrapper {
+    max-width: none;
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+
+  .article-tile {
+    /* max-width: 25rem; */
+    max-width: 21%;
+  }
+
+  .article-img-wrapper {
+    min-height: 20rem;
+  }
 
   /* Footer desktop styles */
 
+  #footer {
+    padding: 2rem 11.5%;
+    justify-content: flex-start;
+  }
 
+  #footer .helper {
+    gap: 5rem;
+  }
 
+  #social-icons {
+    gap: 1.2rem;
+  }
 
+  #footer-menu {
+    gap: 1.5rem;
+    margin-left: 11rem;
+    min-width: 40rem;
+  }
 
+  .footer-link {
+    font-size: 1.6rem;
+  }
+
+  .copy {
+    margin-left: auto;
+  }
+
+  #ea-copy {
+    font-size: 1.5rem;
+  }
 }
