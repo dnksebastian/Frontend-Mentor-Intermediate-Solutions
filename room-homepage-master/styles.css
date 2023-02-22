@@ -1,0 +1,64 @@
+/* Global styles, reset & typography */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --custom-font: "League Spartan", sans-serif;
+
+  /* ### Primary */
+  --custom-dark-gray: hsla(0, 0%, 63%, 100%);
+  --custom-black: hsla(0, 0%, 0%, 100%);
+  --custom-white: hsla(0, 0%, 100%, 100%);
+  --custom-very-dark-gray: hsla(0, 0%, 27%, 100%);
+}
+
+html {
+  font-size: 10px;
+  font-family: var(--custom-font);
+}
+
+/* html,
+body {
+  overflow-x: hidden;
+} */
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Mobile styles */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+  display: none;
+  position: absolute;
+}
+
+/* Media queries */
