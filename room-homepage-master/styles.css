@@ -446,6 +446,15 @@ main {
 /* Desktop screens */
 
 @media screen and (min-width: 1125px) {
+
+  /* Desktop main styles */
+
+  main {
+    grid-template-rows: minmax(20rem, 54rem) minmax(1fr, max-content);
+  }
+
+  
+
   /* Desktop hero styles */
 
   #hero-slider {
