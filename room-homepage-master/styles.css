@@ -450,7 +450,8 @@ main {
   /* Desktop main styles */
 
   main {
-    grid-template-rows: minmax(20rem, 54rem) minmax(1fr, max-content);
+    /* grid-template-rows: minmax(20rem, 54rem) minmax(1fr, max-content); */
+    grid-template-rows: auto auto;
   }
 
   
