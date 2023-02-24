@@ -451,7 +451,7 @@ main {
 
   main {
     /* grid-template-rows: minmax(20rem, 54rem) minmax(1fr, max-content); */
-    grid-template-rows: auto auto;
+    grid-template-rows: minmax(20rem 53.5rem) minmax(1fr 26.5rem);
   }
 
   
