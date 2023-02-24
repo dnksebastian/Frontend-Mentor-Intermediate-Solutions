@@ -12,6 +12,10 @@ const controlRightEl = document.getElementById('control-right');
 let slideI = 1;
 changeSlide(slideI);
 
+
+let intervalID
+intervalID = setInterval(showSlide, 5000, 1);
+
 // Functions
 const toggleMobileMenu = () => {
   mobileMenuIconEl.classList.toggle("icon-active");
@@ -26,9 +30,7 @@ const toggleMobileMenu = () => {
   }
 };
 
-const showSlide = (n) => {
-  changeSlide(slideI += n)
-};
+
 
 function changeSlide(slideNum) {
   if (slideNum > heroSlideEls.length) {slideI = 1}
@@ -39,6 +41,13 @@ function changeSlide(slideNum) {
   }
 
   heroSlideEls[slideI-1].classList.add('slide-active');
+};
+
+
+function showSlide(n) {
+  changeSlide(slideI += n);
+  clearInterval(intervalID);
+  intervalID = setInterval(showSlide, 5000, 1);
 };
 
 
