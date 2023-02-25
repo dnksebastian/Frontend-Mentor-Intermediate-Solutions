@@ -2,6 +2,7 @@
 
 const mobileMenuIconEl = document.getElementById("mob-menu-wrap");
 const mobileNavEl = document.getElementById("nav");
+const backdropEl = document.getElementById('backdrop');
 let menuActive = false;
 
 
@@ -14,7 +15,7 @@ changeSlide(slideI);
 
 
 let intervalID
-// intervalID = setInterval(showSlide, 5000, 1);
+intervalID = setInterval(showSlide, 5000, 1);
 
 // Functions
 const toggleMobileMenu = () => {
@@ -22,6 +23,8 @@ const toggleMobileMenu = () => {
 
   mobileNavEl.classList.toggle("menu-active");
   mobileNavEl.classList.remove("hide-menu");
+
+  backdropEl.classList.toggle('backdrop-active');
 
   menuActive = !menuActive;
 

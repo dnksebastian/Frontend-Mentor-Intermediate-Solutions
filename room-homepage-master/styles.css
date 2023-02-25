@@ -157,6 +157,34 @@ nav {
   box-shadow: 0rem 0.7rem 0rem -0.5rem var(--custom-dark-gray);
 }
 
+#backdrop {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: var(--custom-black);
+  opacity: 50%;
+  z-index: 3;
+  overscroll-behavior: contain;
+}
+
+.backdrop-active {
+  display: block!important;
+  animation: showBackdrop 0.4s ease-in;
+}
+
+@keyframes showBackdrop {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 50%;
+  }
+}
+
+
 /* Mobile main styles */
 
 main {
@@ -359,6 +387,10 @@ main {
   .nav-link:focus {
     color: var(--custom-white);
     box-shadow: 0rem 0.7rem 0rem -0.5rem var(--custom-white);
+  }
+
+  #backdrop {
+    display: none;
   }
 
   /* Medium main section styles */
