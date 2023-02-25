@@ -14,7 +14,7 @@ changeSlide(slideI);
 
 
 let intervalID
-intervalID = setInterval(showSlide, 5000, 1);
+// intervalID = setInterval(showSlide, 5000, 1);
 
 // Functions
 const toggleMobileMenu = () => {
