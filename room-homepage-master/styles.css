@@ -538,3 +538,15 @@ main {
     grid-row: unset;
   }
 }
+
+
+@media screen and (min-width:1350px) and (max-width: 1500px) {
+
+
+  main {
+    /* grid-template-rows: minmax(53rem, max-content) minmax(26rem, max-content); */
+    grid-template-rows: minmax(53rem, 60rem) minmax(26rem);
+  }
+
+
+}
