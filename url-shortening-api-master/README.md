@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/url-shortening-api-master/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/url-shortening-api-master/)
 
 ## My process
 
