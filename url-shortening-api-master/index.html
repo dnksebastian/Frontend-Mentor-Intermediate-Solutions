@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <script src="./main.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-wrap top-logo">
+      <img src="./images/logo.svg" alt="Shortly" id="top-logo-img">
+    </div>
+
+    <nav id="top-nav" aria-label="main menu">
+      <ul id="top-nav-ul">
+        <li class="top-nav-li">
+          <a href="#/" class="top-nav-link"></a>
+        </li>
+        <li class="top-nav-li">
+          <a href="#/" class="top-nav-link"></a>
+        </li>
+        <li class="top-nav-li">
+          <a href="#/" class="top-nav-link"></a>
+        </li>
+        <!-- Login & signup -->
+        <li class="top-nav-li control">
+          <a href="#/" class="top-nav-link control-btn"></a>
+        </li>
+        <li class="top-nav-li control">
+          <a href="#/" class="top-nav-link control-btn btn-highlight"></a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="mob-ctrl-wrap">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+
+  </header>
+
+  <main>
+
+    <section id="hero">
+      <div id="hero-img-wrap">
+        <img src="./images/illustration-working.svg" alt="Person working in front of a computer monitor" id="hero-img">
+      </div>
+
+      <div id="hero-content-wrap">
+        <h1 class="hero-heading"></h1>
+        <p class="hero-desc"></p>
+        <div id="hero-btn" class="control-btn btn-highlight"></div>
+      </div>
+      
+      
+    </section>
+
+    <section id="link-shortener">
+      <div id="shortener-wrap">
+        <form id="shortener-form">
+          <label>
+            <span class="input-label"></span>
+            <input type="text">
+            <span class="err-msg"></span>
+          </label>
+          <button id="submit-btn"></button>
+        </form>
+        <ul id="shortened-links-list">
+          <li class="link-result">
+            <span class="full-link"></span>
+            <div class="result-helper">
+              <span class="shortened-link"></span>
+              <button class="copy-btn btn-highlight"></button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div id="stats-wrap">
+        <div class="stats-intro">
+          <h2 class="stats-heading"></h2>
+          <p></p>
+        </div>
+        <ul class="stats-tiles-wrap">
+          <li class="stat-tile">
+            <div class="stat-icon-wrap">
+              <img src="" alt="Data chart icon" class="stat-icon">
+            </div>
+            <h3 class="stats-heading"></h3>
+            <p class="stats-desc"></p>
+          </li>
+
+          <li class="stat-tile">
+            <div class="stat-icon-wrap">
+              <img src="" alt="Data chart icon" class="stat-icon">
+            </div>
+            <h3 class="stats-heading"></h3>
+            <p class="stats-desc"></p>
+          </li>
+
+          <li class="stat-tile">
+            <div class="stat-icon-wrap">
+              <img src="" alt="Data chart icon" class="stat-icon">
+            </div>
+            <h3 class="stats-heading"></h3>
+            <p class="stats-desc"></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="cta-wrap">
+      <h2 class="cta-heading"></h2>
+      <div id="cta-btn" class="control-btn btn-highlight"></div>
+    </section>
+
+  </main>
+
+  Features
+  Pricing
+  Resources
+
+  Login
+  Sign Up
+
+  More than just shorter links
+
+  Build your brand’s recognition and get detailed insights
+  on how your links are performing.
+
+  Get Started
+
+  Shorten a link here...
+
+  Shorten It!
+
+  Advanced Statistics
+
+  Track how your links are performing across the web with our
+  advanced statistics dashboard.
+
+  Brand Recognition
+
+  Boost your brand recognition with each click. Generic links don’t
+  mean a thing. Branded links help instil confidence in your content.
+
+  Detailed Records
+
+  Gain insights into who is clicking your links. Knowing when and where
+  people engage with your content helps inform better decisions.
+
+  Fully Customizable
+
+  Improve brand awareness and content discoverability through customizable
+  links, supercharging audience engagement.
+
+  Boost your links today
+
+  Get Started
+
+  Features
+
+  Link Shortening
+  Branded Links
+  Analytics
+
+  Resources
+
+  Blog
+  Developers
+  Support
+
+  Company
+
+  About
+  Our Team
+  Careers
+  Contact
+
+  <footer>
+    <div class="ft-logo-wrap">
+      <img src="./images/logo.svg" alt="Shortly logo" id="ft-logo">
+    </div>
+
+    <nav id="ft-menu" aria-label="footer menu">
+      <ul id="ft-menu-list">
+        
+        <li class="ft-li-main">
+          <ul class="ft-link-group">
+            <li class="ft-group-label">
+              <span class="ft-label"></span>
+            </li>
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="ft-li-main">
+          <ul class="ft-link-group">
+            <li class="ft-group-label">
+              <span class="ft-label"></span>
+            </li>
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="ft-li-main">
+          <ul class="ft-link-group">
+            <li class="ft-group-label">
+              <span class="ft-label"></span>
+            </li>
+
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+
+            <li class="ft-li">
+              <a href="#/" class="ft-link"></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="ft-li-main">
+          <ul id="social-links">
+            <li class="ft-social-li">
+              <a href="" class="sm-link">
+                <img src="" alt="" class="sm-icon">
+              </a>
+            </li>
+
+            <li class="ft-social-li">
+              <a href="" class="sm-link">
+                <img src="" alt="" class="sm-icon">
+              </a>
+            </li>
+
+            <li class="ft-social-li">
+              <a href="" class="sm-link">
+                <img src="" alt="" class="sm-icon">
+              </a>
+            </li>
+
+            <li class="ft-social-li">
+              <a href="" class="sm-link">
+                <img src="" alt="" class="sm-icon">
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+      <a href="#">Sebastian</a>.
+    </p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+/* Global, typography & reset */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  cursor: pointer;
+  font: inherit;
+  transition: 0.3s;
+  outline: none;
+  border: 2px solid transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --custom-font: "Poppins", sans-serif;
+
+  /* Colors */
+  /* ### Primary */
+
+  --custom-cyan: hsl(180, 66%, 49%);
+  --custom-dark-violet: hsl(257, 27%, 26%);
+
+  /* ### Secondary */
+
+  --custom-red: hsl(0, 87%, 67%);
+
+  /* ### Neutral */
+
+  --custom-gray: hsl(0, 0%, 75%);
+  --custom-grayish-violet: hsl(257, 7%, 63%);
+  --custom-very-dark-blue: hsl(255, 11%, 22%);
+  --custom-very-dark-violet: hsl(260, 8%, 14%);
+}
+
+html {
+  font-size: 10px;
+  font-family: var(--custom-font);
+}
+
+body {
+  min-height: 100vh; /*fallback*/
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Mobile styles */
+
+/* Media queries */

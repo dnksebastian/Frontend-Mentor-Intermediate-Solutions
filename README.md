@@ -14,7 +14,7 @@
 | IP Address Tracker | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/ip-address-tracker-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/ip-address-tracker-master/" target="_blank">Repo</a>  |
 | Easybank Landing Page | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/easybank-landing-page-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/easybank-landing-page-master/" target="_blank">Repo</a>  |
 | Room Homepage | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/room-homepage-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/room-homepage-master/" target="_blank">Repo</a>  |
-| 6 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
+| URL Shortening API Landing Page | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/url-shortening-api-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/url-shortening-api-master/" target="_blank">Repo</a>  |
 | 7 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 | 8 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 | 9 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
