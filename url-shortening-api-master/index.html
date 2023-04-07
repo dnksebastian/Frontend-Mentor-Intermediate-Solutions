@@ -76,15 +76,17 @@
     </section>
 
     <section id="link-shortener">
+
       <div id="shortener-wrap">
         <form id="shortener-form">
-          <label>
+          <label class="label-wrap">
             <span class="input-label"></span>
-            <input type="text" placeholder="Shorten a link here...">
+            <input type="text" placeholder="Shorten a link here..." id="shortener-input" required>
             <span class="err-msg"></span>
           </label>
-          <button id="control-btn submit-btn">Shorten It!</button>
+          <button id="submit-btn" class="control-btn btn-highlight">Shorten It!</button>
         </form>
+
         <ul id="shortened-links-list">
           <li class="link-result">
             <span class="full-link"></span>
@@ -99,7 +101,7 @@
       <div id="stats-wrap">
         <div class="stats-intro">
           <h2 class="stats-heading">Advanced Statistics</h2>
-          <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
+          <p class="stats-desc">Track how your links are performing across the web with our advanced statistics dashboard.</p>
         </div>
         <ul class="stats-tiles-wrap">
           <li class="stat-tile">

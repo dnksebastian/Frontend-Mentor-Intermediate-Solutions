@@ -51,6 +51,7 @@ ol {
   --custom-grayish-violet: hsl(257, 7%, 63%);
   --custom-very-dark-blue: hsl(255, 11%, 22%);
   --custom-very-dark-violet: hsl(260, 8%, 14%);
+  --custom-light-gray: hsl(230, 25%, 95%);
 }
 
 html {
@@ -215,9 +216,164 @@ header {
 
 /* Main sections mobile styles */
 
-main {
+/* main {
   background-color: rgba(0, 0, 255, 0.404);
+} */
+
+/* Hero section mobile styles */
+
+#hero {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 3rem;
 }
+
+#hero-img-wrap {
+  background-color: rgba(255, 166, 0, 0.477);
+  position: relative;
+}
+
+#hero-img {
+  position: relative;
+  /* left: 2.6rem; */
+  /* top: 2.5rem; */
+  right: -2.6rem;
+  top: 2.2rem;
+  width: 130%;
+  height: 110%;
+  max-width: unset;
+  background-color: red;
+}
+
+#hero-content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  /* background-color: rgba(0, 128, 0, 0.49); */
+  padding: 3.2rem 2rem 16.5rem 2rem;
+}
+
+.hero-heading {
+  font-size: 4rem;
+  line-height: 1.2;
+}
+
+.hero-desc {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+#hero-btn {
+  margin-top: 1.5rem;
+  max-width: 20rem;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1.4rem 3rem;
+  border-radius: 3rem;
+}
+
+/* Link shortener & stats sections mobile styles */
+
+#link-shortener {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0rem 2.5rem;
+  position: relative;
+  background-color: var(--custom-light-gray);
+}
+
+#shortener-wrap {
+  width: 100%;
+  position: relative;
+  top: -7.7rem;
+  /* top: -17.7rem; */
+  background-color: orange;
+}
+
+#shortener-form {
+  padding: 2.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--custom-dark-violet);
+  background-image: url(./images/bg-shorten-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* background-position: bottom 3rem left 8rem; */
+  background-position: bottom 3rem right -5rem;
+}
+
+.label-wrap {
+  position: relative;
+}
+
+.input-label {
+  font-size: 0;
+  position: absolute;
+  z-index: -10;
+}
+
+#shortener-form button, #shortener-form input {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem 2rem;
+  border-radius: .5rem;
+  font-size: 1.6rem;
+}
+
+#shortener-input {
+  font-weight: 500;
+}
+
+#shortener-form #submit-btn {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+
+/* Stats section mobile styles */
+
+#stats-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+  background-color: rgba(255, 192, 203, 0.471);
+}
+
+.stats-intro {
+  background-color: green;
+  margin-top: -1.5rem;
+}
+
+.stats-heading {
+  font-size: 2.65rem;
+}
+
+.stats-desc {
+  margin-top: 1.7rem;
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+.stats-tiles-wrap {
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+
 
 /* Footer mobile styles */
 
