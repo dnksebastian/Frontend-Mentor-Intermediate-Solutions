@@ -836,20 +836,88 @@ footer {
 
   /* Stats section desktop styles */
   #stats-wrap {
-    background-color: blue;
+    padding: 2rem 0rem 4.5rem 0rem;
+    /* background-color: blue; */
   }
 
   .stats-intro {
-    background-color: pink;
+    /* background-color: pink; */
     margin-top: unset;
+    max-width: 58rem;
+    padding: 0rem 2.5rem;
+  }
+
+  .stats-fwh {
+    font-size: 3.8rem;
+  }
+
+  .stats-fw {
+    margin-top: 1.2rem;
+    font-size: 1.8rem;
+    line-height: 1.8;
   }
 
 
   .stats-tiles-wrap {
+    /* background-color: rgba(0, 128, 0, 0.515); */
     flex-direction: row;
+    gap: 3rem;
+    padding: 3rem 14rem;
+    align-items: flex-start;
+    min-height: 41rem;
+  }
+
+  .stat-tile {
+    max-width: 35rem;
+    align-items: flex-start;
+    padding: 7.5rem 3rem 3rem 3rem;
+    text-align: left;
+  }
+
+  .stat-tile:nth-of-type(2) {
+    align-self: center;
+  }
+
+  .stat-tile:nth-of-type(3) {
+    align-self: flex-end;
+  }
+
+  .stat-icon-wrap::before {
+    display: none;
+  }
+
+  .stat-tile::after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 9.5rem;
+    right: -5rem;
+    width: 5rem;
+    height: 1rem;
+    background-color: var(--custom-cyan);
+  }
+
+  .stat-tile:nth-of-type(2)::after {
+    top: 10.5rem;
+    bottom: 0;
+  }
+
+  .stat-tile:last-of-type::after {
+    display: none;
   }
 
 
+  /* CTA section desktop styles */
+
+  #cta-wrap {
+    padding: 5.5rem 2rem;
+    gap: 2.5rem;
+    background-image: url(./images/bg-boost-desktop.svg);
+  }
+
+  .cta-heading {
+    font-size: 3.8rem;
+  }
 
 
   /* Footer desktop styles */
@@ -858,10 +926,29 @@ footer {
     position: relative;
     flex-direction: row;
     justify-content: center;
+    padding: 7rem 15.5rem 0rem 16rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  #ft-menu {
+    padding: 0rem;
   }
 
   #ft-menu-list {
     flex-direction: row;
+    gap: 6.9rem;
+    background-color: rgba(255, 255, 0, 0.3);
+  }
+
+  .ft-link-group {
+    background-color: rgba(0, 128, 0, 0.378);
+    padding: 0rem 2.8rem 0rem 0rem;
+  }
+
+  #social-links {
+    padding: 0rem 1rem;
   }
 
   .attribution {
