@@ -392,7 +392,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
-  background-color: rgba(0, 128, 128, 0.345);
+  /* background-color: rgba(0, 128, 128, 0.345); */
 }
 
 .link-result {
@@ -819,11 +819,12 @@ footer {
     width: 100%;
   }
 
-  /* .err-msg {
+  .err-msg {
     position: absolute;
-    top: 0;
-    left: 0;
-  } */
+    bottom: -3rem;
+    left: 0rem;
+    font-size: 1.6rem;
+  }
 
   #shortener-form #submit-btn {
     font-size: 2rem;
@@ -832,7 +833,45 @@ footer {
 
 
   /* Results list desktop styles */
-  /* .... */
+
+
+  #shortened-links-list {
+    /* background-color: green; */
+    gap: 2rem;
+    padding: 0rem;
+  }
+
+  .link-result {
+    max-width: unset;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2rem;
+    padding: 1.5rem 2rem 1.5rem 3rem;
+  }
+
+  .result-helper:first-of-type, .result-helper:last-of-type {
+    display: flex;
+    padding: unset;
+    align-items: center;
+  }
+
+  .result-helper:first-of-type {
+    /* background-color: orange; */
+    border-bottom: unset;
+  }
+
+  .result-helper:last-of-type {
+    /* background-color: blue; */
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .copy-btn {
+    padding: .5rem 2rem;
+    min-width: 10.5rem;
+    font-size: 1.5rem;
+  }
+
 
   /* Stats section desktop styles */
   #stats-wrap {
