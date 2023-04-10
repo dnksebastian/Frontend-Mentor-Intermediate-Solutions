@@ -454,6 +454,7 @@ header {
 .stats-intro {
   /* background-color: green; */
   margin-top: -1.5rem;
+  max-width: 40rem;
 }
 
 .stats-fwh {
@@ -484,6 +485,7 @@ header {
   gap: 1rem;
   background-color: white;
   border-radius: 0.5rem;
+  max-width: 40rem;
 }
 
 .stat-icon-wrap {
@@ -639,23 +641,21 @@ footer {
 /* Media queries */
 
 @media screen and (min-width: 800px) {
-  /* Desktop styles */
+  /* Medium screens */
 
   body {
     grid-template-rows: 9rem min-content 1fr;
   }
 
-  /* Header desktop styles */
+  /* Header medium screen styles */
 
   header {
-    padding: 1.7rem min(15%, 16.5rem) 0.1rem min(15%, 16.5rem);
-    background-color: rgba(255, 192, 203, 0.329);
+    padding: 1.7rem 7rem 0.1rem 7rem;
     gap: 2rem;
   }
 
   .logo-wrap {
     min-width: 13rem;
-    /* background-color: rgba(0, 0, 255, 0.407); */
   }
 
   #top-nav {
@@ -663,7 +663,6 @@ footer {
     position: static;
     width: unset;
     background-color: unset;
-    /* background-color: blue; */
     overflow: unset;
     z-index: unset;
     border-radius: unset;
@@ -677,7 +676,7 @@ footer {
     width: 100%;
     flex-direction: row;
     padding: unset;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     gap: 1rem;
   }
@@ -737,7 +736,7 @@ footer {
     display: none;
   }
 
-  /* Hero section desktop styles */
+  /* Hero section medium screen styles */
 
   #hero {
     padding: 7.5rem 0rem 16rem 0rem;
@@ -747,7 +746,7 @@ footer {
   }
 
   #hero-img-wrap {
-    background-color: rgba(0, 0, 255, 0.444);
+    max-width: 50rem;
   }
 
   #hero-img {
@@ -758,22 +757,21 @@ footer {
   }
 
   #hero-content-wrap {
-    background-color: green;
     text-align: left;
     align-items: flex-start;
-    padding: 4.2rem 1rem 3.2rem 16.5rem;
+    padding: 4.2rem 1rem 3.2rem 5rem;
     gap: 0rem;
-    max-width: 78rem;
+    max-width: 40rem;
   }
 
   .hero-heading {
-    font-size: 7.5rem;
+    font-size: 4rem;
     line-height: 1.2;
     letter-spacing: 0.05rem;
   }
 
   .hero-desc {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   #hero-btn {
@@ -781,7 +779,7 @@ footer {
     margin-top: 3.3rem;
   }
 
-  /* Link shortener & stats sections mobile styles */
+  /* Link shortener & stats sections medium screen styles */
 
   #link-shortener {
     gap: 1rem;
@@ -794,7 +792,7 @@ footer {
   }
 
   #shortener-form {
-    padding: 5rem 6.5rem;
+    padding: 5rem 4rem;
     flex-direction: row;
     justify-content: space-between;
     gap: 2rem;
@@ -831,14 +829,140 @@ footer {
     max-width: 19rem;
   }
 
+  /* Results list medium screen styles */
+
+
+  #shortened-links-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0rem;
+  }
+
+
+
+  /* Stats section medium screen styles */
+  #stats-wrap {
+    padding: 2rem 0rem 4.5rem 0rem;
+  }
+
+  .stats-intro {
+    margin-top: unset;
+    max-width: 58rem;
+    padding: 0rem 2.5rem;
+  }
+
+  .stats-fwh {
+    font-size: 3.8rem;
+  }
+
+  .stats-fw {
+    margin-top: 1.2rem;
+    font-size: 1.8rem;
+    line-height: 1.8;
+  }
+
+  /* CTA section medium screen styles */
+
+  #cta-wrap {
+    padding: 5.5rem 2rem;
+    gap: 2.5rem;
+    background-image: url(./images/bg-boost-desktop.svg);
+  }
+
+  .cta-heading {
+    font-size: 3.8rem;
+  }
+
+  /* Footer medium screen styles */
+
+  footer {
+    position: relative;
+    flex-direction: row;
+    padding: 4rem 3rem 5rem 3rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  #ft-menu {
+    padding: 0rem;
+  }
+
+  #ft-menu-list {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .ft-link-group {
+    padding: 0rem 1.5rem 0rem 0rem;
+  }
+
+  .ft-link {
+    font-size: 1.3rem;
+  }
+
+  #social-links {
+    padding: 0rem 1rem;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+}
+
+
+
+
+@media screen and (min-width: 1300px) {
+  /* Desktop styles */
+
+  /* Header desktop styles */
+
+  header {
+    padding: 1.7rem min(15%, 16.5rem) 0.1rem min(15%, 16.5rem);
+  }
+
+  #top-nav-ul {
+    font-size: 1.5rem;
+  }
+
+  /* Hero section desktop styles */
+
+  #hero-img-wrap {
+    max-width: unset;
+  }
+
+
+  #hero-content-wrap {
+    padding: 4.2rem 1rem 3.2rem 16.5rem;
+    max-width: 78rem;
+  }
+
+  .hero-heading {
+    font-size: 7.5rem;
+  }
+
+  .hero-desc {
+    font-size: 2.2rem;
+  }
+
+  /* Link shortener & stats sections desktop styles */
+
+  #shortener-form {
+    padding: 5rem 6.5rem;
+  }
+
 
   /* Results list desktop styles */
 
 
   #shortened-links-list {
-    /* background-color: green; */
-    gap: 2rem;
-    padding: 0rem;
+    display: flex;
   }
 
   .link-result {
@@ -879,24 +1003,6 @@ footer {
     /* background-color: blue; */
   }
 
-  .stats-intro {
-    /* background-color: pink; */
-    margin-top: unset;
-    max-width: 58rem;
-    padding: 0rem 2.5rem;
-  }
-
-  .stats-fwh {
-    font-size: 3.8rem;
-  }
-
-  .stats-fw {
-    margin-top: 1.2rem;
-    font-size: 1.8rem;
-    line-height: 1.8;
-  }
-
-
   .stats-tiles-wrap {
     /* background-color: rgba(0, 128, 0, 0.515); */
     flex-direction: row;
@@ -925,75 +1031,49 @@ footer {
     display: none;
   }
 
-  .stat-tile::after {
+  .stat-tile:nth-of-type(2)::before,
+  .stat-tile:nth-of-type(2)::after {
     display: block;
     content: "";
     position: absolute;
-    bottom: 9.5rem;
-    right: -5rem;
-    width: 5rem;
+    width: 3rem;
     height: 1rem;
     background-color: var(--custom-cyan);
+    z-index: 0;
   }
 
+  .stat-tile:nth-of-type(2)::before {
+    top: 10.5rem;
+    left: -3rem;
+  }
+  
   .stat-tile:nth-of-type(2)::after {
     top: 10.5rem;
-    bottom: 0;
-  }
-
-  .stat-tile:last-of-type::after {
-    display: none;
+    right: -3rem;
   }
 
 
   /* CTA section desktop styles */
 
-  #cta-wrap {
-    padding: 5.5rem 2rem;
-    gap: 2.5rem;
-    background-image: url(./images/bg-boost-desktop.svg);
-  }
-
-  .cta-heading {
-    font-size: 3.8rem;
-  }
-
+  /* ... */
 
   /* Footer desktop styles */
 
   footer {
-    position: relative;
-    flex-direction: row;
-    justify-content: center;
     padding: 7rem 15.5rem 0rem 16rem;
-    align-items: flex-start;
-    justify-content: space-between;
-    text-align: left;
   }
 
-  #ft-menu {
-    padding: 0rem;
-  }
 
   #ft-menu-list {
-    flex-direction: row;
     gap: 6.9rem;
-    background-color: rgba(255, 255, 0, 0.3);
   }
 
   .ft-link-group {
-    background-color: rgba(0, 128, 0, 0.378);
     padding: 0rem 2.8rem 0rem 0rem;
   }
 
-  #social-links {
-    padding: 0rem 1rem;
+  .ft-link {
+    font-size: 1.5rem;
   }
 
-  .attribution {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
 }
