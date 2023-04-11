@@ -806,6 +806,18 @@ footer {
     padding: 0rem;
   }
 
+  .result-helper:first-of-type {
+    max-width: 60rem;
+  }
+
+  .full-link {
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  }
+
+
+
   /* Stats section medium screen styles */
   #stats-wrap {
     padding: 2rem 0rem 4.5rem 0rem;
@@ -846,7 +858,7 @@ footer {
     flex-direction: row;
     padding: 4rem 3rem 5rem 3rem;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-align: left;
   }
 
@@ -1014,6 +1026,7 @@ footer {
 
   footer {
     padding: 7rem 15.5rem 5rem 16rem;
+    justify-content: space-between;
   }
 
   #ft-menu-list {

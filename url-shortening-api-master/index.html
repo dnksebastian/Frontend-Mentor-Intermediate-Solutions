@@ -81,11 +81,13 @@
         <form id="shortener-form" novalidate>
           <label class="label-wrap">
             <span class="input-label">Link shortener</span>
-            <input type="text" placeholder="Shorten a link here..." id="shortener-input" required>
+            <input type="url" placeholder="Shorten a link here..." id="shortener-input" required>
             <span class="err-msg">Please add a link</span>
           </label>
           <button id="submit-btn" class="control-btn btn-highlight">Shorten It!</button>
         </form>
+
+        <ul id="shortened-links-list"></ul>
 
         <!-- <ul id="shortened-links-list">
           <li class="link-result">
