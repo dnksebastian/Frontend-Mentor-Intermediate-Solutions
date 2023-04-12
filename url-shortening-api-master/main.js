@@ -7,13 +7,15 @@ const shortenerFormEl = document.getElementById("shortener-form");
 const shortenerInputEl = document.getElementById("shortener-input");
 const shortenerErrMsgEl = document.querySelector(".err-msg");
 
-const shortenedLinksList = document.getElementById('shortened-links-list');
+const shortenedLinksList = document.getElementById("shortened-links-list");
 
 const fullLinkEls = [...document.getElementsByClassName("full-link")];
 const shortenedLinkEls = [...document.getElementsByClassName("shortened-link")];
 const copyBtnEls = [...document.getElementsByClassName("copy-btn")];
 
 let userURL;
+
+let resultsArr = [... readLocalStorage()];
 
 // Functions
 
@@ -54,19 +56,50 @@ function isValidUrl(str) {
 async function callShortenerAPI() {
   try {
     const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${userURL}`);
+
     if (!res.ok) {
       throw new Error("Response failed");
     }
+
     const data = await res.json();
-    // console.log(data);
     return data;
+
   } catch (err) {
     console.log(err);
   }
 }
 
- function renderResult(element) {
-   shortenedLinksList.appendChild(element);
+function updateResultsArr(data) {
+  resultsArr.push(data);
+}
+
+function updateLocalStorage(data) {
+  localStorage.clear();
+  localStorage.setItem('results', JSON.stringify(data));
+}
+
+function readLocalStorage() {
+  let results = JSON.parse(localStorage.getItem('results'));
+  return results;
+}
+
+function createResultObj(res) {
+  let resObj = {
+    fullLink: res.result.original_link,
+    shortLink: res.result.full_short_link,
+    linkCode: res.result.code,
+  };
+  return resObj;
+}
+
+function renderResults(data) {
+  let results = readLocalStorage(data);
+  let resElements = [];
+  results.forEach((el) => {
+    let createdEl = createResultElement(el.fullLink, el.shortLink, el.linkCode);
+    resElements.push(createdEl);
+  });
+  shortenedLinksList.replaceChildren(...resElements);
 }
 
 function createResultElement(fullLink, shortLink, linkCode) {
@@ -95,8 +128,8 @@ function createResultElement(fullLink, shortLink, linkCode) {
   shortLinkEl.textContent = shortLink;
   copyBtnEl.textContent = "Copy";
 
-  linkResultEl.id = `el-${linkCode}`
-  copyBtnEl.id = `btn-${linkCode}`
+  linkResultEl.id = `el-${linkCode}`;
+  copyBtnEl.id = `btn-${linkCode}`;
 
   return linkResultEl;
 }
@@ -108,16 +141,17 @@ async function submitForm(e) {
 
   if (isValid) {
     let res = await callShortenerAPI();
-    // renderResult();
-    // console.log(res.result);
-    let createdEl = createResultElement(userURL, res.result.full_short_link, res.result.code);
-    // console.log(createdEl);
-    renderResult(createdEl);
 
+    let resObj = createResultObj(res);
+    updateResultsArr(resObj);
+    updateLocalStorage(resultsArr);
+    renderResults(resultsArr);
   } else {
-    console.log("input invalid");
+    console.log("Input invalid");
   }
 }
+
+renderResults(resultsArr);
 
 // Event listeners
 
