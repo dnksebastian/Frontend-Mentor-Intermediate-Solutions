@@ -967,7 +967,8 @@ footer {
 
   /* Stats section desktop styles */
   #stats-wrap {
-    padding: 2rem 0rem 4.5rem 0rem;
+    padding: 1rem 0rem 4.5rem 0rem;
+    margin-top: -2rem;
   }
 
   .stats-tiles-wrap {

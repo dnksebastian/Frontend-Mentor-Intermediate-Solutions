@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/html-css-js-url-shortening-api-landing-page-d_fJQUy3wN](https://www.frontendmentor.io/solutions/html-css-js-url-shortening-api-landing-page-d_fJQUy3wN)
 - Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/url-shortening-api-master/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/url-shortening-api-master/)
 
 ## My process
@@ -44,8 +44,14 @@ Users should be able to:
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [https://javascript.info/event-delegation](https://javascript.info/event-delegation) - Information about event delegation
+
+- [https://javascript.info/localstorage](https://javascript.info/localstorage) - Information about local storage
+
+- [https://www.freecodecamp.org/news/copy-text-to-clipboard-javascript/](https://www.freecodecamp.org/news/copy-text-to-clipboard-javascript/) - Copying text to clipboard
+
+- [https://www.freecodecamp.org/news/how-to-validate-urls-in-javascript/](https://www.freecodecamp.org/news/how-to-validate-urls-in-javascript/) - Validating URL
+
 
 ## Acknowledgments
 
