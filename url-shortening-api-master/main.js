@@ -13,8 +13,15 @@ const fullLinkEls = [...document.getElementsByClassName("full-link")];
 const shortenedLinkEls = [...document.getElementsByClassName("shortened-link")];
 const copyBtnEls = [...document.getElementsByClassName("copy-btn")];
 
+const clearBtnEl = document.getElementById('clearbtn');
+
 let userURL;
-let resultsArr = [...readLocalStorage()];
+
+
+let resultsArr = [];
+if(localStorage.length !== 0) {
+  resultsArr = [...readLocalStorage()];
+}
 
 let userCopiedLink = "";
 
@@ -80,7 +87,7 @@ function updateLocalStorage(data) {
 
 function readLocalStorage() {
   let results = JSON.parse(localStorage.getItem("results"));
-  return results;
+    return results;
 }
 
 function createResultObj(res) {
@@ -94,12 +101,14 @@ function createResultObj(res) {
 
 function renderResults(data) {
   let results = readLocalStorage(data);
-  let resElements = [];
-  results.forEach((el) => {
-    let createdEl = createResultElement(el.fullLink, el.shortLink, el.linkCode);
-    resElements.push(createdEl);
-  });
-  shortenedLinksList.replaceChildren(...resElements);
+  if (results) {
+    let resElements = [];
+    results.forEach((el) => {
+      let createdEl = createResultElement(el.fullLink, el.shortLink, el.linkCode);
+      resElements.push(createdEl);
+    });
+    shortenedLinksList.replaceChildren(...resElements);
+  }
 }
 
 function createResultElement(fullLink, shortLink, linkCode) {
@@ -187,3 +196,8 @@ shortenedLinksList.addEventListener("click", (e) => {
     copyLink(targetEl);
   }
 });
+
+clearBtnEl.addEventListener('click', () => {
+  localStorage.clear();
+  shortenedLinksList.replaceChildren();
+})
