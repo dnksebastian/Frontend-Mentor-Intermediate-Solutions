@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://www.frontendmentor.io/solutions/html-css-js-url-shortening-api-landing-page-d_fJQUy3wN](https://www.frontendmentor.io/solutions/html-css-js-url-shortening-api-landing-page-d_fJQUy3wN)
+- Solution URL: [https://www.frontendmentor.io/solutions/html-css-js-url-shortening-api-landing-page-WDeIPKtrxe](https://www.frontendmentor.io/solutions/html-css-js-url-shortening-api-landing-page-WDeIPKtrxe)
 - Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/url-shortening-api-master/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/url-shortening-api-master/)
 
 ## My process
