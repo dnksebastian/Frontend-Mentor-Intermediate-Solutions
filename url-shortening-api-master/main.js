@@ -14,8 +14,9 @@ const shortenedLinkEls = [...document.getElementsByClassName("shortened-link")];
 const copyBtnEls = [...document.getElementsByClassName("copy-btn")];
 
 let userURL;
+let resultsArr = [...readLocalStorage()];
 
-let resultsArr = [... readLocalStorage()];
+let userCopiedLink = "";
 
 // Functions
 
@@ -63,7 +64,6 @@ async function callShortenerAPI() {
 
     const data = await res.json();
     return data;
-
   } catch (err) {
     console.log(err);
   }
@@ -75,11 +75,11 @@ function updateResultsArr(data) {
 
 function updateLocalStorage(data) {
   localStorage.clear();
-  localStorage.setItem('results', JSON.stringify(data));
+  localStorage.setItem("results", JSON.stringify(data));
 }
 
 function readLocalStorage() {
-  let results = JSON.parse(localStorage.getItem('results'));
+  let results = JSON.parse(localStorage.getItem("results"));
   return results;
 }
 
@@ -134,6 +134,22 @@ function createResultElement(fullLink, shortLink, linkCode) {
   return linkResultEl;
 }
 
+async function copyLink(el) {
+  userCopiedLink = el.previousElementSibling.textContent;
+
+  try {
+    await navigator.clipboard.writeText(userCopiedLink);
+    el.classList.add("copied");
+    el.textContent = "Copied!";
+    setTimeout(() => {
+      el.classList.remove("copied");
+      el.textContent = "Copy";
+    }, 2000);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 async function submitForm(e) {
   e.preventDefault();
 
@@ -162,4 +178,12 @@ shortenerFormEl.addEventListener("submit", submitForm);
 shortenerInputEl.addEventListener("input", validateForm);
 shortenerInputEl.addEventListener("focus", () => {
   shortenerInputEl.classList.add("itcd");
+});
+
+shortenedLinksList.addEventListener("click", (e) => {
+  let targetEl = e.target;
+
+  if (targetEl.tagName === "BUTTON") {
+    copyLink(targetEl);
+  }
 });
