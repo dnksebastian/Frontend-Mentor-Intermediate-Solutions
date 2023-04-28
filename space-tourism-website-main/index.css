@@ -99,7 +99,7 @@ body {
 
 /* make images easier to work with */
 img,
-picutre {
+piture {
   max-width: 100%;
   display: block;
 }
@@ -477,7 +477,7 @@ body {
 
 /* crew */
 .crew {
-  background-image: url(./assets/home/background-crew-mobile.jpg);
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
 }
 
 @media (min-width: 35rem) {
@@ -491,7 +491,26 @@ body {
   .crew {
       background-image: url(./assets/crew/background-crew-desktop.jpg);
   }
-} 
+}
+
+/* technology */
+
+.technology {
+  background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+  .technology {
+    background-position: center center;
+    background-image: url(./assets/technology/background-technology-tablet.jpg);
+  }
+}
+
+@media (min-width: 45rem) {
+  .technology {
+    background-image: url(./assets/technology/background-technology-desktop.jpg);
+  }
+}
 
 /* ----------------------------- */
 /* Layout                        */
@@ -658,19 +677,119 @@ body {
 }
 
 
+/* technology layout */
+
+.grid-container--tech {
+  --flow-space: 2rem;
+  grid-template-columns: auto;
+  text-align: center;
+  padding-inline: unset;
+  grid-template-areas: 
+  'title'
+  'picture'
+  'tabs'
+  'cont';
+}
+
+@media (min-width: 45rem) and (max-width: 71.49rem) {
+  .grid-container--tech {
+    text-align: left;
+    grid-template-areas:
+    'title title'
+    'cont picture'
+    'tabs tabs';
+  }
+}
+
+@media (min-width: 71.5rem) {
+  .grid-container--tech {
+    text-align: left;
+    grid-template-areas: 
+    '. title title title'
+    '. tabs cont picture'
+    ;
+  }
+}
 
 
-/* .number-indicators > * {
+.grid-container--tech > .numbered-title {
+  grid-area: title;
+}
+
+@media (min-width: 35rem) {
+  .grid-container--tech > .numbered-title {
+    margin-left: 2rem;
+  }
+}
+
+.grid-container--tech > picture {
+  grid-area: picture;
+}
+
+@media (min-width: 45rem) and (max-width: 71.49rem) {
+  .grid-container--tech > picture {
+    max-width: 20rem;
+  }
+}
+
+@media (min-width: 71.5rem) {
+  .grid-container--tech > picture {
+    justify-self: end;
+  }
+}
+
+
+.grid-container--tech > .number-indicators {
+  grid-area: tabs;
+}
+
+.grid-container--tech > .tech-info {
+  grid-area: cont;
+}
+
+.tech-info {
+  padding-inline: 2rem;
+}
+
+@media (min-width: 45rem) and (max-width: 71.49rem) {
+  .tech-info > p {
+    font-size: .8rem;
+    margin-inline: unset;
+  }
+}
+
+.tech-heading {
+  font-size: 3.5rem;
+}
+
+@media (min-width: 45rem) and (max-width: 71.49rem) {
+  .tech-heading {
+    font-size: 2.2rem;
+  }
+}
+
+.number-indicators > * {
   cursor: pointer;
   flex: 1;
   display: grid;
   place-items: center;
   border: 1px solid hsl(var(--clr-white) / .25);
   border-radius: 50%;
-  padding: 0 1.2rem;
+  padding: .5rem 1.2rem;
   aspect-ratio: 1;
-  background-color: hsl(var(--clr-dark));
+  background-color: transparent;
   transition: .3s;
+  min-width: 2.5rem;
+}
+
+
+@media (min-width: 71.5rem) {
+  .number-indicators {
+    padding: .5rem 1.2rem;
+  }  
+  .number-indicators.flex {
+    flex-direction: column;
+  }
 }
 
 .number-indicators > *:hover, 
@@ -682,7 +801,12 @@ body {
   background-color: hsl(var(--clr-white));
   border-color: hsl(var(--clr-white));
   color: hsl(var(--clr-dark));
-} */
+}
+
+
+
+
+/* Ideas from course lessons */
 
 /* .flow > * + * {
   margin-top: 1rem;

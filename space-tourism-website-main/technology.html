@@ -18,7 +18,7 @@
   <script src="./tabs.js" defer></script>
 </head>
 
-<body class="home">
+<body class="technology">
   <a class="skip-to-content" href="#main">Skip to content</a>
   <header class="primary-header flex">
     <div>
@@ -35,8 +35,66 @@
     </nav>
   </header>
   
-  <main id="main" class="grid-container grid-container--tech">
-    <p>...</p>
+  <main id="main" class="grid-container grid-container--tech flow">
+    <h1 class="numbered-title"><span aria-hidden="true">03</span>Space launch 101</h1>
+
+    <!-- Tab pictures -->
+
+    <picture id="launch-image">
+      <source srcset="./assets/technology/image-launch-vehicle-portrait.jpg" type="image/jpg" media="(min-width: 45rem)">
+      <source srcset="./assets/technology/image-launch-vehicle-landscape.jpg" type="image/jpg">
+      <img src="./assets/technology/image-launch-vehicle-portrait.jpg" alt="Space rocket launch">
+    </picture>
+
+    <picture hidden id="spaceport-image" >
+      <source srcset="./assets/technology/image-spaceport-portrait.jpg" type="image/jpg" media="(min-width: 45rem)">
+      <source srcset="./assets/technology/image-spaceport-landscape.jpg" type="image/jpg">
+      <img src="./assets/technology/image-spaceport-portrait.jpg" alt="Space launching site with rocket being prepared">
+    </picture>
+
+    <picture hidden id="capsule-image" >
+      <source srcset="./assets/technology/image-space-capsule-portrait.jpg" type="image/jpg" media="(min-width: 45rem)">
+      <source srcset="./assets/technology/image-space-capsule-landscape.jpg" type="image/jpg">
+      <img src="./assets/technology/image-space-capsule-portrait.jpg" alt="Space capsule floating in space">
+    </picture>
+
+    <!-- Number tab controls -->
+    <div class="number-indicators flex" aria-label="technology tab list" role="tablist">
+      <button aria-selected="true" aria-controls="launch-tab" tabindex="0" data-image="launch-image" class="ff-serif fs-600 text-white" role="tab">1</button>
+      <button aria-selected="false" aria-controls="spaceport-tab" tabindex="-1"  data-image="spaceport-image" class="ff-serif fs-600 text-white" role="tab">2</button>
+      <button aria-selected="false" aria-controls="capsule-tab" tabindex="-1" data-image="capsule-image" class="ff-serif fs-600 text-white" role="tab">3</button>
+  </div>
+
+    <!-- Launch vehicle -->
+    <article id="launch-tab" class="tech-info flow" role="tabpanel" tabindex="0">
+      <span class="fs-500 ff-sans-cond letter-spacing-1 uppercase text-accent">The terminology...</span>
+      <h2 class="tech-heading uppercase ff-serif">Launch vehicle</h2>
+      <p>A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a 
+        payload from Earth's surface to space, usually to Earth orbit or beyond. Our 
+        WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, 
+        it's quite an awe-inspiring sight on the launch pad!</p>
+    </article>
+
+    <!-- Spaceport -->
+    <article hidden id="spaceport-tab" class="tech-info flow" role="tabpanel" tabindex="0">
+      <span class="fs-500 ff-sans-cond letter-spacing-1 uppercase text-accent">The terminology...</span>
+      <h2 class="tech-heading uppercase ff-serif">Spaceport</h2>
+      <p>A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, 
+        by analogy to the seaport for ships or airport for aircraft. Based in the 
+        famous Cape Canaveral, our spaceport is ideally situated to take advantage 
+        of the Earth’s rotation for launch.</p>
+    </article>
+
+    <!-- Space capsule -->
+    <article hidden id="capsule-tab" class="tech-info flow" role="tabpanel" tabindex="0">
+      <span class="fs-500 ff-sans-cond letter-spacing-1 uppercase text-accent">The terminology...</span>
+      <h2 class="tech-heading uppercase ff-serif">Space capsule</h2>
+      <p>A space capsule is an often-crewed spacecraft that uses a blunt-body reentry 
+        capsule to reenter the Earth's atmosphere without wings. Our capsule is where 
+        you'll spend your time during the flight. It includes a space gym, cinema, 
+        and plenty of other activities to keep you entertained.</p>
+    </article>
+
   </main>
 
 
