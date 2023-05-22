@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Calculator app</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles/styles.css">
+
+  <script src="./main.js" defer></script>
+
+</head>
+<body>
+
+  <main id="calc-wrapper" class="flex-col">
+    <div id="calc-header" class="flex-row">
+      <span>calc</span>
+      <div id="theme-controls-wrap" class="flex-row">
+        <span>theme</span>
+        <div id="options-wrap" class="flex-row">
+          <label class="flex-col">
+            <span>1</span>
+            <input type="radio" name="theme-toggle">
+          </label>
+          <label class="flex-col">
+            <span>2</span>
+            <input type="radio" name="theme-toggle">
+          </label>
+          <label class="flex-col">
+            <span>3</span>
+            <input type="radio" name="theme-toggle">
+          </label>
+        </div>
+      </div>
+    </div>
+    <div id="calc-display">
+      <span id="total-value">1</span>
+      <span id="current-value">1</span>
+    </div>
+    <form id="calc-controls">
+      <button class="btn">7</button>
+      <button class="btn">8</button>
+      <button class="btn">9</button>
+      <button class="btn">del</button>
+      <button class="btn">4</button>
+      <button class="btn">5</button>
+      <button class="btn">6</button>
+      <button class="btn">+</button>
+      <button class="btn">1</button>
+      <button class="btn">2</button>
+      <button class="btn">3</button>
+      <button class="btn">-</button>
+      <button class="btn">.</button>
+      <button class="btn">0</button>
+      <button class="btn">/</button>
+      <button class="btn">x</button>
+      <button class="btn btn-span">reset</button>
+      <button class="btn btn-span">=</button>
+    </form>
+  </main>
+
+
+  <footer>
+  <p class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#/">Sebastian</a>.</p>
+  </footer>
+
+</body>
+</html>

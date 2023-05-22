@@ -1,0 +1,27 @@
+/* Light theme color properties */
+
+:root {
+    /* ### Theme 1 */
+
+    /* #### Backgrounds */
+    
+    --custom-very-dark-desaturated-blue1: hsl(222, 26%, 31%); /*(main background)*/
+    --custom-very-dark-desaturated-blue2: hsl(223, 31%, 20%); /*(toggle background, keypad background)*/
+    --custom-very-dark-desaturated-blue3: hsl(224, 36%, 15%); /*(screen background)*/
+    
+    /* #### Keys */
+    
+    --custom-desaturated-dark-blue1: hsl(225, 21%, 49%); /*(key background)*/
+    --custom-desaturated-dark-blue2: hsl(224, 28%, 35%); /*(key shadow)*/
+    
+    --custom-red: hsl(6, 63%, 50%); /*(key background, toggle)*/
+    --custom-dark-red: hsl(6, 70%, 34%); /*(key shadow)*/
+    
+    --custom-light-grayish-orange: hsl(30, 25%, 89%); /*(key background)*/
+    --custom-grayish-orange: hsl(28, 16%, 65%); /* key shadow */
+    
+    /* #### Text */
+    
+    --custom-very-dark-grayish-blue: hsl(221, 14%, 31%); /*text*/
+    --custom-white: hsl(0, 0%, 100%); /*text*/
+}

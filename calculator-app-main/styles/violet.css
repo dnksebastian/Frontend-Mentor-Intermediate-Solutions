@@ -1,0 +1,28 @@
+/* Dark violet theme color properties */
+
+:root {
+    /* ### Theme 3 */
+
+/* #### Backgrounds */
+
+--custom-very-dark-violet1: hsl(268, 75%, 9%); /*(main background)*/
+--custom-very-dark-violet2: hsl(268, 71%, 12%); /*(toggle background, keypad background, screen background)*/
+
+/* #### Keys */
+
+--custom-dark-violet: hsl(281, 89%, 26%); /*(key background)*/
+--custom-vivid-magenta: hsl(285, 91%, 52%); /*(key shadow)*/
+
+--custom-pure-cyan: hsl(176, 100%, 44%); /*(key background, toggle)*/
+--custom-soft-cyan: hsl(177, 92%, 70%); /*(key shadow)*/
+
+--custom-very-dark-violet: hsl(268, 47%, 21%); /*(key background)*/
+--custom-dark-magenta: hsl(290, 70%, 36%); /*(key shadow)*/
+
+/* #### Text */
+
+--custom-light-yellow: hsl(52, 100%, 62%); /*(text)*/
+--custom-very-dark-blue: hsl(198, 20%, 13%); /*(text)*/
+--custom-white: hsl(0, 0%, 100%); /*(text)*/
+
+}
