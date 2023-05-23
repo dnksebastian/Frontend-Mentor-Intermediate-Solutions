@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="./styles/light.css">
   <link rel="stylesheet" href="./styles/styles.css">
 
   <script src="./main.js" defer></script>
@@ -21,26 +22,24 @@
 
   <main id="calc-wrapper" class="flex-col">
     <div id="calc-header" class="flex-row">
-      <span>calc</span>
+      <span id="logo">calc</span>
       <div id="theme-controls-wrap" class="flex-row">
-        <span>theme</span>
-        <div id="options-wrap" class="flex-row">
-          <label class="flex-col">
-            <span>1</span>
-            <input type="radio" name="theme-toggle">
-          </label>
-          <label class="flex-col">
-            <span>2</span>
-            <input type="radio" name="theme-toggle">
-          </label>
-          <label class="flex-col">
-            <span>3</span>
-            <input type="radio" name="theme-toggle">
-          </label>
+        <span class="info-label">theme</span>
+        <div id="options-wrap" class="flex-col">
+          <div class="theme-labels flex-row">
+            <label for="theme1">1</label>
+            <label for="theme2">2</label>
+            <label for="theme3">3</label>
+          </div>
+          <div class="theme-toggle-wrap flex-row">
+            <input type="radio" class="theme-radio" name="theme-toggle" id="theme1">
+            <input type="radio" class="theme-radio" name="theme-toggle" id="theme2">
+            <input type="radio" class="theme-radio" name="theme-toggle" id="theme3">
+          </div>
         </div>
       </div>
     </div>
-    <div id="calc-display">
+    <div id="calc-display" class="flex-col">
       <span id="total-value">1</span>
       <span id="current-value">1</span>
     </div>
