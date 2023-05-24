@@ -48,8 +48,8 @@ body {
   display: grid;
   grid-template-rows: 1fr 1.5rem;
   /* align-items: start; */
-  background-color: var(--custom-very-dark-desaturated-blue1);
-  color: var(--custom-white);
+  background-color: var(--main-background);
+  color: var(--main-txt);
 }
 
 /* Utility classes */
@@ -124,7 +124,7 @@ body {
 /* Toggle switch mobile styles */
 
 .theme-toggle-wrap {
-  background-color: var(--custom-very-dark-desaturated-blue2);
+  background-color: var(--toggle-background);
   border-radius: 1.5rem;
   padding: 0.5rem;
 }
@@ -154,17 +154,24 @@ body {
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   /* box-shadow: inset 0rem 0rem var(--custom-red); */
+  transition: .3s;
 }
 
 .theme-radio:checked::before {
-  background-color: var(--custom-red);
+  background-color: var(--key-background2);
+  transform: scale(1);
+}
+
+.theme-radio:hover::before {
+  background-color: var(--key-background2);
+  filter: brightness(120%);
   transform: scale(1);
 }
 
 /* Calculator display mobile styles */
 
 #calc-display {
-  background-color: var(--custom-very-dark-desaturated-blue3);
+  background-color: var(--screen-background);
   border-radius: 1rem;
   gap: 0rem;
   padding: 0.5rem 2.1rem 1.5rem 2.1rem;
@@ -192,44 +199,72 @@ body {
   gap: 1.5rem;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  background-color: var(--custom-very-dark-desaturated-blue2);
+  background-color: var(--toggle-background);
 }
 
 .btn {
   font-size: 3.2rem;
   font-weight: 700;
-  padding: 1.2rem .7rem 1.2rem .7rem;
-  border-radius: .5rem;
-  background-color: var(--custom-light-grayish-orange);
-  color: var(--custom-very-dark-grayish-blue);
-  box-shadow: inset 0rem -.4rem var(--custom-grayish-orange);
+  padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+  border-radius: 0.5rem;
+  background-color: var(--key-background3);
+  color: var(--btn-txt);
+  box-shadow: inset 0rem -0.4rem var(--key-shadow3);
   border: none;
 }
 
-.btn:hover {
-  transform: translate(0, .2rem);
+.btn-basic:hover {
+  background-color: var(--key-hover3);
 }
 
 .btn-txt {
   font-size: 2rem;
   text-transform: uppercase;
-  box-shadow: inset 0rem -.4rem var(--custom-desaturated-dark-blue2);
+  box-shadow: inset 0rem -0.4rem var(--key-shadow1);
 }
 
+
 .btn-sec {
-  background-color: var(--custom-desaturated-dark-blue1);
-  color: var(--custom-white);
+  background-color: var(--key-background1);
+  color: var(--text-white);
+}
+
+.btn-sec:hover {
+  background-color: var(--key-hover1);
 }
 
 .btn-hl {
-  background-color: var(--custom-red);
-  color: var(--custom-white);
+  background-color: var(--key-background2);
+  color: var(--txt-hl);
   font-size: 2rem;
-  box-shadow: inset 0rem -.4rem var(--custom-dark-red);
+  box-shadow: inset 0rem -0.4rem var(--key-shadow2);
+}
+
+
+.btn-hl:hover {
+  background-color: var(--key-hover2);
 }
 
 .btn-span {
   grid-column: span 2;
+}
+
+.push-btn {
+  animation-name: btnpush;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes btnpush {
+  0% {
+    transform: translate(0, 0rem);
+  }
+  50% {
+    transform: translate(0, 0.2rem);
+  }
+  100% {
+    transform: translate(0, 0rem);
+  }
 }
 
 /* Footer mobile styles */
@@ -241,14 +276,44 @@ footer {
 }
 
 .attribution a {
-  color: var(--custom-red);
+  color: var(--key-background2);
 }
 
 /* Media queries */
 
-
 @media screen and (min-width: 875px) {
+  body {
+    align-items: center;
+  }
 
+  #calc-wrapper {
+    min-width: unset;
+    max-width: unset;
+    width: 35rem;
+  }
+
+  #calc-display {
+    min-height: 8rem;
+    gap: 1rem;
+  }
+
+  #current-value {
+    font-size: 3rem;
+  }
+
+  #calc-controls {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .btn {
+    font-size: 2rem;
+    padding: 1rem 0.5rem;
+    border-radius: 1rem;
+  }
+}
+
+@media screen and (min-width: 1100px) {
   body {
     padding-top: 8rem;
     align-items: flex-start;
@@ -256,8 +321,6 @@ footer {
   }
 
   #calc-wrapper {
-    min-width: unset;
-    max-width: unset;
     width: 60rem;
     padding: 1rem 3rem;
     gap: 1.5rem;
@@ -276,6 +339,7 @@ footer {
     padding: 1rem 3rem;
     min-height: 13rem;
     justify-content: flex-start;
+    gap: unset;
   }
 
   #total-value {
@@ -289,20 +353,17 @@ footer {
   /* Calculator controls desktop styles */
 
   #calc-controls {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     padding: 3rem 3rem;
     gap: 2rem;
   }
 
   .btn {
     font-size: 4rem;
-    padding: 1rem .7rem;
-    border-radius: 1rem;
+    padding: 1rem 0.7rem;
   }
 
   .btn-txt {
     font-size: 3rem;
   }
-
-
 }

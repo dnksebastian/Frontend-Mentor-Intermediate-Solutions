@@ -5,24 +5,29 @@
 
 /* #### Backgrounds */
 
---custom-very-dark-violet1: hsl(268, 75%, 9%); /*(main background)*/
---custom-very-dark-violet2: hsl(268, 71%, 12%); /*(toggle background, keypad background, screen background)*/
+--main-background: hsl(268, 75%, 9%); /*(main background)*/
+--toggle-background: hsl(268, 71%, 12%); /*(toggle background, keypad background, screen background)*/
+--screen-background: hsl(268, 71%, 12%);
 
 /* #### Keys */
 
---custom-dark-violet: hsl(281, 89%, 26%); /*(key background)*/
---custom-vivid-magenta: hsl(285, 91%, 52%); /*(key shadow)*/
+--key-background1: hsl(281, 89%, 26%); /*(key background)*/
+--key-shadow1: hsl(285, 91%, 52%); /*(key shadow)*/
+--key-hover1: hsl(280, 55%, 44%);
 
---custom-pure-cyan: hsl(176, 100%, 44%); /*(key background, toggle)*/
---custom-soft-cyan: hsl(177, 92%, 70%); /*(key shadow)*/
+--key-background2: hsl(176, 100%, 44%); /*(key background, toggle)*/
+--key-shadow2: hsl(177, 92%, 70%); /*(key shadow)*/
+--key-hover2: hsl(177, 100%, 79%);
 
---custom-very-dark-violet: hsl(268, 47%, 21%); /*(key background)*/
---custom-dark-magenta: hsl(290, 70%, 36%); /*(key shadow)*/
+--key-background3: hsl(268, 47%, 21%); /*(key background)*/
+--key-shadow3: hsl(290, 70%, 36%); /*(key shadow)*/
+--key-hover3: hsl(268, 54%, 44%);
 
 /* #### Text */
 
---custom-light-yellow: hsl(52, 100%, 62%); /*(text)*/
---custom-very-dark-blue: hsl(198, 20%, 13%); /*(text)*/
---custom-white: hsl(0, 0%, 100%); /*(text)*/
+--main-txt: hsl(52, 100%, 62%); /*(text)*/
+--btn-txt: hsl(52, 100%, 62%); /*(text)*/
+--txt-hl: hsl(198, 20%, 13%); /*(text)*/
+--text-white: hsl(0, 0%, 100%); /*(text)*/
 
 }

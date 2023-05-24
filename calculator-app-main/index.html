@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Calculator app</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="./styles/light.css">
+  <link rel="stylesheet" href="./styles/dark.css" id="theme-ss">
   <link rel="stylesheet" href="./styles/styles.css">
 
   <script src="./main.js" defer></script>
 
 </head>
+
 <body>
 
   <main id="calc-wrapper" class="flex-col">
@@ -31,8 +34,8 @@
             <label for="theme2">2</label>
             <label for="theme3">3</label>
           </div>
-          <div class="theme-toggle-wrap flex-row">
-            <input type="radio" class="theme-radio" name="theme-toggle" id="theme1" checked>
+          <div class="theme-toggle-wrap flex-row" id="theme-sw">
+            <input type="radio" class="theme-radio" name="theme-toggle" id="theme1">
             <input type="radio" class="theme-radio" name="theme-toggle" id="theme2">
             <input type="radio" class="theme-radio" name="theme-toggle" id="theme3">
           </div>
@@ -44,22 +47,22 @@
       <span id="current-value">399,981</span>
     </div>
     <form id="calc-controls">
-      <button class="btn">7</button>
-      <button class="btn">8</button>
-      <button class="btn">9</button>
+      <button class="btn btn-basic">7</button>
+      <button class="btn btn-basic">8</button>
+      <button class="btn btn-basic">9</button>
       <button class="btn btn-txt btn-sec">del</button>
-      <button class="btn">4</button>
-      <button class="btn">5</button>
-      <button class="btn">6</button>
-      <button class="btn">+</button>
-      <button class="btn">1</button>
-      <button class="btn">2</button>
-      <button class="btn">3</button>
-      <button class="btn">-</button>
-      <button class="btn">.</button>
-      <button class="btn">0</button>
-      <button class="btn">/</button>
-      <button class="btn">x</button>
+      <button class="btn btn-basic">4</button>
+      <button class="btn btn-basic">5</button>
+      <button class="btn btn-basic">6</button>
+      <button class="btn btn-basic">+</button>
+      <button class="btn btn-basic">1</button>
+      <button class="btn btn-basic">2</button>
+      <button class="btn btn-basic">3</button>
+      <button class="btn btn-basic">-</button>
+      <button class="btn btn-basic">.</button>
+      <button class="btn btn-basic">0</button>
+      <button class="btn btn-basic">/</button>
+      <button class="btn btn-basic">x</button>
       <button class="btn btn-span btn-txt btn-sec">reset</button>
       <button class="btn btn-span btn-hl">=</button>
     </form>
@@ -67,8 +70,10 @@
 
 
   <footer>
-  <p class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#/">Sebastian</a>.</p>
+    <p class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend
+        Mentor</a>. Coded by <a href="#/">Sebastian</a>.</p>
   </footer>
 
 </body>
+
 </html>

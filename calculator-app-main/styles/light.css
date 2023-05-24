@@ -1,27 +1,32 @@
-/* Light theme color properties */
+/* Dark theme color properties */
 
 :root {
-    /* ### Theme 1 */
+    /* ### Theme 2 */
 
-    /* #### Backgrounds */
-    
-    --custom-very-dark-desaturated-blue1: hsl(222, 26%, 31%); /*(main background)*/
-    --custom-very-dark-desaturated-blue2: hsl(223, 31%, 20%); /*(toggle background, keypad background)*/
-    --custom-very-dark-desaturated-blue3: hsl(224, 36%, 15%); /*(screen background)*/
-    
-    /* #### Keys */
-    
-    --custom-desaturated-dark-blue1: hsl(225, 21%, 49%); /*(key background)*/
-    --custom-desaturated-dark-blue2: hsl(224, 28%, 35%); /*(key shadow)*/
-    
-    --custom-red: hsl(6, 63%, 50%); /*(key background, toggle)*/
-    --custom-dark-red: hsl(6, 70%, 34%); /*(key shadow)*/
-    
-    --custom-light-grayish-orange: hsl(30, 25%, 89%); /*(key background)*/
-    --custom-grayish-orange: hsl(28, 16%, 65%); /* key shadow */
-    
-    /* #### Text */
-    
-    --custom-very-dark-grayish-blue: hsl(221, 14%, 31%); /*text*/
-    --custom-white: hsl(0, 0%, 100%); /*text*/
+/* #### Backgrounds */
+
+--main-background: hsl(0, 0%, 90%); /*(main background)*/
+--toggle-background: hsl(0, 5%, 81%); /*(toggle background, keypad background)*/
+--screen-background: hsl(0, 0%, 93%); /*(screen background)*/
+
+/* #### Keys */
+
+--key-background1: hsl(185, 42%, 37%); /*(key background)*/
+--key-shadow1: hsl(185, 58%, 25%); /*(key shadow)*/
+--key-hover1: hsl(186, 40%, 57%);
+
+--key-background2: hsl(25, 98%, 40%); /*(key background, toggle)*/
+--key-shadow2: hsl(25, 99%, 27%); /*(key shadow)*/
+--key-hover2: hsl(25, 100%, 61%);
+
+--key-background3: hsl(45, 7%, 89%); /*(key background)*/
+--key-shadow3: hsl(35, 11%, 61%); /*(key shadow)*/
+--key-hover3: hsl(0, 0%, 100%);
+
+/* #### Text */
+--main-txt: hsl(60, 10%, 19%); /*(text)*/
+--btn-txt: hsl(60, 10%, 19%); /*(text)*/
+--txt-hl: hsl(0, 0%, 100%);
+--text-white: hsl(0, 0%, 100%); /*(text)*/
+
 }
