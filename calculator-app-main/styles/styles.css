@@ -308,10 +308,10 @@ footer {
   }
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1200px) {
   body {
-    padding-top: min(30%, 8rem);
-    align-items: flex-start;
+    /* padding-top: min(30%, 8rem); */
+    align-items: center;
     justify-content: center;
   }
 
