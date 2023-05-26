@@ -23,7 +23,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/html-css-js-calculator-app-UxgtXv4kiU](https://www.frontendmentor.io/solutions/html-css-js-calculator-app-UxgtXv4kiU)
 - Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/calculator-app-main/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/calculator-app-main/)
 
 ## My process
@@ -35,10 +35,3 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - xx
-- [Example resource 2](https://www.example.com) - xx
-
