@@ -308,9 +308,8 @@ footer {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   body {
-    /* padding-top: 8rem; */
     padding-top: min(30%, 8rem);
     align-items: flex-start;
     justify-content: center;
