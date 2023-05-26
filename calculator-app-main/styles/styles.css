@@ -166,7 +166,7 @@ body {
 #calc-display {
   background-color: var(--screen-background);
   border-radius: 1rem;
-  gap: 0rem;
+  gap: .5rem;
   padding: 0.5rem 2.1rem 1.5rem 2.1rem;
   align-items: flex-end;
   justify-content: center;
@@ -174,12 +174,16 @@ body {
   overflow: hidden;
 }
 
+#calc-display > * {
+  flex: 1;
+}
+
 #total-value {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 
 #current-value {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
 }
 
@@ -306,7 +310,8 @@ footer {
 
 @media screen and (min-width: 1200px) {
   body {
-    padding-top: 8rem;
+    /* padding-top: 8rem; */
+    padding-top: min(30%, 8rem);
     align-items: flex-start;
     justify-content: center;
   }
