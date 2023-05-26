@@ -32,17 +32,17 @@ const checkPreferredTheme = () => {
     return;
   }
 
-  // if (
-  //   window.matchMedia &&
-  //   window.matchMedia("(prefers-color-scheme: dark)").matches
-  // ) {
-  //   chosenTheme = 0;
-  // } else if (
-  //   window.matchMedia &&
-  //   window.matchMedia("(prefers-color-scheme: light)").matches
-  // ) {
-  //   chosenTheme = 1;
-  // }
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    chosenTheme = 0;
+  } else if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: light)").matches
+  ) {
+    chosenTheme = 1;
+  }
 };
 
 const setPreferredTheme = () => {
