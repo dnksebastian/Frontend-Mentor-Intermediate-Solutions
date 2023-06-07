@@ -1,0 +1,59 @@
+/* Global, reset & typography */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  cursor: pointer;
+  font: inherit;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --main-font: "Be Vietnam Pro", sans-serif;
+  /* ## Colors */
+  /* ### Primary */
+
+  --custom-bright-red: hsl(12, 88%, 59%);
+  --custom-dark-blue: hsl(228, 39%, 23%);
+
+  /* ### Neutral */
+
+  --custom-dark-grayish-blue: hsl(227, 12%, 61%);
+  --custom-very-dark-blue: hsl(233, 12%, 13%);
+  --custom-very-pale-red: hsl(13, 100%, 96%);
+  --custom-very-light-gray: hsl(0, 0%, 98%);
+}
+
+html {
+  font-family: var(--main-font);
+  font-size: 10px;
+}
+
+/* Utility classes */
+
+/* Mobile styles */
+
+/* Media queries */

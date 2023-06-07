@@ -17,8 +17,11 @@
 | URL Shortening API Landing Page | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/url-shortening-api-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/url-shortening-api-master/" target="_blank">Repo</a>  |
 | Space Tourism Website | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/space-tourism-website-main/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/space-tourism-website-main/" target="_blank">Repo</a>  |
 | Calculator App | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/calculator-app-main/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/calculator-app-main/" target="_blank">Repo</a>  |
-| 9 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
+| Manage Landing Page | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/manage-landing-page-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/manage-landing-page-master/" target="_blank">Repo</a>  |
 | 10 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 | 11 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 | 12 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
+| 13 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
+| 14 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
+| 15 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 </div>
