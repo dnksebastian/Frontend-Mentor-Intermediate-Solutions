@@ -52,8 +52,140 @@ html {
   font-size: 10px;
 }
 
+body {
+  display: grid;
+  min-height: 100svh;
+  min-height: 100vh;
+}
+
 /* Utility classes */
 
+.flex-row {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  background-color: var(--custom-bright-red);
+  border-radius: 3rem;
+  padding: 1rem 2rem;
+  color: white;
+}
+
 /* Mobile styles */
+body {
+  grid-template-rows: 10rem 1fr 5rem 5rem;
+}
+
+/* Header mobile styles */
+#top-header {
+  position: relative;
+  padding: 2rem 2.5rem 2rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+#top-logo-wrap {
+  margin-top: 1rem;
+  max-width: 11.5rem;
+}
+
+#top-nav {
+  display: none;
+  justify-content: center;
+  position: absolute;
+  transform: translate(-50%, 10.5rem);
+  top: 0;
+  left: 50%;
+  background-color: white;
+  padding: 3rem 2rem;
+  border-radius: .7rem;
+  width: 90%;
+  max-width: 32.5rem;
+  z-index: 5;
+}
+
+#top-ul-nav {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  gap: .8rem;
+}
+
+.nav-a {
+  display: block;
+  padding: 1rem 2rem;
+  color: var(--custom-dark-blue);
+}
+.nav-a:hover, .nav-a:focus, .nav-a:active {
+  color: var(--custom-dark-grayish-blue);
+}
+
+#top-header-cta {
+  display: none;
+}
+
+/* Mobile menu styles */
+
+#mob-menu-wrap {
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  min-height: 2.2rem;
+  min-width: 2.2rem;
+  z-index: 5;
+}
+
+#mob-menu-wrap > * {
+  position: absolute;
+  inset: 1;
+}
+
+*.visible {
+  opacity: 100%;
+  animation: show .5s;
+}
+
+*.hidden {
+  animation: hide .5s;
+  opacity: 0%;
+}
+
+@keyframes show {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+#backdrop {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 2;
+}
+
+body.backdrop-open {
+  overflow: hidden;
+}
+
 
 /* Media queries */
