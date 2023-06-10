@@ -176,19 +176,21 @@
             class="sm-icon"></a></li>
     </ul>
     <ul id="menu-ft">
-      <li class="ft-menu-li"><a href="#/" class="ft-menu-link">Home</a></li>
-      <li class="ft-menu-li"><a href="#/" class="ft-menu-link">Pricing</a></li>
-      <li class="ft-menu-li"><a href="#/" class="ft-menu-link">Products</a></li>
-      <li class="ft-menu-li"><a href="#/" class="ft-menu-link">About Us</a></li>
-      <li class="ft-menu-li"><a href="#/" class="ft-menu-link">Careers</a></li>
-      <li class="ft-menu-li"><a href="#/" class="ft-menu-link">Community</a></li>
-      <li class="ft-menu-li"><a href="#/" class="ft-menu-link">Privacy Policy</a></li>
+      <li class="ft-menu-li col-1"><a href="#/" class="ft-menu-link">Home</a></li>
+      <li class="ft-menu-li col-1"><a href="#/" class="ft-menu-link">Pricing</a></li>
+      <li class="ft-menu-li col-1"><a href="#/" class="ft-menu-link">Products</a></li>
+      <li class="ft-menu-li col-1"><a href="#/" class="ft-menu-link">About Us</a></li>
+      <li class="ft-menu-li col-2"><a href="#/" class="ft-menu-link">Careers</a></li>
+      <li class="ft-menu-li col-2"><a href="#/" class="ft-menu-link">Community</a></li>
+      <li class="ft-menu-li col-2"><a href="#/" class="ft-menu-link">Privacy Policy</a></li>
     </ul>
-    <form id="ft-mail-form">
-      <label for=""></label>
-      <input placeholder="Updates in your inbox…" type="email">
-      <span class="err-msg"></span>
-      <button type="submit">Go</button>
+    <form id="ft-mail-form" class="flex-row">
+      <div class="input-helper flex-col">
+        <label for="email" class="sr-only">Email</label>
+        <input placeholder="Updates in your inbox…" type="email" id="email" class="ft-email-input">
+        <span class="err-msg">Please insert a valid email</span>
+      </div>
+      <button type="submit" class="btn" id="ft-submit-btn">Go</button>
     </form>
     <div id="attribution">
       <p class="copyright">Copyright 2023. All Rights Reserved</p>
