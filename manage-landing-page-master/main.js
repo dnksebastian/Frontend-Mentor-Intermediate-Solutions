@@ -9,7 +9,37 @@ const menuLinksEls = document.querySelectorAll(".nav-a");
 const footerMailFormEl = document.getElementById('ft-mail-form');
 const emailInputEl = document.getElementById('email');
 const errorMessageEl = document.getElementById('err')
+
+const carouselWrapperEl = document.getElementById('carousel-container')
+const slidesEls = document.querySelectorAll('.review-slide')
+const carouselControlsEls = document.querySelectorAll('.carousel-option')
+
 // Functions
+
+const handleWheelSlide = (e) => {
+  e.preventDefault()
+  let wheel = e.deltaY
+  let slideOptionChecked = +document.querySelector('.carousel-option:checked').value
+  let newSlideNum = slideOptionChecked
+
+  if(wheel >= 0) {
+    slideOptionChecked === 4 ? newSlideNum = 1: newSlideNum++
+  }
+  else if(wheel < 0) {
+    slideOptionChecked === 1 ? newSlideNum = 4: newSlideNum-- 
+  }
+  
+  let slideOptionToDisplay = document.getElementById(`option${newSlideNum}`)
+  slideOptionToDisplay.checked = true;
+  carouselChangeSlide()
+}
+
+const carouselChangeSlide = () => {
+  let pickedSlideNum = document.querySelector('.carousel-option:checked').value
+  let pickedSlide = document.getElementById(`slide${pickedSlideNum}`)
+  
+  pickedSlide.scrollIntoView({behavior: "smooth", block:"center", inline:"center"})
+}
 
 const validateForm = () => {
   if (emailInputEl.validity.valueMissing) {
@@ -23,7 +53,6 @@ const validateForm = () => {
     return true;
   }
 }
-
 
 const submitForm = (e) => {
   e.preventDefault();
@@ -107,3 +136,9 @@ emailInputEl.addEventListener('blur', validateForm);
 emailInputEl.addEventListener('click', () => {
     footerMailFormEl.classList.add('interacted')
 })
+
+carouselControlsEls.forEach((el) => {
+  el.addEventListener('click', carouselChangeSlide)
+})
+
+carouselWrapperEl.addEventListener('wheel', handleWheelSlide)

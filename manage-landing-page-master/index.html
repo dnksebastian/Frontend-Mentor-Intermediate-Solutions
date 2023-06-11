@@ -97,7 +97,7 @@
     <section id="reviews" class="flex-col" aria-label="User reviews">
       <h2>What they’ve said</h2>
       <div id="carousel-wrap" class="flex-col">
-        <ul class="reviews-slider-wrap flex-row">
+        <ul class="reviews-slider-wrap" id="carousel-container">
           <li class="review-slide flex-col" id="slide1">
             <div class="avatar-wrap">
               <img src="./images/avatar-anisha.png" alt="Avatar" class="avatar-img">
@@ -135,19 +135,19 @@
         <div id="carousel-controls-wrap" class="flex-row">
           <label class="carousel-option-label">
             <span class="review-option-desc sr-only">Anisha Li review</span>
-            <input type="radio" class="carousel-option" name="reviews" value="1" id="1">
+            <input type="radio" class="carousel-option" name="reviews" value="1" id="option1" checked>
           </label>
           <label class="carousel-option-label">
             <span class="review-option-desc sr-only">Ali Bravo review</span>
-            <input type="radio" class="carousel-option" name="reviews" value="2" id="2">
+            <input type="radio" class="carousel-option" name="reviews" value="2" id="option2">
           </label>
           <label class="carousel-option-label">
             <span class="review-option-desc sr-only">Richard Watts review</span>
-            <input type="radio" class="carousel-option" name="reviews" value="3" id="3">
+            <input type="radio" class="carousel-option" name="reviews" value="3" id="option3">
           </label>
           <label class="carousel-option-label">
             <span class="review-option-desc sr-only">Shanai Gough review</span>
-            <input type="radio" class="carousel-option" name="reviews" value="4" id="4">
+            <input type="radio" class="carousel-option" name="reviews" value="4" id="option4">
           </label>
         </div>
       </div>

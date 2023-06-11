@@ -395,19 +395,19 @@ body.backdrop-open {
 }
 
 .reviews-slider-wrap {
-  /* padding: 6rem 2rem 1.5rem 2rem; */
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr);
   padding: 6rem 1rem 1.5rem 1rem;
-  align-items: center;
-  justify-content: space-between;
   gap: 2rem;
   background-color: rgba(0, 128, 0, 0.322);
   width: 95vw;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* overflow-x: scroll; */
+  /* scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-color: transparent transparent;
-  scrollbar-width: 0px;
-  /* scrollbar-width: none; */
+  scrollbar-width: none; */
 }
 
 .reviews-slider-wrap::-webkit-scrollbar {
