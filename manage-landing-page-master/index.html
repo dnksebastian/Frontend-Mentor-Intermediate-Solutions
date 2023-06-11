@@ -184,11 +184,11 @@
       <li class="ft-menu-li col-2"><a href="#/" class="ft-menu-link">Community</a></li>
       <li class="ft-menu-li col-2"><a href="#/" class="ft-menu-link">Privacy Policy</a></li>
     </ul>
-    <form id="ft-mail-form" class="flex-row">
+    <form id="ft-mail-form" class="flex-row" novalidate>
       <div class="input-helper flex-col">
         <label for="email" class="sr-only">Email</label>
-        <input placeholder="Updates in your inbox…" type="email" id="email" class="ft-email-input">
-        <span class="err-msg">Please insert a valid email</span>
+        <input placeholder="Updates in your inbox…" type="email" id="email" class="ft-email-input" required>
+        <span class="err-msg" id="err">Please insert a valid email</span>
       </div>
       <button type="submit" class="btn" id="ft-submit-btn">Go</button>
     </form>

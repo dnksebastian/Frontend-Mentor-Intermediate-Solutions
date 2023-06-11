@@ -60,6 +60,10 @@ body {
   min-height: 100vh;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 /* Utility classes */
 
 .flex-row {
@@ -113,7 +117,6 @@ body {
 /* Mobile styles */
 body {
   grid-template-rows: 10rem min-content;
-  overflow-x: hidden;
 }
 
 body::before {
@@ -250,6 +253,18 @@ body.backdrop-open {
   gap: 1rem;
 }
 
+#main-wrapper::after {
+  position: absolute;
+  top: 42rem;
+  right: -17rem;
+  content: "";
+  background: url(./images/bg-tablet-pattern.svg) center / cover no-repeat;
+  z-index: -1;
+  transform: rotate(180deg);
+  width: max(30rem, 10%);
+  height: max(30rem, 10%);
+}
+
 /* Hero mobile styles */
 #hero {
   position: relative;
@@ -258,18 +273,6 @@ body.backdrop-open {
   grid-template-rows: repeat(2, min-content);
   /* background-color: rgba(0, 128, 0, 0.404); */
   padding: 1rem 2rem;
-}
-
-#hero::after {
-  position: absolute;
-  bottom: -8rem;
-  right: -16rem;
-  content: "";
-  background: url(./images/bg-tablet-pattern.svg) center / cover no-repeat;
-  z-index: -1;
-  transform: rotate(180deg);
-  width: max(30rem, 10%);
-  height: max(30rem, 10%);
 }
 
 .hero-illustration-wrapper {
@@ -517,12 +520,6 @@ footer {
   box-shadow: 0rem .5rem 1.5rem -.5rem white;
 }
 
-.err-msg {
-  display: none;
-  color: var(--custom-bright-red);
-  padding-left: 2rem;
-}
-
 #ft-submit-btn {
   text-transform: uppercase;
   box-shadow: none;
@@ -531,6 +528,22 @@ footer {
 #ft-submit-btn:hover, #ft-submit-btn:focus {
   background-color: #f99072;
 }
+
+.err-msg {
+  display: none;
+  color: var(--custom-bright-red);
+  padding-left: 2rem;
+}
+
+.interacted .ft-email-input:not(:focus):invalid {
+  border-color: var(--custom-bright-red);
+  color: var(--custom-bright-red);
+}
+
+.interacted .ft-email-input:not(:focus):invalid ~ .err-msg {
+  display: block;
+}
+
 
 /* Footer menu mobile styles */
 #menu-ft {

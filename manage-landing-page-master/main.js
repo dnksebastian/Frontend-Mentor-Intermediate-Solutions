@@ -6,7 +6,41 @@ const iconClose = document.getElementById("hamburger-close");
 const backdropEl = document.getElementById("backdrop");
 const menuLinksEls = document.querySelectorAll(".nav-a");
 
+const footerMailFormEl = document.getElementById('ft-mail-form');
+const emailInputEl = document.getElementById('email');
+const errorMessageEl = document.getElementById('err')
 // Functions
+
+const validateForm = () => {
+  if (emailInputEl.validity.valueMissing) {
+    errorMessageEl.textContent = "Please enter your email";
+    return false;
+  } else if (emailInputEl.validity.typeMismatch) {
+    errorMessageEl.textContent = "Please enter a valid email";
+    return false;
+  } else if (emailInputEl.validity.valid) {
+    errorMessageEl.textContent = "";
+    return true;
+  }
+}
+
+
+const submitForm = (e) => {
+  e.preventDefault();
+
+  let isValid = validateForm()
+
+  if(isValid) {
+    console.log('submitted');
+    footerMailFormEl.reset()
+    footerMailFormEl.classList.remove('interacted')
+  }
+  else {
+    console.log('not submitted');
+    footerMailFormEl.classList.add('interacted')
+  }
+}
+
 const toggleMobileMenu = () => {
   mobileMenuIconEl.classList.toggle("active");
   mobileMenuEl.classList.toggle("show");
@@ -61,3 +95,15 @@ backdropEl.addEventListener("click", closeMenu);
 menuLinksEls.forEach((el) => {
   el.addEventListener("click", closeMenu);
 });
+
+
+footerMailFormEl.addEventListener('submit', submitForm);
+
+
+emailInputEl.addEventListener('input', validateForm);
+emailInputEl.addEventListener('blur', validateForm);
+
+
+emailInputEl.addEventListener('click', () => {
+    footerMailFormEl.classList.add('interacted')
+})
