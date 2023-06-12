@@ -14,7 +14,58 @@ const carouselWrapperEl = document.getElementById('carousel-container')
 const slidesEls = document.querySelectorAll('.review-slide')
 const carouselControlsEls = document.querySelectorAll('.carousel-option')
 
+
+// Carousel inifinite scroll 
+
+const clonedSlide0Pre = slidesEls[0].cloneNode(true)
+clonedSlide0Pre.id = 'pre-slide1'
+const clonedSlide1Pre = slidesEls[1].cloneNode(true)
+clonedSlide1Pre.id = "pre-slide2"
+const clonedSlide1PreA = slidesEls[1].cloneNode(true)
+clonedSlide1PreA.id = "pre-slide2"
+const clonedSlide2Pre = slidesEls[2].cloneNode(true)
+clonedSlide2Pre.id ="pre-slide3"
+const clonedSlide3Pre = slidesEls[3].cloneNode(true)
+clonedSlide3Pre.id ="pre-slide4"
+
+const clonedSlide0Next = slidesEls[0].cloneNode(true)
+clonedSlide0Next.id = "next-slide1"
+const clonedSlide1Next = slidesEls[1].cloneNode(true)
+clonedSlide1Next.id = "next-slide2"
+
+carouselWrapperEl.insertBefore(clonedSlide1PreA, slidesEls[0])
+carouselWrapperEl.insertBefore(clonedSlide0Pre, slidesEls[0])
+carouselWrapperEl.insertBefore(clonedSlide3Pre, slidesEls[0])
+carouselWrapperEl.insertBefore(clonedSlide2Pre, slidesEls[0])
+carouselWrapperEl.insertBefore(clonedSlide1Pre, slidesEls[0])
+
+carouselWrapperEl.appendChild(clonedSlide0Next)
+carouselWrapperEl.appendChild(clonedSlide1Next)
+
+
+const carouselChildren = carouselWrapperEl.children
+
+const carouselStartForward = carouselChildren[5].getBoundingClientRect().left - 20;
+const carouselEndForward = carouselChildren[8].getBoundingClientRect().right;
+
+const carouselEndBackward = carouselChildren[1].getBoundingClientRect().left - 10;
+const carouselStartBackward = carouselChildren[5].getBoundingClientRect().left - 10;
+
+carouselWrapperEl.scrollLeft = carouselStartForward
 // Functions
+
+const makeInfiniteScroll = () => {
+
+  if(carouselWrapperEl.scrollLeft < carouselEndBackward) {
+    carouselWrapperEl.scrollLeft = carouselStartBackward
+    console.log('this');
+  }
+
+  if(carouselWrapperEl.scrollLeft > carouselEndForward) {
+    carouselWrapperEl.scrollLeft = carouselStartForward
+  }
+}
+
 
 const handleWheelSlide = (e) => {
   e.preventDefault()
@@ -39,6 +90,8 @@ const carouselChangeSlide = () => {
   let pickedSlide = document.getElementById(`slide${pickedSlideNum}`)
   
   pickedSlide.scrollIntoView({behavior: "smooth", block:"center", inline:"center"})
+
+  // makeInfiniteScroll()
 }
 
 const validateForm = () => {
@@ -142,3 +195,5 @@ carouselControlsEls.forEach((el) => {
 })
 
 carouselWrapperEl.addEventListener('wheel', handleWheelSlide)
+
+carouselWrapperEl.addEventListener('scroll', makeInfiniteScroll)

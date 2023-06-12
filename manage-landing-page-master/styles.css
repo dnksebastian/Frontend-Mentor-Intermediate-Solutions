@@ -196,7 +196,7 @@ body::before {
 
 #mob-menu-wrap > * {
   position: absolute;
-  inset: 1;
+  /* inset: 1; */
 }
 
 *.visible {
@@ -397,17 +397,16 @@ body.backdrop-open {
 .reviews-slider-wrap {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: auto; */
+  grid-auto-flow: column;
   padding: 6rem 1rem 1.5rem 1rem;
   gap: 2rem;
   background-color: rgba(0, 128, 0, 0.322);
   width: 95vw;
-  overflow-x: hidden;
-  /* overflow-x: scroll; */
-  /* scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
+  /* overflow-x: hidden; */
+  overflow-x: scroll;
   scrollbar-color: transparent transparent;
-  scrollbar-width: none; */
+  scrollbar-width: none;
 }
 
 .reviews-slider-wrap::-webkit-scrollbar {
@@ -432,6 +431,7 @@ body.backdrop-open {
   border-radius: 0.5rem;
   /* min-width: 95vw; */
   min-width: 34rem;
+  /* width: 90vw; */
   max-height: 25rem;
 }
 
