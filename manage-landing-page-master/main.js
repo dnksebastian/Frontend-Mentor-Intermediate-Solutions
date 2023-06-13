@@ -10,115 +10,39 @@ const footerMailFormEl = document.getElementById("ft-mail-form");
 const emailInputEl = document.getElementById("email");
 const errorMessageEl = document.getElementById("err");
 
-// Carousel Elements & scripts
-const carouselWrapperEl = document.getElementById("carousel-container");
-// const slidesEls = document.querySelectorAll(".review-slide");
-const carouselControlsEls = document.querySelectorAll(".carousel-option");
+// Carousel controls
 
-const getSlidesData = async () => {
-  try {
-    const res = await fetch("./slides.json");
-    const slides = await res.json();
-    return slides;
-  } catch (err) {
-    console.log(err);
+const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+  mousewheel: true,
+  keyboard: {
+    enabled: true,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  slidesPerView: 1,
+  spaceBetween: 20,
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    // when window width is >= 480px
+    480: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    // when window width is >= 640px
+    640: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    }
   }
-};
-
-const createNewSlide = (id, avatarURL, uname, content) => {
-  const newSlideLiEl = document.createElement("li");
-  newSlideLiEl.classList.add("review-slide");
-  newSlideLiEl.classList.add("flex-col");
-  newSlideLiEl.id = `slide${id}`;
-
-  const newSlideAvatarWrap = document.createElement("div");
-  newSlideAvatarWrap.classList.add("avatar-wrap");
-  const newUserAvatar = document.createElement("img");
-  newUserAvatar.classList.add("avatar-img");
-  newUserAvatar.src = avatarURL;
-  newUserAvatar.alt = uname;
-
-  const slideName = document.createElement("span");
-  slideName.classList.add("review-name");
-  slideName.textContent = uname;
-
-  const slideContent = document.createElement("p");
-  slideContent.classList.add("review-content");
-  slideContent.textContent = content;
-
-  newSlideLiEl.appendChild(newSlideAvatarWrap);
-  newSlideAvatarWrap.appendChild(newUserAvatar);
-  newSlideLiEl.appendChild(slideName);
-  newSlideLiEl.appendChild(slideContent);
-
-  return newSlideLiEl;
-};
-
-const getPopulatedSlide = async (index) => {
-  const slidesData = await getSlidesData();
-  const slideToRender = `slide${index}`;
-
-  const id = slidesData[slideToRender].id;
-  const avatarURL = slidesData[slideToRender].avatar;
-  const uname = slidesData[slideToRender].uname;
-  const content = slidesData[slideToRender].review;
-
-  const slide = createNewSlide(id, avatarURL, uname, content);
-  return slide;
-};
-
-const getNewSlidesArr = async (cId) => {
-  let newSlidesArr = [];
-  const data = await getSlidesData();
-  // const slidesNum = Object.keys(data).length;
-
-  console.log(data);
-
-  let currentId;
-  let prevId;
-  let nextId;
-
-  if (cId === 0) {
-    currentId = cId
-    prevId = slidesNum - 1
-    nextId = currentId + 1
-  } else if (cId === slidesNum - 1) {
-    currentId = cId
-    prevId = cId - 1
-    nextId = 0
-  } else {
-    currentId = cId
-    prevId = cId - 1
-    nextId = cId + 1
-  }
-
-  console.log('prev:', prevId,'current:', currentId,'next:', nextId);
-
-  // const previousSlide = await getPopulatedSlide(prevId);
-  // const currentSlide = await getPopulatedSlide(currentId);
-  // const nextSlide = await getPopulatedSlide(nextId);
-
-  // newSlidesArr = [previousSlide, currentSlide, nextSlide];
-
-  // for (let i = 1; i <= slidesNum; i++) {
-  //   const slide = await getPopulatedSlide(i)
-  //   newSlidesArr.push(slide)
-  // }
-  // carouselWrapperEl.replaceChildren(...newSlidesArr);
-};
-
-const changeSlides = (e) => {
-  const centerSlide = +document.querySelector('.carousel-option:checked').value
-  getNewSlidesArr(centerSlide)
-
-}
-
-carouselControlsEls.forEach((el) => {
-  el.addEventListener('click', changeSlides)
-})
-
-
-
+});
 
 // Other
 
@@ -214,11 +138,3 @@ emailInputEl.addEventListener("blur", validateForm);
 emailInputEl.addEventListener("click", () => {
   footerMailFormEl.classList.add("interacted");
 });
-
-// carouselControlsEls.forEach((el) => {
-//   el.addEventListener('click', carouselChangeSlide)
-// })
-
-// carouselWrapperEl.addEventListener('wheel', handleWheelSlide)
-
-// carouselWrapperEl.addEventListener('scroll', makeInfiniteScroll)
