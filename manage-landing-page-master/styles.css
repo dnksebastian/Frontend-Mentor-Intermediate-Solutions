@@ -384,6 +384,7 @@ body.backdrop-open {
 }
 
 #carousel-wrap {
+  position: relative;
   text-align: center;
   align-items: center;
   /* padding: 6.5rem 1rem 1.7rem 1rem; */
@@ -403,12 +404,13 @@ body.backdrop-open {
   gap: 2rem;
   background-color: rgba(0, 128, 0, 0.322);
   width: 95vw;
-  /* overflow-x: hidden; */
-  overflow-x: scroll;
-  scrollbar-color: transparent transparent;
-  scrollbar-width: none;
+  overflow-x: hidden;
+  /* overflow-x: scroll; */
+  /* scrollbar-color: transparent transparent; */
+  /* scrollbar-width: none; */
 }
 
+/* 
 .reviews-slider-wrap::-webkit-scrollbar {
   width: 0;
 }
@@ -419,7 +421,7 @@ body.backdrop-open {
 .reviews-slider-wrap::-webkit-scrollbar-thumb {
   background: transparent;
   border: none;
-}
+} */
 
 .review-slide {
   display: flex;
@@ -434,6 +436,18 @@ body.backdrop-open {
   /* width: 90vw; */
   max-height: 25rem;
 }
+
+.swipe {
+  width: 1rem;
+  height: 1rem;
+  background-color: teal;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 
 /* .review-slide:nth-of-type(2) {
   display: flex;

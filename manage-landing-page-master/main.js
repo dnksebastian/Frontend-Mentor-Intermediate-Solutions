@@ -6,93 +6,122 @@ const iconClose = document.getElementById("hamburger-close");
 const backdropEl = document.getElementById("backdrop");
 const menuLinksEls = document.querySelectorAll(".nav-a");
 
-const footerMailFormEl = document.getElementById('ft-mail-form');
-const emailInputEl = document.getElementById('email');
-const errorMessageEl = document.getElementById('err')
+const footerMailFormEl = document.getElementById("ft-mail-form");
+const emailInputEl = document.getElementById("email");
+const errorMessageEl = document.getElementById("err");
 
-const carouselWrapperEl = document.getElementById('carousel-container')
-const slidesEls = document.querySelectorAll('.review-slide')
-const carouselControlsEls = document.querySelectorAll('.carousel-option')
+// Carousel Elements & scripts
+const carouselWrapperEl = document.getElementById("carousel-container");
+// const slidesEls = document.querySelectorAll(".review-slide");
+const carouselControlsEls = document.querySelectorAll(".carousel-option");
 
+const getSlidesData = async () => {
+  try {
+    const res = await fetch("./slides.json");
+    const slides = await res.json();
+    return slides;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-// Carousel inifinite scroll 
+const createNewSlide = (id, avatarURL, uname, content) => {
+  const newSlideLiEl = document.createElement("li");
+  newSlideLiEl.classList.add("review-slide");
+  newSlideLiEl.classList.add("flex-col");
+  newSlideLiEl.id = `slide${id}`;
 
-const clonedSlide0Pre = slidesEls[0].cloneNode(true)
-clonedSlide0Pre.id = 'pre-slide1'
-const clonedSlide1Pre = slidesEls[1].cloneNode(true)
-clonedSlide1Pre.id = "pre-slide2"
-const clonedSlide1PreA = slidesEls[1].cloneNode(true)
-clonedSlide1PreA.id = "pre-slide2"
-const clonedSlide2Pre = slidesEls[2].cloneNode(true)
-clonedSlide2Pre.id ="pre-slide3"
-const clonedSlide3Pre = slidesEls[3].cloneNode(true)
-clonedSlide3Pre.id ="pre-slide4"
+  const newSlideAvatarWrap = document.createElement("div");
+  newSlideAvatarWrap.classList.add("avatar-wrap");
+  const newUserAvatar = document.createElement("img");
+  newUserAvatar.classList.add("avatar-img");
+  newUserAvatar.src = avatarURL;
+  newUserAvatar.alt = uname;
 
-const clonedSlide0Next = slidesEls[0].cloneNode(true)
-clonedSlide0Next.id = "next-slide1"
-const clonedSlide1Next = slidesEls[1].cloneNode(true)
-clonedSlide1Next.id = "next-slide2"
+  const slideName = document.createElement("span");
+  slideName.classList.add("review-name");
+  slideName.textContent = uname;
 
-carouselWrapperEl.insertBefore(clonedSlide1PreA, slidesEls[0])
-carouselWrapperEl.insertBefore(clonedSlide0Pre, slidesEls[0])
-carouselWrapperEl.insertBefore(clonedSlide3Pre, slidesEls[0])
-carouselWrapperEl.insertBefore(clonedSlide2Pre, slidesEls[0])
-carouselWrapperEl.insertBefore(clonedSlide1Pre, slidesEls[0])
+  const slideContent = document.createElement("p");
+  slideContent.classList.add("review-content");
+  slideContent.textContent = content;
 
-carouselWrapperEl.appendChild(clonedSlide0Next)
-carouselWrapperEl.appendChild(clonedSlide1Next)
+  newSlideLiEl.appendChild(newSlideAvatarWrap);
+  newSlideAvatarWrap.appendChild(newUserAvatar);
+  newSlideLiEl.appendChild(slideName);
+  newSlideLiEl.appendChild(slideContent);
 
+  return newSlideLiEl;
+};
 
-const carouselChildren = carouselWrapperEl.children
+const getPopulatedSlide = async (index) => {
+  const slidesData = await getSlidesData();
+  const slideToRender = `slide${index}`;
 
-const carouselStartForward = carouselChildren[5].getBoundingClientRect().left - 20;
-const carouselEndForward = carouselChildren[8].getBoundingClientRect().right;
+  const id = slidesData[slideToRender].id;
+  const avatarURL = slidesData[slideToRender].avatar;
+  const uname = slidesData[slideToRender].uname;
+  const content = slidesData[slideToRender].review;
 
-const carouselEndBackward = carouselChildren[1].getBoundingClientRect().left - 10;
-const carouselStartBackward = carouselChildren[5].getBoundingClientRect().left - 10;
+  const slide = createNewSlide(id, avatarURL, uname, content);
+  return slide;
+};
 
-carouselWrapperEl.scrollLeft = carouselStartForward
-// Functions
+const getNewSlidesArr = async (cId) => {
+  let newSlidesArr = [];
+  const data = await getSlidesData();
+  // const slidesNum = Object.keys(data).length;
 
-const makeInfiniteScroll = () => {
+  console.log(data);
 
-  if(carouselWrapperEl.scrollLeft < carouselEndBackward) {
-    carouselWrapperEl.scrollLeft = carouselStartBackward
-    console.log('this');
+  let currentId;
+  let prevId;
+  let nextId;
+
+  if (cId === 0) {
+    currentId = cId
+    prevId = slidesNum - 1
+    nextId = currentId + 1
+  } else if (cId === slidesNum - 1) {
+    currentId = cId
+    prevId = cId - 1
+    nextId = 0
+  } else {
+    currentId = cId
+    prevId = cId - 1
+    nextId = cId + 1
   }
 
-  if(carouselWrapperEl.scrollLeft > carouselEndForward) {
-    carouselWrapperEl.scrollLeft = carouselStartForward
-  }
+  console.log('prev:', prevId,'current:', currentId,'next:', nextId);
+
+  // const previousSlide = await getPopulatedSlide(prevId);
+  // const currentSlide = await getPopulatedSlide(currentId);
+  // const nextSlide = await getPopulatedSlide(nextId);
+
+  // newSlidesArr = [previousSlide, currentSlide, nextSlide];
+
+  // for (let i = 1; i <= slidesNum; i++) {
+  //   const slide = await getPopulatedSlide(i)
+  //   newSlidesArr.push(slide)
+  // }
+  // carouselWrapperEl.replaceChildren(...newSlidesArr);
+};
+
+const changeSlides = (e) => {
+  const centerSlide = +document.querySelector('.carousel-option:checked').value
+  getNewSlidesArr(centerSlide)
+
 }
 
+carouselControlsEls.forEach((el) => {
+  el.addEventListener('click', changeSlides)
+})
 
-const handleWheelSlide = (e) => {
-  e.preventDefault()
-  let wheel = e.deltaY
-  let slideOptionChecked = +document.querySelector('.carousel-option:checked').value
-  let newSlideNum = slideOptionChecked
 
-  if(wheel >= 0) {
-    slideOptionChecked === 4 ? newSlideNum = 1: newSlideNum++
-  }
-  else if(wheel < 0) {
-    slideOptionChecked === 1 ? newSlideNum = 4: newSlideNum-- 
-  }
-  
-  let slideOptionToDisplay = document.getElementById(`option${newSlideNum}`)
-  slideOptionToDisplay.checked = true;
-  carouselChangeSlide()
-}
 
-const carouselChangeSlide = () => {
-  let pickedSlideNum = document.querySelector('.carousel-option:checked').value
-  let pickedSlide = document.getElementById(`slide${pickedSlideNum}`)
-  
-  pickedSlide.scrollIntoView({behavior: "smooth", block:"center", inline:"center"})
 
-  // makeInfiniteScroll()
-}
+// Other
+
 
 const validateForm = () => {
   if (emailInputEl.validity.valueMissing) {
@@ -105,23 +134,22 @@ const validateForm = () => {
     errorMessageEl.textContent = "";
     return true;
   }
-}
+};
 
 const submitForm = (e) => {
   e.preventDefault();
 
-  let isValid = validateForm()
+  let isValid = validateForm();
 
-  if(isValid) {
-    console.log('submitted');
-    footerMailFormEl.reset()
-    footerMailFormEl.classList.remove('interacted')
+  if (isValid) {
+    console.log("submitted");
+    footerMailFormEl.reset();
+    footerMailFormEl.classList.remove("interacted");
+  } else {
+    console.log("not submitted");
+    footerMailFormEl.classList.add("interacted");
   }
-  else {
-    console.log('not submitted');
-    footerMailFormEl.classList.add('interacted')
-  }
-}
+};
 
 const toggleMobileMenu = () => {
   mobileMenuIconEl.classList.toggle("active");
@@ -178,22 +206,19 @@ menuLinksEls.forEach((el) => {
   el.addEventListener("click", closeMenu);
 });
 
+footerMailFormEl.addEventListener("submit", submitForm);
 
-footerMailFormEl.addEventListener('submit', submitForm);
+emailInputEl.addEventListener("input", validateForm);
+emailInputEl.addEventListener("blur", validateForm);
 
+emailInputEl.addEventListener("click", () => {
+  footerMailFormEl.classList.add("interacted");
+});
 
-emailInputEl.addEventListener('input', validateForm);
-emailInputEl.addEventListener('blur', validateForm);
+// carouselControlsEls.forEach((el) => {
+//   el.addEventListener('click', carouselChangeSlide)
+// })
 
+// carouselWrapperEl.addEventListener('wheel', handleWheelSlide)
 
-emailInputEl.addEventListener('click', () => {
-    footerMailFormEl.classList.add('interacted')
-})
-
-carouselControlsEls.forEach((el) => {
-  el.addEventListener('click', carouselChangeSlide)
-})
-
-carouselWrapperEl.addEventListener('wheel', handleWheelSlide)
-
-carouselWrapperEl.addEventListener('scroll', makeInfiniteScroll)
+// carouselWrapperEl.addEventListener('scroll', makeInfiniteScroll)
