@@ -12,6 +12,24 @@ const errorMessageEl = document.getElementById("err");
 
 // Carousel controls
 
+const sliderWrapperEl = document.querySelector('.swiper-wrapper')
+console.log(sliderWrapperEl);
+
+const slideElements = document.querySelectorAll('.review-slide')
+const newSlideArr = [...slideElements]
+
+if (window.innerWidth > 775) {
+  slideElements.forEach((el) => {
+    let clonedSlide = el.cloneNode(true)
+    clonedSlide.classList.add('cloned-slide')
+    clonedSlide.id = ''
+    newSlideArr.push(clonedSlide)
+  })
+  
+  sliderWrapperEl.replaceChildren(...newSlideArr)
+}
+
+
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   loop: true,
@@ -24,23 +42,14 @@ const swiper = new Swiper('.swiper', {
     clickable: true
   },
   slidesPerView: 1,
+  centerInsufficientSlides:true,
   spaceBetween: 20,
   breakpoints: {
-    // when window width is >= 320px
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    // when window width is >= 480px
-    480: {
+    775: {
       slidesPerView: 3,
-      spaceBetween: 20
+      spaceBetween: 50,
+      padination: false,
     },
-    // when window width is >= 640px
-    640: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    }
   }
 });
 
