@@ -13,21 +13,29 @@ const errorMessageEl = document.getElementById("err");
 // Carousel controls
 
 const sliderWrapperEl = document.querySelector('.swiper-wrapper')
-console.log(sliderWrapperEl);
-
 const slideElements = document.querySelectorAll('.review-slide')
 const newSlideArr = [...slideElements]
 
-if (window.innerWidth > 775) {
-  slideElements.forEach((el) => {
-    let clonedSlide = el.cloneNode(true)
-    clonedSlide.classList.add('cloned-slide')
-    clonedSlide.id = ''
-    newSlideArr.push(clonedSlide)
-  })
-  
-  sliderWrapperEl.replaceChildren(...newSlideArr)
+
+let adjustSlideNum = () => {
+  if (window.innerWidth >= 750) {
+    slideElements.forEach((el) => {
+      let clonedSlide = el.cloneNode(true)
+      clonedSlide.classList.add('cloned-slide')
+      clonedSlide.id = ''
+      newSlideArr.push(clonedSlide)
+    })
+    
+    sliderWrapperEl.replaceChildren(...newSlideArr)
+  } else {
+    let clonedElements = document.querySelectorAll('.cloned-slide')
+    clonedElements.forEach((el) => {
+      el.remove()
+    })
+  }
 }
+adjustSlideNum()
+window.addEventListener('resize', adjustSlideNum)
 
 
 const swiper = new Swiper('.swiper', {
@@ -45,7 +53,7 @@ const swiper = new Swiper('.swiper', {
   centerInsufficientSlides:true,
   spaceBetween: 20,
   breakpoints: {
-    775: {
+    750: {
       slidesPerView: 3,
       spaceBetween: 50,
       padination: false,
