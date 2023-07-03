@@ -1,0 +1,109 @@
+/* Global, reset & typography */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  cursor: pointer;
+  font: inherit;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+--custom-main-font: 'League Spartan', sans-serif;
+/* ## Colors */
+/* ### Primary */
+
+--custom-desaturated-dark-cyan: hsl(180, 29%, 50%);
+
+/* ### Neutral */
+
+--custom-light-grayish-cyan: hsl(180, 52%, 96%); /*(Background)*/
+--custom-light-grayish-cyan: hsl(180, 31%, 95%); /*(Filter Tablets)*/
+--custom-dark-grayish-cyan: hsl(180, 8%, 52%);
+--custom-very-dark-grayish-cyan: hsl(180, 14%, 20%);
+}
+
+html {
+  font-family: var(--custom-main-font);
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  min-height: 100vh;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Utility classes */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
+  }
+
+
+  /* Mobile styles */
+
+  body {
+    background-color: var(--custom-light-grayish-cyan);
+    grid-template-rows: 15.5rem 1fr 10rem;
+  }
+
+  /* Header mobile styles */
+
+  header {
+    /* background-color: var(--custom-very-dark-grayish-cyan); */
+    background-image: url(./images/bg-header-mobile.svg);
+    backdrop-filter: invert(60%) sepia(27%) saturate(561%) hue-rotate(130deg) brightness(95%) contrast(84%);
+  }
+  /* Main mobile styles */
+  main {
+    padding: 2rem;
+    background-color: rgba(255, 192, 203, 0.321);
+  }
+  /* Footer mobile styles */
+
+  footer {
+    background-color: var(--custom-dark-grayish-cyan);
+  }
+
+
+  /* Media queries */
+  /* Midscreen styles */
+  /* Desktop styles */
