@@ -32,18 +32,19 @@ ol {
 }
 
 :root {
---custom-main-font: 'League Spartan', sans-serif;
-/* ## Colors */
-/* ### Primary */
+  --custom-main-font: "League Spartan", sans-serif;
+  /* ## Colors */
+  /* ### Primary */
 
---custom-desaturated-dark-cyan: hsl(180, 29%, 50%);
+  --custom-desaturated-dark-cyan: hsl(180, 29%, 50%);
 
-/* ### Neutral */
+  /* ### Neutral */
 
---custom-light-grayish-cyan: hsl(180, 52%, 96%); /*(Background)*/
---custom-light-grayish-cyan: hsl(180, 31%, 95%); /*(Filter Tablets)*/
---custom-dark-grayish-cyan: hsl(180, 8%, 52%);
---custom-very-dark-grayish-cyan: hsl(180, 14%, 20%);
+  --custom-light-grayish-cyan-bg: hsl(180, 52%, 96%); /*(Background)*/
+  --custom-light-grayish-cyan-fl: hsl(180, 31%, 95%); /*(Filter Tablets)*/
+  --custom-bright-cyan: hsl(180, 39%, 56%); /*Header background*/
+  --custom-dark-grayish-cyan: hsl(180, 8%, 52%);
+  --custom-very-dark-grayish-cyan: hsl(180, 14%, 20%);
 }
 
 html {
@@ -66,44 +67,128 @@ body {
 /* Utility classes */
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap; /* added line */
-    border: 0;
-  }
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
 
+/* Mobile styles */
 
-  /* Mobile styles */
+body {
+  background-color: var(--custom-light-grayish-cyan-bg);
+  grid-template-rows: 15.5rem 1fr 3rem;
+}
 
-  body {
-    background-color: var(--custom-light-grayish-cyan);
-    grid-template-rows: 15.5rem 1fr 10rem;
-  }
+/* Header mobile styles */
 
-  /* Header mobile styles */
+header {
+  position: relative;
+  background-color: var(--custom-bright-cyan);
+}
 
-  header {
-    /* background-color: var(--custom-very-dark-grayish-cyan); */
-    background-image: url(./images/bg-header-mobile.svg);
-    backdrop-filter: invert(60%) sepia(27%) saturate(561%) hue-rotate(130deg) brightness(95%) contrast(84%);
-  }
-  /* Main mobile styles */
-  main {
-    padding: 2rem;
-    background-color: rgba(255, 192, 203, 0.321);
-  }
-  /* Footer mobile styles */
+header::before {
+  position: relative;
+  content: "";
+  height: 100%;
+  max-width: 37.5rem;
+  display: block;
+  background: no-repeat left url(./images/bg-header-mobile.svg);
+  backdrop-filter: brightness(0) saturate(100%) invert(60%) sepia(25%)
+    saturate(610%) hue-rotate(131deg) brightness(93%) contrast(87%);
+}
 
-  footer {
-    background-color: var(--custom-dark-grayish-cyan);
-  }
+/* Main mobile styles */
 
+main {
+  position: relative;
+  padding: 2rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 
-  /* Media queries */
-  /* Midscreen styles */
-  /* Desktop styles */
+#filter-box {
+  background-color: red;
+  width: 80%;
+  height: 10rem;
+  position: relative;
+  transform: translate(0%, -5rem);
+  display: none;
+}
+
+#offers {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 50rem;
+  padding: 3.7rem 1.5rem;
+  background-color: rgba(0, 128, 0, 0.46);
+}
+
+.offer-wrapper,
+.offer-top-helper,
+.offer-bot-helper,
+.helper-row-top,
+.helper-row-bot {
+  display: flex;
+}
+
+.offer-wrapper {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 40rem;
+  padding: 2rem 2rem;
+  background-color: rgba(0, 0, 255, 0.392);
+}
+
+.offer-top-helper, .offer-bot-helper {
+  padding: 2rem .5rem;
+  gap: 1rem;
+}
+
+.offer-top-helper {
+  background-color: pink;
+  flex-direction: column;
+}
+
+.company-logo-wrap {
+  position: absolute;
+  top: -2.5rem;
+  left: 2.5rem;
+  max-width: 4.7rem;
+}
+
+.offer-bot-helper {
+  background-color: yellow;
+}
+
+/* Footer mobile styles */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--custom-desaturated-dark-cyan);
+  color: var(--custom-light-grayish-cyan-fl);
+}
+
+footer a {
+  font-weight: 700;
+  color: rgb(98, 67, 8);
+  margin-inline: .2rem;
+}
+
+/* Media queries */
+/* Midscreen styles */
+/* Desktop styles */
