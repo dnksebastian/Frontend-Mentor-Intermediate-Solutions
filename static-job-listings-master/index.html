@@ -15,74 +15,71 @@
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 
-  <script src="//unpkg.com/alpinejs" defer></script>
   <script src="./main.js" defer></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body>
 
   <header>
-    
   </header>
 
   <main id="main-wrap">
-    <div id="filter-box"></div>
+    <div id="filter-box">
+      <ul class="filter-control">
+        <li class="filter-active">
+          <span>Frontend</span>
+          <div class="clear-filter"></div>
+          </li>
+        <li class="filter-active">
+          <span>CSS</span>
+          <div class="clear-filter"></div>
+          </li>
+        <li class="filter-active">
+          <span>JavaScript</span>
+          <div class="clear-filter"></div>
+          </li>
+        <!-- <template>
+        </template> -->
+      </ul>
+      <button id="btn-clear">Clear</button>
+    </div>
     
-    <ul id="offers">
-
-      <li class="offer-wrapper">
-        <div class="offer-top-helper">
-          <div class="company-logo-wrap">
-            <img src="./images/photosnap.svg" alt="Photosnap" class="company-logo">
+    <ul id="offers" x-data="$store.jobsList">
+      <template x-for="job in jobs" :key="job.id">
+        <li class="offer-wrapper" x-bind:class="job.featured ? 'featured' : ''">
+          <div class="offer-top-helper">
+            <div class="company-logo-wrap">
+              <img :src='job.logo' :alt=`${job.company}` class="company-logo">
+            </div>
+            <div class="helper-row-top">
+              <span class="company-name" x-text="job.company"></span>
+              <div class="new-badge badge" x-bind:class="job.new ? '' : 'hidden'">NEW!</div>
+              <div class="featured-badge badge" x-bind:class="job.featured ? '' : 'hidden'">FEATURED</div>
+            </div>
+            <span class="offer-position" x-text="job.position"></span>
+            <ul class="job-info-bot">
+              <li class="time-published" x-text="job.postedAt"></li>
+              <li class="working-time" x-text="job.contract"></li>
+              <li class="location" x-text="job.location"></li>
+            </ul>
           </div>
-          <div class="helper-row-top">
-            <span class="company-name">Photosnap</span>
-            <div class="new-badge badge">NEW!</div>
-            <div class="featured-badge badge">FEATURED</div>
-          </div>
-          <span class="offer-position">Senior Frontend Developer</span>
-          <ul class="job-info-bot">
-            <li class="time-published">1d ago</li>
-            <li class="working-time">Full Time</li>
-            <li class="location">USA only</li>
+          <ul class="job-labels-filters">
+            <li class="filter-label" x-text="job.role"></li>
+            <li class="filter-label" x-text="job.level"></li>
+            <template x-for="language in job.languages" :key="language">
+              <li class="filter-label" x-text="language"></li>
+            </template>
+            <template x-for="tool in job.tools" :key="tool">
+              <li class="filter-label" x-text="tool"></li>
+            </template>
           </ul>
-        </div>
-        <ul class="job-labels-filters">
-          <li class="filter-label">Frontend</li>
-          <li class="filter-label">Senior</li>
-          <li class="filter-label">HTML</li>
-          <li class="filter-label">CSS</li>
-          <li class="filter-label">JavaScript</li>
-        </ul>
-      </li>
-
-      <li class="offer-wrapper">
-        <div class="offer-top-helper">
-          <div class="company-logo-wrap">
-            <img src="./images/manage.svg" alt="Manage" class="company-logo">
-          </div>
-          <div class="helper-row-top">
-            <span class="company-name">Manage</span>
-            <div class="new-badge badge">NEW!</div>
-            <div class="featured-badge badge">FEATURED</div>
-          </div>
-          <span class="offer-position">Fullstack Developer</span>
-          <ul class="job-info-bot">
-            <li class="time-published">1d ago</li>
-            <li class="working-time">Part Time</li>
-            <li class="location">Remote</li>
-          </div>
-        </div>
-        <ul class="job-labels-filters">
-          <li  class="filter-label">Fullstack</li>
-          <li  class="filter-label">Midweight</li>
-          <li  class="filter-label">Python</li>
-          <li  class="filter-label">React</li>
-        </ul>
-      </li>
+        </li>
+      </template>
 
     </ul>    
   </main>
+
 
   <footer>
     <div class="attribution">
@@ -90,6 +87,7 @@
       Coded by <a href="#/">Sebastian</a>.
     </div>
   </footer>
+
 </body>
 
 </html>
