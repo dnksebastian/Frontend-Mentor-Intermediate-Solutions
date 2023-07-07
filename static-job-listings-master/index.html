@@ -24,32 +24,24 @@
   <header>
   </header>
 
-  <main id="main-wrap">
-    <div id="filter-box">
+  <main id="main-wrap" x-data="$store.jobsList" x-init="$store.jobsList.getMatchingOffers()">
+    <div id="filter-box" x-show="$store.jobsList.activeFilters.length > 0">
       <ul class="filter-control">
-        <li class="filter-active">
-          <span>Frontend</span>
-          <div class="clear-filter"></div>
-          </li>
-        <li class="filter-active">
-          <span>CSS</span>
-          <div class="clear-filter"></div>
-          </li>
-        <li class="filter-active">
-          <span>JavaScript</span>
-          <div class="clear-filter"></div>
-          </li>
-        <!-- <template>
-        </template> -->
+        <template x-for="filter in activeFilters" :key="filter">
+          <li class="filter-active">
+            <span x-text="filter"></span>
+            <div class="clear-filter" x-on:click="$store.jobsList.removeFilter(filter)"></div>
+            </li>
+        </template>
       </ul>
-      <button id="btn-clear">Clear</button>
+      <button x-on:click="$store.jobsList.removeAllFilters()" id="btn-clear">Clear</button>
     </div>
     
-    <ul id="offers" x-data="$store.jobsList">
-      <template x-for="job in jobs" :key="job.id">
-        <li class="offer-wrapper" x-bind:class="job.featured ? 'featured' : ''">
+    <ul id="offers" x-data="$store.jobsList.jobsToDisplay">
+      <template x-for="job in jobsToDisplay" :key="job.id">
+        <li class="offer-wrapper" x-bind:class="job.featured ? 'featured' : ''" x-show="$store.jobsList.activeFilters">
           <div class="offer-top-helper">
-            <div class="company-logo-wrap">
+            <div class="company-logo-wrap" x-on:click="$store.jobsList.getMatchingOffers()">
               <img :src='job.logo' :alt=`${job.company}` class="company-logo">
             </div>
             <div class="helper-row-top">
@@ -65,13 +57,13 @@
             </ul>
           </div>
           <ul class="job-labels-filters">
-            <li class="filter-label" x-text="job.role"></li>
-            <li class="filter-label" x-text="job.level"></li>
+            <li class="filter-label" x-text="job.role" x-on:click="$store.jobsList.makeFilterActive(job.role)"></li>
+            <li class="filter-label" x-text="job.level" x-on:click="$store.jobsList.makeFilterActive(job.level)"></li>
             <template x-for="language in job.languages" :key="language">
-              <li class="filter-label" x-text="language"></li>
+              <li class="filter-label" x-text="language" x-on:click="$store.jobsList.makeFilterActive(language)"></li>
             </template>
             <template x-for="tool in job.tools" :key="tool">
-              <li class="filter-label" x-text="tool"></li>
+              <li class="filter-label" x-text="tool" x-on:click="$store.jobsList.makeFilterActive(tool)"></li>
             </template>
           </ul>
         </li>
