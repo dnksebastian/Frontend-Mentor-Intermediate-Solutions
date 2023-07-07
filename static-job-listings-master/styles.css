@@ -376,7 +376,7 @@ footer a {
   #offers {
     max-width: 114rem;
     /* background-color: rgba(255, 255, 0, 0.56); */
-    gap: 2.5rem;
+    gap: 3rem;
   }
 
   .offer-wrapper {
