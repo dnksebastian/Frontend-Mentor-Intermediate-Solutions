@@ -57,6 +57,7 @@ body {
   display: grid;
   min-height: 100svh;
   min-height: 100vh;
+  min-width: 34rem;
 }
 
 html,
@@ -126,10 +127,10 @@ main {
   padding: .7rem 2rem;
   transform: translate(0%, -5.5rem);
   width: 95%;
-  max-width: 32.5rem;
+  max-width: 35rem;
   background-color: white;
   border-radius: .5rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   box-shadow: .5rem 1rem 2.5rem -1.7rem var(--custom-bright-cyan);
   /* display: none; */
   margin-bottom: -3rem;
@@ -137,10 +138,10 @@ main {
 
 .filter-control {
   display: flex;
-  padding: 1.3rem 0rem 1rem 0rem;
+  padding: 1.3rem 0rem .7rem 0rem;
   color: var(--custom-desaturated-dark-cyan);
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   font-weight: 700;
   line-height: 2;
 }
@@ -163,6 +164,12 @@ main {
   background-position: center;
   height: 100%;
   width: 3rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.clear-filter:hover, .clear-filter:focus-visible {
+  background-color: var(--custom-very-dark-grayish-cyan);
 }
 
 #btn-clear {
@@ -172,6 +179,11 @@ main {
   font-weight: 700;
   padding: .2rem 1rem;
   border-radius: .2rem;
+}
+
+#btn-clear:hover, .clear-filter:focus-visible {
+  color: var(--custom-bright-cyan);
+  text-decoration: underline;
 }
 
 #offers {
@@ -268,6 +280,12 @@ main {
 .offer-position {
   font-size: 1.5rem;
   font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.offer-position:hover {
+  color: var(--custom-desaturated-dark-cyan);
 }
 
 .job-info-bot {
@@ -299,6 +317,13 @@ main {
   font-weight: 700;
   padding: .2rem 1rem;
   border-radius: .2rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.filter-label:hover, .filter-label:focus-visible {
+  background-color: var(--custom-desaturated-dark-cyan);
+  color: var(--custom-light-grayish-cyan-fl);
 }
 
 
@@ -320,5 +345,145 @@ footer a {
 }
 
 /* Media queries */
+
 /* Midscreen styles */
+
+@media screen and (min-width: 800px) {
+  /* Header midscreen styles */
+  header::before {
+    max-width: unset;
+    background: no-repeat center/cover url(./images/bg-header-desktop.svg);
+  }
+
+  /* Main midscreen styles */
+
+  main {
+    padding: 4rem 1rem 2rem 1rem;
+  }
+
+  #filter-box {
+    max-width: 111rem;
+    padding: 1.2rem 4rem;
+    transform: translate(0%, -7.5rem);
+    margin-bottom: -7rem;
+  }
+
+  .filter-control {
+    padding: 1rem 0rem;
+    gap: 2.5rem;
+  }
+
+  #offers {
+    max-width: 114rem;
+    /* background-color: rgba(255, 255, 0, 0.56); */
+    gap: 2.5rem;
+  }
+
+  .offer-wrapper {
+    /* background-color: rgba(255, 192, 203, 0.399); */
+    max-width: unset;
+    padding: 1.8rem 2rem .7rem 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+  }
+
+  .offer-top-helper {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "logo badges"
+    "logo position"
+    "logo info";
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    min-width: max-content;
+  }
+
+  .offer-top-helper {
+    border: unset;
+  }
+
+  .company-logo-wrap {
+    position: static;
+    grid-area: logo;
+    align-self: center;
+    max-width: unset;
+  }
+
+  .company-name {
+    margin-right: .5rem;
+  }
+
+  .badge {
+    font-size: 1.4rem;
+    padding: .3rem .7rem;
+  }
+
+  .helper-row-top {
+    grid-area: badges;
+    padding-top: .4rem;
+  }
+
+  .offer-position {
+    grid-area: position;
+    font-size: 1.8rem;
+  }
+
+  .job-info-bot {
+    grid-area: info;
+    gap: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .job-info-bot li:after {
+    margin-left: .5rem;
+  }
+
+  .job-labels-filters {
+    justify-content: flex-end;
+    max-width: 35rem;
+    font-size: 1.55rem;
+    padding: 0rem 0rem 1rem 1rem;
+  }
+
+  .filter-label {
+    padding: 0rem 1rem;
+  }
+
+}
+
 /* Desktop styles */
+
+@media screen and (min-width: 1000px) {
+
+  .offer-wrapper {
+    padding: 1.8rem 4rem .7rem 4rem;
+    font-size: 1.8rem;
+  }
+
+  .offer-top-helper {
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+  }
+
+  .offer-position {
+    font-size: 2.2rem;
+  }
+
+  .job-info-bot {
+    gap: 1.7rem;
+    font-size: 1.7rem;
+  }
+
+  .job-info-bot li:after {
+    margin-left: 1.5rem;
+  }
+
+  .job-labels-filters {
+    max-width: unset;
+  }
+
+}

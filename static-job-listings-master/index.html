@@ -41,7 +41,7 @@
       <template x-for="job in jobsToDisplay" :key="job.id">
         <li class="offer-wrapper" x-bind:class="job.featured ? 'featured' : ''" x-show="$store.jobsList.activeFilters">
           <div class="offer-top-helper">
-            <div class="company-logo-wrap" x-on:click="$store.jobsList.getMatchingOffers()">
+            <div class="company-logo-wrap">
               <img :src='job.logo' :alt=`${job.company}` class="company-logo">
             </div>
             <div class="helper-row-top">
