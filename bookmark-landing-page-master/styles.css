@@ -1,0 +1,97 @@
+/* Global, reset & typography */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  cursor: pointer;
+  font: inherit;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --main-font: 'Rubik', sans-serif;
+/* ## Colors */
+
+/* ### Primary */
+
+/* --custom-soft-blue: hsl(231, 69%, 60%); */
+/* --custom-soft-red: hsl(0, 94%, 66%); */
+
+--custom-soft-blue: 231, 69%, 60%;
+--custom-soft-red: 0, 94%, 66%;
+
+/* ### Neutral */
+
+/* --custom-grayish-blue: hsl(229, 8%, 60%); */
+/* --custom-very-dark-blue: hsl(229, 31%, 21%); */
+
+--custom-grayish-blue: 229, 8%, 60%;
+--custom-very-dark-blue: 229, 31%, 21%;
+}
+
+
+html {
+  font-family: var(--main-font);
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  min-height: 100vh;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  min-width: 35rem;
+}
+
+/* Utility classes */
+
+.btn {
+  white-space: nowrap;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* Mobile styles */
+
+
+/* Media queries */
+/* Midscreen styles */
+/* Desktop styles */
