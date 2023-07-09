@@ -91,6 +91,117 @@ body {
 
 /* Mobile styles */
 
+body {
+  grid-template-columns: 1fr;
+  grid-template-rows: 10rem 1fr 10rem 10rem;
+}
+
+/* Header mobile styles */
+
+#header-wrap {
+  padding: .5rem 3.2rem 0rem 3.2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 192, 203, 0.579);
+}
+
+#top-logo-wrap {
+  z-index: 10;
+}
+
+/* Mobile menu styles */
+
+#top-nav {
+  display: none;
+  position: absolute;
+  padding: 0rem 2rem 4.5rem 2rem;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: calc(100vh - 10rem);
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.859);
+  transform: translate(-50%, 10rem);
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .25rem;
+}
+
+#top-nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: yellow; */
+  width: 100%;
+}
+
+.top-nav-li {
+  background-color: rgba(0, 128, 0, 0.473);
+  width: 100%;
+}
+
+.top-nav-a {
+  margin-inline: auto;
+  display: block;
+  padding: 2rem 2rem;
+  width: 100%;
+  /* max-width: 31rem; */
+  background-color: rgba(255, 192, 203, 0.618);
+}
+
+#top-sm-links {
+  display: flex;
+  gap: 3rem;
+  border: 1px solid red;
+  margin-top: auto;
+}
+
+#top-nav.active {
+  display: flex;
+}
+
+#top-logo.active {
+  filter: brightness(60%) contrast(200%) hue-rotate(360deg) saturate(0%) invert(100%) 
+}
+
+#mobile-menu-control {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#close-menu-icon {
+  display: none;
+}
+
+#close-menu-icon.active {
+  display: block;
+  filter: brightness(0%) contrast(200%) invert(100%) 
+}
+
+#hamburger-icon.active {
+  display: none;
+}
+
+#backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(var(--custom-very-dark-blue), 20%);
+  position: absolute;
+  z-index: 0;
+  display: none;
+}
+
+#backdrop.active {
+  display: block!important;
+}
+
 
 /* Media queries */
 /* Midscreen styles */
