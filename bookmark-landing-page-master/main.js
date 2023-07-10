@@ -6,6 +6,9 @@ const topLogoEl = document.getElementById('top-logo')
 const closeMenuIcon = document.getElementById('close-menu-icon')
 const hamburgerIcon = document.getElementById('hamburger-icon')
 
+
+
+const formElement = document.getElementById('contact-form');
 // Functions
 
 const toggleMobileMenu = () => {
@@ -16,7 +19,13 @@ const toggleMobileMenu = () => {
     closeMenuIcon.classList.toggle('active')
 }
 
+const submitForm = (e) => {
+    e.preventDefault()
+    console.log('form submitted');
+}
+
 
 // Event listeners
 
 mobileMenuControlEl.addEventListener('click', toggleMobileMenu)
+formElement.addEventListener('submit', submitForm)
