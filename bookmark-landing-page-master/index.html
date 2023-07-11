@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="./styles.css">
 
+  <script src="./tabs.js" defer></script>
   <script src="./main.js" defer></script>
 </head>
 
@@ -77,15 +78,15 @@
           Your bookmarks sync between your devices so you can access them on the go.</p>
       </div>
       <div id="tabs-control" role="tablist">
-        <button class="tab-btn">Simple Bookmarking</button>
-        <button class="tab-btn">Speedy Searching</button>
-        <button class="tab-btn">Easy Sharing</button>
+        <button class="tab-btn" role="tab" tabindex="0" aria-selected="true" aria-controls="simple-bookmarking">Simple Bookmarking</button>
+        <button class="tab-btn" role="tab" tabindex="-1" aria-selected="false" aria-controls="speedy-searching">Speedy Searching</button>
+        <button class="tab-btn" role="tab" tabindex="-1" aria-selected="false" aria-controls="easy-sharing">Easy Sharing</button>
       </div>
 
       <ul id="features-tabs">
-        <li class="feature-tab">
+        <li class="feature-tab" role="tabpanel" tabindex="0" id="simple-bookmarking">
           <div class="tab-img-wrap">
-            <img src="" alt="" class="tab-img">
+            <img src="./images/illustration-features-tab-1.svg" alt="Bookmark app" class="tab-img">
           </div>
           <div class="tab-desc">
             <h2>Bookmark in one click</h2>
@@ -94,9 +95,9 @@
             <div class="btn">More Info</div>
           </div>
         </li>
-        <li class="feature-tab">
+        <li hidden class="feature-tab" role="tabpanel" tabindex="0" id="speedy-searching">
           <div class="tab-img-wrap">
-            <img src="" alt="" class="tab-img">
+            <img src="./images/illustration-features-tab-2.svg" alt="Bookmark app illustration with magnifying glass" class="tab-img">
           </div>
           <div class="tab-desc">
             <h2>Intelligent search</h2>
@@ -105,9 +106,9 @@
             <div class="btn">More Info</div>
           </div>
         </li>
-        <li class="feature-tab">
+        <li hidden class="feature-tab" role="tabpanel" tabindex="0" id="easy-sharing">
           <div class="tab-img-wrap">
-            <img src="" alt="" class="tab-img">
+            <img src="./images/illustration-features-tab-3.svg" alt="Bookmark app illustration with people silhouettes" class="tab-img">
           </div>
           <div class="tab-desc">
             <h2>Share your bookmarks</h2>

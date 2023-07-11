@@ -23,7 +23,7 @@ input {
   cursor: pointer;
   font: inherit;
   transition: 0.3s;
-  border: 1px solid transparent;
+  border: none;
 }
 
 ul,
@@ -244,9 +244,9 @@ body {
 
 /* Main section mobile styles */
 
-#main-wrap {
+/* #main-wrap {
   background-color: rgba(0, 128, 0, 0.278);
-}
+} */
 
 /* Hero section mobile styles */
 
@@ -266,7 +266,7 @@ body {
   display: block;
   content: "";
   position: absolute;
-  top: 10rem;
+  top: min(10rem, 15%);
   right: 0;
   width: 30rem;
   height: 20rem;
@@ -297,6 +297,78 @@ body {
   margin-top: 1.2rem;
   display: flex;
   gap: 2rem;
+}
+
+/* Features section mobile styles */
+
+#features-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 7rem 2rem;
+  background-color: rgba(111, 252, 111, 0.395);
+}
+
+#features-desc {
+  padding: 3.3rem 1rem 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#features-desc h2 {
+  font-size: 2.2rem;
+}
+
+#features-desc p {
+  /* font-size: 1.55rem; */
+  line-height: 1.6;
+}
+
+#tabs-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: yellow;
+  width: 100%;
+}
+
+.tab-btn {
+  position: relative;
+  width: 100%;
+  max-width: 31rem;
+  padding: 1.8rem 2rem;
+  font-size: 1.7rem;
+  border-top: 1px solid hsl(var(--custom-grayish-blue), 30%);
+  color: hsl(var(--custom-grayish-blue));
+  background-color: transparent;
+}
+
+.tab-btn[aria-selected="true"] {
+  color: hsl(var(--custom-very-dark-blue));
+}
+
+.tab-btn[aria-selected="true"]::after {
+  position: absolute;
+  display: block;
+  content: "";
+  background-color: hsl(var(--custom-soft-red));
+  width: 45%;
+  height: .5rem;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.tab-btn:last-child {
+  border-bottom: 1px solid hsl(var(--custom-grayish-blue), 30%);
+}
+
+#features-tabs {
+  margin-top: 6rem;
+  background-color: blue;
 }
 
 /* Media queries */

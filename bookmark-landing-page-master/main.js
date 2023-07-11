@@ -6,10 +6,9 @@ const topLogoEl = document.getElementById('top-logo')
 const closeMenuIcon = document.getElementById('close-menu-icon')
 const hamburgerIcon = document.getElementById('hamburger-icon')
 
-
-
 const formElement = document.getElementById('contact-form');
-// Functions
+
+// Functionss
 
 const toggleMobileMenu = () => {
     backdropEl.classList.toggle('active')
