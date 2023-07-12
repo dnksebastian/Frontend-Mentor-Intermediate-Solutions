@@ -525,13 +525,13 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 5rem 2rem 12.5rem 2rem;
+  padding: 5rem 1rem 12.5rem 1rem;
   background-color: rgba(255, 166, 0, 0.247);
 }
 
 #faq-desc {
   text-align: center;
-  padding: 2.2rem 1rem;
+  padding: 2.2rem 2rem;
 }
 
 #faq-desc h2 {
@@ -549,31 +549,59 @@ body {
   flex-direction: column;
   width: 100%;
   background-color: rgba(0, 128, 0, 0.393);
-  padding: 1rem 1rem;
+  padding: 1rem 1.1rem;
 }
 
 .faq-qa {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   width: 100%;
+  padding: 0 1rem;
   background-color: rgba(255, 255, 0, 0.226);
 }
 
 .qa-helper-top {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2.3rem 0rem;
+  padding: 2rem 0rem;
   font-size: 1.17rem;
   font-weight: 500;
 }
 
-.qa-answer {
-  display: none;
+.qa-icon {
+  transition: .3s;
 }
 
+.qa-answer {
+  /* display: none; */
+  background-color: rgba(255, 192, 203, 0.393);
+  text-align: left;
+}
+
+.qa-answer p {
+  height: 0;
+  overflow: hidden;
+  font-size: 1.55rem;
+  line-height: 1.95;
+  background-color: teal;
+}
+
+.faq-qa.faq-active .qa-answer p {
+  margin-bottom: 3.5rem;
+  height: unset;
+  overflow: unset;
+}
+
+.faq-qa.faq-active .qa-icon {
+  transform: rotate(180deg);
+}
+
+
 .faq-btn {
-  margin-top: 2rem;
+  margin-top: 1rem;
   min-width: 12rem;
 }
 
@@ -637,11 +665,6 @@ body {
   color: white;
 }
 
-.ft-logo {
-  filter: brightness(60%) contrast(200%) hue-rotate(360deg) saturate(0%)
-    invert(100%);
-}
-
 #ft-menu {
   margin-top: 2rem;
   display: flex;
@@ -656,7 +679,7 @@ body {
 
 #ft-menu a {
   color: white;
-  font-size: 1.7rem;
+  font-size: 1.65rem;
   text-transform: uppercase;
 }
 
