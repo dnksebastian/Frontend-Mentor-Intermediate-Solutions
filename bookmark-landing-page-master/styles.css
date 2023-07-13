@@ -120,6 +120,11 @@ body {
   grid-template-rows: 10rem min-content min-content 1fr;
 }
 
+body.mob-menu-active {
+  overflow: hidden;
+  position: fixed;
+}
+
 /* Header mobile styles */
 
 #header-wrap {
@@ -598,7 +603,7 @@ body {
 }
 
 .qa-icon {
-  transition: .3s;
+  transition: transform .3s;
 }
 
 .answer-p {
@@ -681,6 +686,11 @@ body {
   font-size: 1.5rem;
   border-radius: .5rem;
   width: 100%;
+  outline: none;
+}
+
+#contact-form input:focus, #contact-form button:focus {
+  box-shadow: 0rem .2rem .2rem .2rem rgba(255, 255, 255, 0.542);
 }
 
 #email {
