@@ -18,6 +18,7 @@
 
   <script src="./tabs.js" defer></script>
   <script src="./accordion.js" defer></script>
+  <script src="./newsletter.js" defer></script>
   <script src="./main.js" defer></script>
 </head>
 
@@ -239,12 +240,13 @@
       <span>35,000+ already joined</span>
       <h2>Stay up-to-date with what we’re doing</h2>
     </div>
-    <form id="contact-form">
+    <form id="contact-form" class="form-not-focused" novalidate>
       <div class="input-helper">
-        <label for="email"></label>
-        <input id="email" type="email" required placeholder="Enter your email address">
+        <label for="email" class="sr-only">Email</label>
+        <input id="email" class="email-input" type="email" required placeholder="Enter your email address">
+        <p id="error-msg"></p>
       </div>
-      <button type="submit">Contact Us</button>
+      <button type="submit" class="submit-btn">Contact Us</button>
     </form>
   </section>
 

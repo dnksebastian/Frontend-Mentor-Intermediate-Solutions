@@ -1,8 +1,8 @@
 // DOM Elements
 const faqEls = document.querySelectorAll(".faq-qa");
-const faqIconEls = document.querySelectorAll(".qa-icon");
-const faqAnswerEls = document.querySelectorAll(".qa-answer");
-const faqAnswerPEls = document.querySelectorAll(".answer-p");
+// const faqIconEls = document.querySelectorAll(".qa-icon");
+// const faqAnswerEls = document.querySelectorAll(".qa-answer");
+// const faqAnswerPEls = document.querySelectorAll(".answer-p");
 
 // Functions
 
