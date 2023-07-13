@@ -8,9 +8,11 @@ const faqAnswerPEls = document.querySelectorAll(".answer-p");
 
 const hideElement = (el) => {
   el.classList.remove("faq-active");
+  el.classList.add("faq-inactive")
 };
 const toggleElement = (el) => {
   el.classList.toggle("faq-active");
+  el.classList.toggle("faq-inactive")
 };
 
 const showChosenAnswer = (e) => {

@@ -575,24 +575,21 @@ body {
   transition: .3s;
 }
 
-.qa-answer {
-  /* display: none; */
-  background-color: rgba(255, 192, 203, 0.393);
-  text-align: left;
-}
-
-.qa-answer p {
-  height: 0;
+.answer-p {
+  max-height: 0;
   overflow: hidden;
-  font-size: 1.55rem;
+  visibility: hidden;
+  text-align: left;
   line-height: 1.95;
-  background-color: teal;
+  font-size: 1.55rem;
+  background-color: rgba(255, 192, 203, 0.393);
+  transition: .3s;
 }
 
-.faq-qa.faq-active .qa-answer p {
-  margin-bottom: 3.5rem;
-  height: unset;
-  overflow: unset;
+.faq-qa.faq-active .answer-p {
+  visibility: visible;
+  max-height: 35rem;
+  padding-bottom: 3.5rem;
 }
 
 .faq-qa.faq-active .qa-icon {
@@ -604,7 +601,6 @@ body {
   margin-top: 1rem;
   min-width: 12rem;
 }
-
 
 /* Newsletter section mobile styles */
 
