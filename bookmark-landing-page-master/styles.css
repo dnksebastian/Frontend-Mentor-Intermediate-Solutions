@@ -88,13 +88,13 @@ body {
   cursor: pointer;
   transition: 0.3s;
   text-align: center;
-  box-shadow: 0rem .3rem 1rem 0rem hsla(var(--custom-soft-blue), 50%);
+  box-shadow: 0rem 0.3rem 1rem 0rem hsla(var(--custom-soft-blue), 50%);
 }
 
 .btn-light {
   background-color: hsl(var(--custom-grayish-blue), 10%);
   color: hsl(var(--custom-very-dark-blue));
-  box-shadow: 0rem .3rem 1rem 0rem hsla(var(--custom-grayish-blue), 50%);
+  box-shadow: 0rem 0.3rem 1rem 0rem hsla(var(--custom-grayish-blue), 50%);
 }
 
 .sr-only {
@@ -257,10 +257,6 @@ body.mob-menu-active {
 
 /* Main section mobile styles */
 
-/* #main-wrap {
-  background-color: rgba(0, 128, 0, 0.278);
-} */
-
 /* Hero section mobile styles */
 
 #hero-wrap {
@@ -271,7 +267,6 @@ body.mob-menu-active {
   gap: 5rem;
   text-align: center;
   padding: 4rem 1rem;
-  /* background-color: rgba(255, 166, 0, 0.305); */
 }
 
 #hero-wrap::after {
@@ -498,7 +493,7 @@ body.mob-menu-active {
   gap: 2rem;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.642);
-  box-shadow: 0rem .5rem 1rem 0rem hsla(var(--custom-soft-blue), 20%);
+  box-shadow: 0rem 0.5rem 1rem 0rem hsla(var(--custom-soft-blue), 20%);
 }
 
 .tile-helper-top {
@@ -531,7 +526,7 @@ body.mob-menu-active {
 }
 
 .tile-helper-bot {
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   width: 100%;
 }
 
@@ -583,7 +578,7 @@ body.mob-menu-active {
   gap: 1rem;
   width: 100%;
   padding: 0 1rem;
-  box-shadow: 0rem .1rem 0rem 0rem hsla(var(--custom-grayish-blue), 50%);
+  box-shadow: 0rem 0.1rem 0rem 0rem hsla(var(--custom-grayish-blue), 50%);
   /* background-color: rgba(255, 255, 0, 0.226); */
 }
 
@@ -603,7 +598,7 @@ body.mob-menu-active {
 }
 
 .qa-icon {
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
 
 .answer-p {
@@ -614,7 +609,7 @@ body.mob-menu-active {
   line-height: 1.95;
   font-size: 1.55rem;
   color: hsl(var(--custom-grayish-blue));
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .faq-qa.faq-active .answer-p {
@@ -625,9 +620,9 @@ body.mob-menu-active {
 
 .faq-qa.faq-active .qa-icon {
   transform: rotate(180deg);
-  filter: invert(41%) sepia(45%) saturate(1296%) hue-rotate(317deg) brightness(110%) contrast(81%);
+  filter: invert(41%) sepia(45%) saturate(1296%) hue-rotate(317deg)
+    brightness(110%) contrast(81%);
 }
-
 
 .faq-btn {
   margin-top: 1rem;
@@ -650,7 +645,7 @@ body.mob-menu-active {
 
 .newsletter-desc span {
   font-size: 1.45rem;
-  letter-spacing: .35rem;
+  letter-spacing: 0.35rem;
   text-transform: uppercase;
 }
 
@@ -672,29 +667,31 @@ body.mob-menu-active {
 .input-helper {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
   width: 100%;
   text-align: left;
   background-color: transparent;
-  border-radius: .5rem;
-  padding: .2rem .2rem .3rem .2rem;
-  transition: .3s;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.2rem 0.3rem 0.2rem;
+  transition: 0.3s;
 }
 
-#contact-form input, #contact-form button {
+#contact-form input,
+#contact-form button {
   padding: 1.4rem 1.7rem;
   font-size: 1.5rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   width: 100%;
   outline: none;
 }
 
-#contact-form input:focus, #contact-form button:focus {
-  box-shadow: 0rem .2rem .2rem .2rem rgba(255, 255, 255, 0.542);
+#contact-form input:focus,
+#contact-form button:focus {
+  box-shadow: 0rem 0.2rem 0.2rem 0.2rem rgba(255, 255, 255, 0.542);
 }
 
 #email {
-  transition: .3s color;
+  transition: 0.3s color;
   background-color: white;
   color: hsl(var(--custom-grayish-blue));
 }
@@ -768,7 +765,146 @@ body.mob-menu-active {
   font-size: 1rem;
 }
 
-
 /* Media queries */
+
 /* Midscreen styles */
+
 /* Desktop styles */
+
+@media screen and (min-width: 800px) {
+  body {
+    grid-template-rows: 12rem min-content min-content 1fr;
+  }
+
+  /* Header desktop styles */
+
+  #header-wrap {
+    /* background-color: rgba(255, 192, 203, 0.425); */
+    padding: 1.7rem max(11%, 3.2rem) 0rem max(12%, 3.2rem);
+  }
+
+  #top-nav {
+    display: block;
+    position: static;
+    padding: 0;
+    transform: unset;
+    flex-direction: row;
+    height: unset;
+    /* background-color: rgba(0, 128, 0, 0.373); */
+    font-size: 1.35rem;
+    letter-spacing: 0.1rem;
+    width: unset;
+    padding: 0.5rem 0.5rem;
+  }
+
+  #top-nav-list {
+    flex-direction: row;
+    padding: 0;
+    width: unset;
+    gap: 1.3rem;
+    /* background-color: rgba(255, 255, 0, 0.463); */
+  }
+
+  .top-nav-li {
+    width: unset;
+    padding: 0rem 0.5rem;
+  }
+
+  .top-nav-li:last-child {
+    padding: 0rem 0.5rem;
+    margin-top: 0;
+  }
+
+  .top-nav-a {
+    padding: 1.2rem 1.5rem;
+    min-width: 7rem;
+    border: unset;
+    margin: unset;
+    color: hsl(var(--custom-very-dark-blue));
+  }
+
+  .top-nav-li:nth-of-type(3) .top-nav-a {
+    border-bottom: unset;
+  }
+
+  .top-nav-li:last-child .top-nav-a {
+    padding: 1.2rem 3.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: hsla(var(--custom-soft-red), 100%);
+    color: white;
+  }
+
+  #top-sm-links {
+    gap: 0;
+    margin-top: 0;
+    display: none;
+  }
+
+  #mobile-menu-control {
+    display: none;
+  }
+
+  /* Main section desktop styles */
+
+  /* Hero section desktop styles */
+
+  #hero-wrap {
+    background-color: rgba(255, 166, 0, 0.305);
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 7rem 5rem;
+    gap: 3rem;
+    text-align: left;
+  }
+
+  #hero-wrap > * {
+    flex: 1;
+    max-width: 85rem;
+  }
+
+  #hero-wrap::after {
+    top: max(21.6rem, 20%);
+    width: 52rem;
+    height: 35.2rem;
+    border-radius: 26rem 0rem 0rem 26rem;
+  }
+
+  #hero-desc-wrap {
+    max-width: 65rem;
+    order: 0;
+    padding: 2.5rem 2rem 4rem 11.5rem;
+    align-items: flex-start;
+    background-color: rgba(0, 128, 0, 0.486);
+  }
+
+  #hero-desc-wrap h1 {
+    font-size: 4.55rem;
+    line-height: 1.2;
+  }
+
+  #hero-desc-wrap p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+  }
+
+  #hero-helper {
+    margin-top: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  #hero-helper > * {
+    flex: 1;
+    min-width: 16.5rem;
+  }
+
+
+  #hero-img-wrap {
+    background-color: rgba(255, 255, 0, 0.452);
+  }
+
+  #hero-img {
+    width: 100%;
+    /* background-color: red; */
+  }
+}
