@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/html-css-js-bookmark-landing-page-aY-Gm40LqT](https://www.frontendmentor.io/solutions/html-css-js-bookmark-landing-page-aY-Gm40LqT)
 - Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/bookmark-landing-page-master/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/bookmark-landing-page-master/)
 
 ## My process
