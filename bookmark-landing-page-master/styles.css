@@ -344,7 +344,6 @@ body.mob-menu-active {
   text-align: center;
   gap: 1rem;
   padding: 7rem 2rem;
-  /* background-color: rgba(111, 252, 111, 0.395); */
 }
 
 #features-wrap::after {
@@ -811,17 +810,15 @@ body.mob-menu-active {
 
 /* Midscreen styles */
 
-/* Desktop styles */
-
 @media screen and (min-width: 800px) {
   body {
-    grid-template-rows: 12rem min-content min-content 1fr;
+    grid-template-rows: 7rem min-content min-content 1fr;
   }
 
-  /* Header desktop styles */
+  /* Header midscreen styles */
 
   #header-wrap {
-    padding: 1.7rem max(11%, 3.2rem) 0rem max(12%, 3.2rem);
+    padding: 1.7rem 4rem 0rem 4rem;
   }
 
   #top-nav {
@@ -892,14 +889,14 @@ body.mob-menu-active {
     display: none;
   }
 
-  /* Main section desktop styles */
+  /* Main section midscreen styles */
 
-  /* Hero section desktop styles */
+  /* Hero section midscreen styles */
 
   #hero-wrap {
     flex-direction: row;
     justify-content: space-between;
-    padding: 7rem 5rem;
+    padding: 5rem 5rem;
     gap: 3rem;
     text-align: left;
   }
@@ -910,26 +907,26 @@ body.mob-menu-active {
   }
 
   #hero-wrap::after {
-    top: max(21.6rem, 20%);
-    width: 52rem;
-    height: 35.2rem;
+    top: max(12rem, 12%);
+    width: 40rem;
+    height: 27rem;
     border-radius: 26rem 0rem 0rem 26rem;
   }
 
   #hero-desc-wrap {
-    max-width: 65rem;
+    max-width: 40rem;
     order: 0;
-    padding: 2.5rem 2rem 4rem 11.5rem;
+    padding: 2.5rem 2rem 4rem 3rem;
     align-items: flex-start;
   }
 
   #hero-desc-wrap h1 {
-    font-size: 4.55rem;
+    font-size: 3rem;
     line-height: 1.2;
   }
 
   #hero-desc-wrap p {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     line-height: 1.6;
   }
 
@@ -943,11 +940,15 @@ body.mob-menu-active {
     min-width: 16.5rem;
   }
 
+  #hero-img-wrap {
+    max-width: 45rem;
+  }
+
   #hero-img {
     width: 100%;
   }
 
-  /* Features section desktop styles */
+  /* Features section midscreen styles */
 
   #features-wrap {
     padding: 2rem 2rem;
@@ -956,34 +957,35 @@ body.mob-menu-active {
 
   #features-wrap::after {
     top: unset;
-    bottom: 0rem;
+    bottom: 3rem;
     left: 0;
-    width: 64rem;
-    height: 35.5rem;
+    width: 32rem;
+    height: 20rem;
     border-radius: 0 20rem 20rem 0;
   }
 
   #features-desc {
     padding: 3rem 2.5rem;
-    max-width: 60rem;
+    max-width: 42rem;
     gap: 2rem;
   }
 
   #features-desc h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   #features-desc p {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   #tabs-control {
-    max-width: 73rem;
+    max-width: 50rem;
     flex-direction: row;
     gap: 0rem;
   }
 
   .tab-btn {
+    font-size: 1.4rem;
     width: calc(100% / 3);
     min-width: 10rem;
     padding: 1.9rem 1rem 3rem 1rem;
@@ -996,8 +998,9 @@ body.mob-menu-active {
   }
 
   #features-tabs {
-    padding: 2rem 5rem 2rem 10rem;
+    padding: 2rem 5rem 2rem 5rem;
     margin-top: 3rem;
+    min-height: unset;
   }
 
   .feature-tab {
@@ -1010,11 +1013,11 @@ body.mob-menu-active {
 
   .feature-tab > * {
     flex: 1;
-    max-width: 60rem;
+    max-width: 50rem;
   }
 
   .tab-img-wrap {
-    max-height: 80rem;
+    max-height: 50rem;
   }
 
   .tab-img {
@@ -1025,18 +1028,18 @@ body.mob-menu-active {
   }
 
   .tab-desc {
-    padding: 3.5rem 4rem 2.5rem 11.5rem;
+    padding: 3.5rem 4rem 2.5rem 3rem;
     text-align: left;
     align-items: flex-start;
     gap: 2.5rem;
   }
 
   .tab-desc h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .tab-desc p {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     line-height: 1.5;
   }
 
@@ -1046,24 +1049,24 @@ body.mob-menu-active {
     display: block;
   }
 
-  /* Browsers links section desktop styles */
+  /* Browsers links section midscreen styles */
 
   #browsers-links {
-    padding: 12rem 2rem 5rem 2rem;
+    padding: 5rem 2rem 5rem 2rem;
   }
 
   #browsers-desc {
     padding: 3.5rem 2rem;
     gap: 2rem;
-    max-width: 60rem;
+    max-width: 42rem;
   }
 
   #browsers-desc h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   #browsers-desc p {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   #browsers-tiles {
@@ -1071,12 +1074,12 @@ body.mob-menu-active {
     justify-content: center;
     min-height: 45rem;
     padding: 1rem 2rem;
-    max-width: 100rem;
+    max-width: 70rem;
     gap: 3rem;
   }
 
   .tile-helper-top {
-    padding: 1rem 2rem 4rem 2rem;
+    padding: 1rem 2rem 2rem 2rem;
   }
 
   .browser-tile:nth-child(1) {
@@ -1091,48 +1094,53 @@ body.mob-menu-active {
     align-self: flex-end;
   }
 
-  /* FAQ section desktop styles */
+  /* FAQ section midscreen styles */
 
   #faq-wrapper {
-    padding: 7rem 1rem 15rem 1rem;
+    padding: 5rem 1rem 5rem 1rem;
     max-width: unset;
   }
 
   #faq-desc {
     padding: 3.2rem 2rem 2rem 2rem;
-    max-width: 55rem;
+    max-width: 42rem;
   }
 
   #faq-desc h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 2.5rem;
   }
 
   #faq-desc p {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     line-height: 1.5;
   }
 
   #faq-list {
-    max-width: 60rem;
+    max-width: 50rem;
     padding: 2.5rem 4.5rem 1.5rem 2rem;
   }
 
   .qa-helper-top {
-    padding: 1.9rem 0rem;
-    font-size: 1.5rem;
+    padding: 1.3rem 0rem;
+    font-size: 1.2rem;
   }
 
-  /* Newsletter section desktop styles */
+  .answer-p {
+    line-height: 1.4;
+    font-size: 1.4rem;
+  }
+
+  /* Newsletter section midscreen styles */
 
   #bottom-newsletter-wrap {
-    padding: 6rem 2rem 4.5rem 2rem;
+    padding: 4rem 2rem 3rem 2rem;
     gap: 1.5rem;
   }
 
   .newsletter-desc {
     padding: 1rem 0rem;
-    max-width: 50rem;
+    max-width: 35rem;
   }
 
   .newsletter-desc span {
@@ -1140,7 +1148,7 @@ body.mob-menu-active {
   }
 
   .newsletter-desc h2 {
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     margin-top: 3.5rem;
   }
 
@@ -1155,14 +1163,14 @@ body.mob-menu-active {
     max-width: 13rem;
   }
 
-  /* Footer desktop styles */
+  /* Footer midscreen styles */
 
   #footer-wrap {
     display: grid;
     grid-template-columns: 25% 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     place-items: center;
-    padding: 1rem max(2rem, 11.5%) 1rem 2rem;
+    padding: 1rem 2rem 1rem 2rem;
   }
 
   #ft-menu {
@@ -1171,7 +1179,7 @@ body.mob-menu-active {
     margin-top: unset;
     justify-self: flex-start;
     flex-direction: row;
-    padding: 0rem 4rem;
+    padding: 0rem 2.5rem;
   }
 
   .ft-menu-li:last-child {
@@ -1182,5 +1190,185 @@ body.mob-menu-active {
     justify-self: flex-end;
     grid-column: 3/4;
     grid-row: 1/3;
+  }
+}
+
+/* Desktop styles */
+
+@media screen and (min-width: 1150px) {
+  body {
+    grid-template-rows: 12rem min-content min-content 1fr;
+  }
+
+  /* Header desktop styles */
+
+  #header-wrap {
+    padding: 1.7rem max(11%, 3.2rem) 0rem max(12%, 3.2rem);
+  }
+
+  /* Main section desktop styles */
+
+  /* Hero section desktop styles */
+
+  #hero-wrap {
+    padding: 7rem 5rem;
+  }
+
+  #hero-wrap::after {
+    top: max(21.6rem, 20%);
+    width: 52rem;
+    height: 35.2rem;
+  }
+
+  #hero-desc-wrap {
+    max-width: 65rem;
+    padding: 2.5rem 2rem 4rem 11.5rem;
+  }
+
+  #hero-desc-wrap h1 {
+    font-size: 4.55rem;
+  }
+
+  #hero-desc-wrap p {
+    font-size: 1.8rem;
+  }
+
+  #hero-img-wrap {
+    max-width: unset;
+  }
+
+  /* Features section desktop styles */
+
+  #features-wrap::after {
+    bottom: 0rem;
+    width: 64rem;
+    height: 35.5rem;
+  }
+
+  #features-desc {
+    max-width: 60rem;
+  }
+
+  #features-desc h2 {
+    font-size: 3rem;
+  }
+
+  #features-desc p {
+    font-size: 1.8rem;
+  }
+
+  #tabs-control {
+    max-width: 73rem;
+  }
+
+  .tab-btn {
+    font-size: 1.8rem;
+  }
+
+  #features-tabs {
+    min-height: 44rem;
+    padding: 2rem 5rem 2rem 10rem;
+  }
+
+  .feature-tab > * {
+    max-width: 60rem;
+  }
+
+  .tab-img-wrap {
+    max-height: 80rem;
+  }
+
+  .tab-desc {
+    padding: 3.5rem 4rem 2.5rem 11.5rem;
+  }
+
+  .tab-desc h2 {
+    font-size: 3rem;
+  }
+
+  .tab-desc p {
+    font-size: 1.8rem;
+  }
+
+  /* Browsers links section desktop styles */
+
+  #browsers-links {
+    padding: 12rem 2rem 5rem 2rem;
+  }
+
+  #browsers-desc {
+    max-width: 60rem;
+  }
+
+  #browsers-desc h2 {
+    font-size: 3rem;
+  }
+
+  #browsers-desc p {
+    font-size: 1.8rem;
+  }
+
+  #browsers-tiles {
+    max-width: 100rem;
+  }
+
+  .tile-helper-top {
+    padding: 1rem 2rem 4rem 2rem;
+  }
+
+  /* FAQ section desktop styles */
+
+  #faq-wrapper {
+    padding: 7rem 1rem 15rem 1rem;
+  }
+
+  #faq-desc {
+    max-width: 55rem;
+  }
+
+  #faq-desc h2 {
+    font-size: 3rem;
+  }
+
+  #faq-desc p {
+    font-size: 1.8rem;
+  }
+
+  #faq-list {
+    max-width: 60rem;
+  }
+
+  .qa-helper-top {
+    padding: 1.9rem 0rem;
+    font-size: 1.5rem;
+  }
+
+  .answer-p {
+    line-height: 1.95;
+    font-size: 1.55rem;
+  }
+
+  /* Newsletter section desktop styles */
+
+  #bottom-newsletter-wrap {
+    padding: 6rem 2rem 4.5rem 2rem;
+  }
+
+  .newsletter-desc {
+    max-width: 50rem;
+  }
+
+  .newsletter-desc h2 {
+    font-size: 3.2rem;
+  }
+
+  /* Footer desktop styles */
+
+  #footer-wrap {
+    padding: 1rem max(2rem, 11.5%) 1rem 2rem;
+  }
+
+  #ft-menu {
+    padding: 0rem 4rem;
   }
 }
