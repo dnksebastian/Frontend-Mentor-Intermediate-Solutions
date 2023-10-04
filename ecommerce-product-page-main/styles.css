@@ -1,0 +1,184 @@
+/* Global, reset & typography */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  cursor: pointer;
+  font: inherit;
+  transition: 0.3s;
+  border: 1px solid grey;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --cs-main-font: "Kumbh Sans", sans-serif;
+
+  /* ## Colors */
+  /* ### Primary */
+
+  --cs-orange: 26, 100%, 55%;
+  --cs-pale-orange: 25, 100%, 94%;
+
+  /* ### Neutral */
+
+  --cs-very-dark-blue: 220, 13%, 13%;
+  --cs-dark-grayish-blue: 219, 9%, 45%;
+  --cs-grayish-blue: 220, 14%, 75%;
+  --cs-light-grayish-blue: 223, 64%, 98%;
+  --cs-white: 0, 0%, 100%;
+  --cs-black: 0, 0%, 0%; /*(with 75% opacity for lightbox background)*/
+}
+
+html {
+  font-family: var(--cs-main-font);
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  min-height: 100vh; /*fallback*/
+}
+
+html,
+body {
+  min-width: 25rem;
+}
+
+/* Utility classes */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+  font-size: 2rem;
+}
+
+
+/* Mobile styles */
+
+body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 7rem 1fr 3rem;
+}
+
+
+/* Header mobile styles */
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem max(7%, 2rem) 2rem max(7%, 2rem);
+}
+
+.top-logo-wrapper {
+    max-width: 15rem;
+    margin-left: .5rem;
+}
+
+#top-nav {
+    display: none;
+}
+
+.top-controls-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+.cart-icon-wrapper {
+    max-width: 2.5rem;
+}
+
+.avatar-wrapper {
+    max-width: 2.5rem;
+}
+
+
+
+
+/* Main section mobile styles */
+main {
+    background-color: rgba(255, 192, 203, 0.322);
+}
+
+.product-view-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-image-wrapper {
+    max-width: 40rem;
+}
+
+#product-thumbnails {
+    display: none;
+}
+
+
+
+/* tbd */
+
+.cart-box-wrapper {
+    display: none;
+}
+
+
+.lightbox-wrapper {
+    display: none;
+}
+
+/* Footer mobile styles */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* Media queries */
+
+/* Mid screen styles */
+
+/* Desktop styles */

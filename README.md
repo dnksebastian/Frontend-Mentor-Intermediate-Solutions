@@ -20,8 +20,8 @@
 | Manage Landing Page | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/manage-landing-page-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/manage-landing-page-master/" target="_blank">Repo</a>  |
 | Job listings with filtering | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/static-job-listings-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/static-job-listings-master/" target="_blank">Repo</a>  |
 | Bookmark Landing Page | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/bookmark-landing-page-master/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/bookmark-landing-page-master/" target="_blank">Repo</a>  |
-| 12 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
-| 13 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
-| 14 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
-| 15 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
+| E-commerce Product Page | <a href="https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/ecommerce-product-page-main/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Intermediate-Solutions/tree/main/ecommerce-product-page-main/" target="_blank">Repo</a>  |
+| 13 | <a href="#/" target="_blank">Live</a>  | <a href="#/" target="_blank">Repo</a>  |
+| 14 | <a href="#/" target="_blank">Live</a>  | <a href="#/" target="_blank">Repo</a>  |
+| 15 | <a href="#/" target="_blank">Live</a>  | <a href="#/" target="_blank">Repo</a>  |
 </div>

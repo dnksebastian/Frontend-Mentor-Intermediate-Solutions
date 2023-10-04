@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="//unpkg.com/alpinejs" defer></script>
+
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./main.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="menu-toggle-wrapper">
+      <img src="./images/icon-menu.svg" alt="Mobile menu">
+    </div>
+    <div class="top-logo-wrapper">
+      <img src="./images/logo.svg" alt="Sneakers logo">
+    </div>
+    <nav id="top-nav">
+      <ul id="top-links-list">
+        <li class="top-li">
+          <a class="top-a" href="#/">Collections</a>
+        </li>
+        <li class="top-li">
+          <a class="top-a" href="#/">Men</a>
+        </li>
+        <li class="top-li">
+          <a class="top-a" href="#/">Women</a>
+        </li>
+        <li class="top-li">
+          <a class="top-a" href="#/">About</a>
+        </li>
+        <li class="top-li">
+          <a class="top-a" href="#/">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="top-controls-wrap">
+      <div class="cart-icon-wrapper">
+        <img src="./images/icon-cart.svg" alt="Shopping cart">
+      </div>
+      <div class="avatar-wrapper">
+        <img src="./images/image-avatar.png" alt="Man wearing sunglasses">
+      </div>
+    </div>
+    <div class="cart-box-wrapper">
+      <p>cart...</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="product-view-wrapper">
+      <div class="product-image-outer">
+        <div class="product-image-wrapper">
+          <img src="./images/image-product-1.jpg" alt="Shoes on orange background">
+        </div>
+        <ul id="product-thumbnails">
+          <li class="product-thumbnail">thumbnail...</li>
+        </ul>
+      </div>
+      <div class="product-desc-wrapper">
+        <p class="company-label">Sneaker Company</p>
+        <h1 class="product-name">Fall Limited Edition Sneakers</h1>
+        <p class="product-desc">These low-profile sneakers are your perfect casual wear companion. Featuring a
+          durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+        <div class="product-price-wrapper">
+          <div class="price-helper">
+            <span class="product-price">$125.00</span>
+            <span class="discount-label">50%</span>
+          </div>
+          <p class="original-price">$250.00</p>
+        </div>
+        <div class="product-controls-wrapper">
+          <div class="product-amount-helper">
+            <button id="decrease-product-btn">-</button>
+            <p class="amount-display">0</p>
+            <button id="increase-product-btn">+</button>
+          </div>
+          <button id="add-cart-btn">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="lightbox-wrapper">
+    lightbox...
+  </div>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#/">Sebastian</a>.
+    </p>
+  </footer>
+
+</body>
+
+</html>
