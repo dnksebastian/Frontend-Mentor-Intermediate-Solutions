@@ -65,7 +65,11 @@
     <div class="product-view-wrapper">
       <div class="product-image-outer">
         <div class="product-image-wrapper">
-          <img src="./images/image-product-1.jpg" alt="Shoes on orange background">
+          <img class="product-img-large" src="./images/image-product-1.jpg" alt="Shoes on orange background">
+        </div>
+        <div class="mobile-slides-controls">
+          <button class="btn-prev btn-control">Previous slide</button>
+          <button class="btn-next btn-control">Next slide</button>
         </div>
         <ul id="product-thumbnails">
           <li class="product-thumbnail">thumbnail...</li>
@@ -85,9 +89,9 @@
         </div>
         <div class="product-controls-wrapper">
           <div class="product-amount-helper">
-            <button id="decrease-product-btn">-</button>
+            <button class="product-control-btn" id="decrease-product-btn">Remove item</button>
             <p class="amount-display">0</p>
-            <button id="increase-product-btn">+</button>
+            <button class="product-control-btn" id="increase-product-btn">Add item</button>
           </div>
           <button id="add-cart-btn">Add to cart</button>
         </div>
