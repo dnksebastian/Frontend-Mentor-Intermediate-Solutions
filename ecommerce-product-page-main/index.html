@@ -14,22 +14,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-  <script src="//unpkg.com/alpinejs" defer></script>
-
+  
   <link rel="stylesheet" href="./styles.css">
   <script src="./main.js" defer></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body>
 
-  <header>
-    <div class="menu-toggle-wrapper">
-      <img src="./images/icon-menu.svg" alt="Mobile menu">
+  <header x-data="mobmenu">
+    <div class="menu-toggle-wrapper" x-on:click="toggleMenu">
+      <img class="icon-open" src="./images/icon-menu.svg" alt="Mobile menu open" x-show="showOpen" x-transition.opacity.duration.300ms>
+      <img class="icon-close" src="./images/icon-close.svg" alt="Mobile menu close" x-show="showClose" x-transition.opacity.duration.300ms>
     </div>
     <div class="top-logo-wrapper">
       <img src="./images/logo.svg" alt="Sneakers logo">
     </div>
-    <nav id="top-nav">
+    <nav id="top-nav" x-show="open" x-cloak x-transition.duration.300ms>
       <ul id="top-links-list">
         <li class="top-li">
           <a class="top-a" href="#/">Collections</a>
@@ -49,16 +51,20 @@
       </ul>
     </nav>
     <div class="top-controls-wrap">
-      <div class="cart-icon-wrapper">
+      <div class="cart-icon-wrapper" x-on:click="toggleCart">
         <img src="./images/icon-cart.svg" alt="Shopping cart">
       </div>
       <div class="avatar-wrapper">
         <img src="./images/image-avatar.png" alt="Man wearing sunglasses">
       </div>
     </div>
-    <div class="cart-box-wrapper">
-      <p>cart...</p>
+    <div class="cart-box-wrapper" x-show="showCart" x-cloak x-transition.important.opacity.duration.300ms>
+      <div class="cart-top"><p class="cart-label">Cart</p></div>
+      <div class="cart-bottom">
+        <p class="empty-label">Your cart is empty.</p>
+      </div>
     </div>
+    <div class="backdrop" x-show="open" x-cloak x-transition.opacity.duration.300ms x-on:click="toggleMenu"></div>
   </header>
 
   <main>
