@@ -21,9 +21,9 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body>
+<body x-data="controls">
 
-  <header x-data="mobmenu">
+  <header>
     <div class="menu-toggle-wrapper" x-on:click="toggleMenu">
       <img class="icon-open" src="./images/icon-menu.svg" alt="Mobile menu open" x-show="showOpen" x-transition.opacity.duration.300ms>
       <img class="icon-close" src="./images/icon-close.svg" alt="Mobile menu close" x-show="showClose" x-transition.opacity.duration.300ms>
@@ -31,7 +31,7 @@
     <div class="top-logo-wrapper">
       <img src="./images/logo.svg" alt="Sneakers logo">
     </div>
-    <nav id="top-nav" x-show="open" x-cloak x-transition.duration.300ms>
+    <nav id="top-nav" x-show="openMenu" x-cloak x-transition.duration.300ms>
       <ul id="top-links-list">
         <li class="top-li">
           <a class="top-a" href="#/">Collections</a>
@@ -52,7 +52,10 @@
     </nav>
     <div class="top-controls-wrap">
       <div class="cart-icon-wrapper" x-on:click="toggleCart">
-        <img src="./images/icon-cart.svg" alt="Shopping cart">
+        <img class="cart-icon" src="./images/icon-cart.svg" alt="Shopping cart">
+        <template x-if="currentCartItems">
+          <span class="cart-items-hl" x-text="currentCartItems"></span>
+        </template>
       </div>
       <div class="avatar-wrapper">
         <img src="./images/image-avatar.png" alt="Man wearing sunglasses">
@@ -61,10 +64,33 @@
     <div class="cart-box-wrapper" x-show="showCart" x-cloak x-transition.important.opacity.duration.300ms>
       <div class="cart-top"><p class="cart-label">Cart</p></div>
       <div class="cart-bottom">
-        <p class="empty-label">Your cart is empty.</p>
+        <template x-if="!currentCartItems">
+          <p class="empty-label">Your cart is empty.</p>
+        </template>
+        <template x-if="currentCartItems > 0">
+          <div class="cart-filled-bot">
+            <div class="cart-item-helper">
+              <div class="cart-item-img-wrap">
+                <img class="cart-item-img" src="./images/image-product-1-thumbnail.jpg" alt="Shoes">
+              </div>
+              <div class="cart-product-inner-helper">
+                <p class="cart-product-name">Fall Limited Edition Sneakers</p>
+                <p class="cart-product-prices-outer">
+                  <span class="cart-price-label">$125.00 x</span>
+                  <span class="current-cart-item-num" x-text="currentCartItems"></span>
+                  <span class="cart-final-price" x-text="finalCartPrice"></span>
+                </p>
+              </div>
+              <div class="remove-cart-icon-wrap" x-on:click="clearCart">
+                <img src="./images/icon-delete.svg" alt="Trash can" class="remove-product-cart-icon">
+              </div>
+            </div>
+            <button id="btn-checkout">Checkout</button>
+          </div>
+        </template>
       </div>
     </div>
-    <div class="backdrop" x-show="open" x-cloak x-transition.opacity.duration.300ms x-on:click="toggleMenu"></div>
+    <div class="backdrop" x-show="openMenu" x-cloak x-transition.opacity.duration.300ms x-on:click="toggleMenu"></div>
   </header>
 
   <main>
@@ -95,11 +121,11 @@
         </div>
         <div class="product-controls-wrapper">
           <div class="product-amount-helper">
-            <button class="product-control-btn" id="decrease-product-btn">Remove item</button>
-            <p class="amount-display">0</p>
-            <button class="product-control-btn" id="increase-product-btn">Add item</button>
+            <button class="product-control-btn" id="decrease-product-btn" x-on:click="removeItemToAdd">Remove item</button>
+            <p class="amount-display" x-text="cartItemsToAdd"></p>
+            <button class="product-control-btn" id="increase-product-btn" x-on:click="addItemToAdd">Add item</button>
           </div>
-          <button id="add-cart-btn">Add to cart</button>
+          <button id="add-cart-btn" x-on:click="updateCart">Add to cart</button>
         </div>
       </div>
     </div>
