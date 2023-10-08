@@ -24,14 +24,14 @@
 <body x-data="controls">
 
   <header>
-    <div class="menu-toggle-wrapper" x-on:click="toggleMenu">
-      <img class="icon-open" src="./images/icon-menu.svg" alt="Mobile menu open" x-show="showOpen" x-transition.opacity.duration.300ms>
-      <img class="icon-close" src="./images/icon-close.svg" alt="Mobile menu close" x-show="showClose" x-transition.opacity.duration.300ms>
+    <div class="menu-toggle-wrapper">
+      <img class="icon-open icon-visible" src="./images/icon-menu.svg" alt="Mobile menu open">
+      <img class="icon-close icon-hidden" src="./images/icon-close.svg" alt="Mobile menu close">
     </div>
     <div class="top-logo-wrapper">
       <img src="./images/logo.svg" alt="Sneakers logo">
     </div>
-    <nav id="top-nav" x-show="openMenu" x-cloak x-transition.duration.300ms>
+    <nav id="top-nav" class="nav-menu">
       <ul id="top-links-list">
         <li class="top-li">
           <a class="top-a" href="#/">Collections</a>
@@ -85,12 +85,12 @@
                 <img src="./images/icon-delete.svg" alt="Trash can" class="remove-product-cart-icon">
               </div>
             </div>
-            <button id="btn-checkout">Checkout</button>
+            <button id="btn-checkout" x-on:click="checkout">Checkout</button>
           </div>
         </template>
       </div>
     </div>
-    <div class="backdrop" x-show="openMenu" x-cloak x-transition.opacity.duration.300ms x-on:click="toggleMenu"></div>
+    <div class="backdrop backdrop-hidden"></div>
   </header>
 
   <main>
