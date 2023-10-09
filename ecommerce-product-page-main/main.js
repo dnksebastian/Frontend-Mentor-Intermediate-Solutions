@@ -1,6 +1,5 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('controls', () => ({
-        currentSlide: 0,
         showCart: false,
         cartItemsToAdd: 0,
         currentCartItems: 0,
@@ -67,3 +66,120 @@ const hideMenu = () => {
 
 toggleMenuEl.addEventListener('click', toggleMobileMenu);
 menuBackdropEl.addEventListener('click', hideMenu);
+
+// Product image & lightbox controls
+// const productThumbnailsEls = document.querySelectorAll('.thumbnail-wrap');
+// const productThumbnailRadios = document.querySelectorAll('.thumbnail-radio');
+
+const largeSlidesEls = document.querySelectorAll('.product-image-wrapper');
+const largeImgEl = document.querySelector('.product-large-img-wrap');
+
+const slideThumbnailsWrapEl = document.getElementById('product-thumbnails-wrap');
+
+const slideThumbnailsBtns = document.querySelectorAll('.product-thumbnail-btn');
+
+const prevSlideBtn = document.getElementById('btn-slideprev');
+const nextSlideBtn = document.getElementById('btn-slidenext');
+
+// console.log(productThumbnailsEls);
+// console.log(productThumbnailRadios);
+// console.log(largeImgEl);
+// console.log(largeSlidesEls);
+
+let currentSlide = 1
+
+const prevSlide = () => {
+    if (currentSlide <= 1) {
+        currentSlide = 4
+    } else {
+        currentSlide--
+    }
+
+    displaySlide(currentSlide);
+
+    console.log(currentSlide);
+};
+
+const nextSlide = () => {
+    if (currentSlide >= 4) {
+        currentSlide = 1
+    } else {
+        currentSlide++
+    }
+
+    displaySlide(currentSlide);
+
+    console.log(currentSlide);
+};
+
+const setSlide = (slide) => {
+    currentSlide = slide
+};
+
+const displaySlide = (slideNum) => {
+
+    slideThumbnailsBtns.forEach(btn => {
+        if(+btn.dataset.slideval === +slideNum) {
+            btn.click()
+            btn.focus()
+            btn.setAttribute('aria-selected', true)
+        } else {
+            btn.setAttribute('aria-selected', false)
+        }
+    })
+
+    // productThumbnailRadios.forEach(radio => {
+    //     if(radio.value === slideNum) {
+    //         radio.checked = true
+    //     } else {
+    //         radio.checked = false
+    //     }
+    // })
+
+    largeSlidesEls.forEach(slideEl => {
+        if (+slideEl.dataset.slide === +slideNum) {
+            slideEl.hidden = false;
+        } else {
+            slideEl.hidden = true;
+        }
+    })
+
+};
+
+slideThumbnailsBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const chosenSlide = e.target.dataset.slideval;
+        displaySlide(chosenSlide)
+    })
+})
+
+prevSlideBtn.addEventListener('click', prevSlide)
+nextSlideBtn.addEventListener('click', nextSlide)
+
+// productThumbnailRadios.forEach(radioEl => {
+//     radioEl.addEventListener('change', (e) => {
+//         const slideToSet = e.target.value;
+//         setSlide(slideToSet)
+//     })
+// })
+
+
+// productThumbnailRadios.forEach(radioEl => {
+//     radioEl.addEventListener('change', () => {
+//         displaySlide(currentSlide)
+//     })
+// })
+
+
+slideThumbnailsWrapEl.addEventListener('keydown', (e) => {
+    const keydownLeft = 'ArrowLeft';
+    const keydownRight = 'ArrowRight';
+    
+    if (e.code === keydownRight) {
+        nextSlide()
+    }
+    
+    if (e.code === keydownLeft) {
+        prevSlide()    
+    }
+})

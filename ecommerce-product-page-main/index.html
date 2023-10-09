@@ -96,16 +96,63 @@
   <main>
     <div class="product-view-wrapper">
       <div class="product-image-outer">
-        <div class="product-image-wrapper">
-          <img class="product-img-large" src="./images/image-product-1.jpg" alt="Shoes on orange background">
+        <div class="product-large-img-wrap" role="tablist">
+          <div class="product-image-wrapper" data-slide="1" id="img-large-1" role="tabpanel">
+            <img class="product-img-large" src="./images/image-product-1.jpg" alt="Shoes on orange background">
+          </div>
+          <div hidden class="product-image-wrapper" data-slide="2" id="img-large-2" role="tabpanel">
+            <img class="product-img-large" src="./images/image-product-2.jpg" alt="Shoes on orange background">
+          </div>
+          <div hidden class="product-image-wrapper" data-slide="3" id="img-large-3" role="tabpanel">
+            <img class="product-img-large" src="./images/image-product-3.jpg" alt="Shoes on orange background">
+          </div>
+          <div hidden class="product-image-wrapper" data-slide="4" id="img-large-4" role="tabpanel">
+            <img class="product-img-large" src="./images/image-product-4.jpg" alt="Shoes on orange background">
+          </div>
         </div>
         <div class="mobile-slides-controls">
-          <button class="btn-prev btn-control">Previous slide</button>
-          <button class="btn-next btn-control">Next slide</button>
+          <button id="btn-slideprev" class="btn-prev btn-control">Previous slide</button>
+          <button id="btn-slidenext" class="btn-next btn-control">Next slide</button>
         </div>
-        <ul id="product-thumbnails">
-          <li class="product-thumbnail">thumbnail...</li>
-        </ul>
+
+        <div id="product-thumbnails-wrap" role="tablist" aria-label="product thumbnails">
+          <button aria-selected="true" aria-controls="img-large-1" data-slideval="1" role="tab" class="product-thumbnail-btn">1</button>
+          <button aria-selected="false" aria-controls="img-large-2" data-slideval="2" role="tab" class="product-thumbnail-btn">2</button>
+          <button aria-selected="false" aria-controls="img-large-3" data-slideval="3" role="tab" class="product-thumbnail-btn">3</button>
+          <button aria-selected="false" aria-controls="img-large-4" data-slideval="4" role="tab" class="product-thumbnail-btn">4</button>
+        </div>
+
+        <!-- <div id="product-thumbnails-wrap" role="tablist">
+          <label class="thumbnail-wrap" for="thumbnail-tab1">
+            <div class="thumbnail-img-wrap">
+              <img src="./images/image-product-1-thumbnail.jpg" alt="Shoes">
+            </div>
+            <input type="radio" name="thumbnail-tabs" id="thumbnail-tab1" class="thumbnail-radio"
+            value="1">
+          </label>
+          <label class="thumbnail-wrap" for="thumbnail-tab2">
+            <div class="thumbnail-img-wrap">
+              <img src="./images/image-product-2-thumbnail.jpg" alt="Shoes">
+            </div>
+            <input type="radio" name="thumbnail-tabs" id="thumbnail-tab2" class="thumbnail-radio"
+            value="2">
+          </label>
+          <label class="thumbnail-wrap" for="thumbnail-tab3">
+            <div class="thumbnail-img-wrap">
+              <img src="./images/image-product-3-thumbnail.jpg" alt="Shoes">
+            </div>
+            <input type="radio" name="thumbnail-tabs" id="thumbnail-tab3" class="thumbnail-radio"
+            value="3">
+          </label>
+          <label class="thumbnail-wrap" for="thumbnail-tab4">
+            <div class="thumbnail-img-wrap">
+              <img src="./images/image-product-4-thumbnail.jpg" alt="Shoes">
+            </div>
+            <input type="radio" name="thumbnail-tabs" id="thumbnail-tab4" class="thumbnail-radio"
+            value="4">
+          </label>
+        </div> -->
+
       </div>
       <div class="product-desc-wrapper">
         <p class="company-label">Sneaker Company</p>
