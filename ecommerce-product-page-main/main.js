@@ -75,6 +75,7 @@ const slideThumbnailsWrapEl = document.getElementById('product-thumbnails-wrap')
 
 const slideThumbnailsBtns = document.querySelectorAll('.product-thumbnail-btn');
 
+
 const prevSlideBtn = document.getElementById('btn-slideprev');
 const nextSlideBtn = document.getElementById('btn-slidenext');
 
@@ -175,7 +176,7 @@ slideThumbnailsBtns.forEach(btn => {
 
 lightboxThumbnailsBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        const chosenSlide = e.target.dataset.slideval;
+        const chosenSlide = e.target.dataset.lightboxslide;
         displaySlide(chosenSlide)
     })
 })
