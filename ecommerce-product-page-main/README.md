@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/html-css-alpinejs-ecommerce-product-page-pnkfT1jzlN](https://www.frontendmentor.io/solutions/html-css-alpinejs-ecommerce-product-page-pnkfT1jzlN)
 - Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/ecommerce-product-page-main/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/ecommerce-product-page-main/)
 
 ## My process
