@@ -67,10 +67,7 @@ const hideMenu = () => {
 toggleMenuEl.addEventListener('click', toggleMobileMenu);
 menuBackdropEl.addEventListener('click', hideMenu);
 
-// Product image & lightbox controls
-// const productThumbnailsEls = document.querySelectorAll('.thumbnail-wrap');
-// const productThumbnailRadios = document.querySelectorAll('.thumbnail-radio');
-
+// Product image  DOM & controls
 const largeSlidesEls = document.querySelectorAll('.product-image-wrapper');
 const largeImgEl = document.querySelector('.product-large-img-wrap');
 
@@ -81,10 +78,24 @@ const slideThumbnailsBtns = document.querySelectorAll('.product-thumbnail-btn');
 const prevSlideBtn = document.getElementById('btn-slideprev');
 const nextSlideBtn = document.getElementById('btn-slidenext');
 
-// console.log(productThumbnailsEls);
-// console.log(productThumbnailRadios);
-// console.log(largeImgEl);
-// console.log(largeSlidesEls);
+
+// Lightbox DOM & controls
+
+const lightboxEl = document.querySelector('.lightbox-wrapper');
+
+const lightboxPrevBtn = document.getElementById('btn-lb-slideprev');
+const lightboxNextBtn = document.getElementById('btn-lb-slidenext');
+
+const lightboxThumbnailsWrapEl = document.querySelector('.lightbox-thumbnails-wrapper');
+const lightboxThumbnailsBtns = document.querySelectorAll('.lightbox-thumbnail-btn');
+
+const lightboxSlides = document.querySelectorAll('.lightbox-large-img-wrap');
+
+const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+
+
+// Functions
+
 
 let currentSlide = 1
 
@@ -97,7 +108,6 @@ const prevSlide = () => {
 
     displaySlide(currentSlide);
 
-    console.log(currentSlide);
 };
 
 const nextSlide = () => {
@@ -109,7 +119,6 @@ const nextSlide = () => {
 
     displaySlide(currentSlide);
 
-    console.log(currentSlide);
 };
 
 const setSlide = (slide) => {
@@ -128,19 +137,30 @@ const displaySlide = (slideNum) => {
         }
     })
 
-    // productThumbnailRadios.forEach(radio => {
-    //     if(radio.value === slideNum) {
-    //         radio.checked = true
-    //     } else {
-    //         radio.checked = false
-    //     }
-    // })
+    lightboxThumbnailsBtns.forEach(lbtn => {
+        if(+lbtn.dataset.lightboxslide === +slideNum) {
+            lbtn.click()
+            lbtn.focus()
+            lbtn.setAttribute('aria-selected', true)
+        } else {
+            lbtn.setAttribute('aria-selected', false)
+        }
+    })
+
 
     largeSlidesEls.forEach(slideEl => {
         if (+slideEl.dataset.slide === +slideNum) {
             slideEl.hidden = false;
         } else {
             slideEl.hidden = true;
+        }
+    })
+
+    lightboxSlides.forEach(lbSlide => {
+        if (+lbSlide.dataset.lbslide === +slideNum) {
+            lbSlide.hidden = false;
+        } else {
+            lbSlide.hidden = true;
         }
     })
 
@@ -153,23 +173,18 @@ slideThumbnailsBtns.forEach(btn => {
     })
 })
 
-prevSlideBtn.addEventListener('click', prevSlide)
-nextSlideBtn.addEventListener('click', nextSlide)
+lightboxThumbnailsBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const chosenSlide = e.target.dataset.slideval;
+        displaySlide(chosenSlide)
+    })
+})
 
-// productThumbnailRadios.forEach(radioEl => {
-//     radioEl.addEventListener('change', (e) => {
-//         const slideToSet = e.target.value;
-//         setSlide(slideToSet)
-//     })
-// })
+prevSlideBtn.addEventListener('click', prevSlide);
+nextSlideBtn.addEventListener('click', nextSlide);
 
-
-// productThumbnailRadios.forEach(radioEl => {
-//     radioEl.addEventListener('change', () => {
-//         displaySlide(currentSlide)
-//     })
-// })
-
+lightboxPrevBtn.addEventListener('click', prevSlide);
+lightboxNextBtn.addEventListener('click', nextSlide);
 
 slideThumbnailsWrapEl.addEventListener('keydown', (e) => {
     const keydownLeft = 'ArrowLeft';
@@ -183,3 +198,25 @@ slideThumbnailsWrapEl.addEventListener('keydown', (e) => {
         prevSlide()    
     }
 })
+
+lightboxThumbnailsWrapEl.addEventListener('keydown', (e) => {
+    const keydownLeft = 'ArrowLeft';
+    const keydownRight = 'ArrowRight';
+    
+    if (e.code === keydownRight) {
+        nextSlide()
+    }
+    
+    if (e.code === keydownLeft) {
+        prevSlide()    
+    }
+})
+
+
+lightboxCloseBtn.addEventListener('click', () => {
+    lightboxEl.classList.remove('lightbox-open');
+});
+
+largeImgEl.addEventListener('click', () => {
+    lightboxEl.classList.add('lightbox-open')
+});

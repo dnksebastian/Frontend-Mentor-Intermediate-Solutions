@@ -122,37 +122,6 @@
           <button aria-selected="false" aria-controls="img-large-4" data-slideval="4" role="tab" class="product-thumbnail-btn">4</button>
         </div>
 
-        <!-- <div id="product-thumbnails-wrap" role="tablist">
-          <label class="thumbnail-wrap" for="thumbnail-tab1">
-            <div class="thumbnail-img-wrap">
-              <img src="./images/image-product-1-thumbnail.jpg" alt="Shoes">
-            </div>
-            <input type="radio" name="thumbnail-tabs" id="thumbnail-tab1" class="thumbnail-radio"
-            value="1">
-          </label>
-          <label class="thumbnail-wrap" for="thumbnail-tab2">
-            <div class="thumbnail-img-wrap">
-              <img src="./images/image-product-2-thumbnail.jpg" alt="Shoes">
-            </div>
-            <input type="radio" name="thumbnail-tabs" id="thumbnail-tab2" class="thumbnail-radio"
-            value="2">
-          </label>
-          <label class="thumbnail-wrap" for="thumbnail-tab3">
-            <div class="thumbnail-img-wrap">
-              <img src="./images/image-product-3-thumbnail.jpg" alt="Shoes">
-            </div>
-            <input type="radio" name="thumbnail-tabs" id="thumbnail-tab3" class="thumbnail-radio"
-            value="3">
-          </label>
-          <label class="thumbnail-wrap" for="thumbnail-tab4">
-            <div class="thumbnail-img-wrap">
-              <img src="./images/image-product-4-thumbnail.jpg" alt="Shoes">
-            </div>
-            <input type="radio" name="thumbnail-tabs" id="thumbnail-tab4" class="thumbnail-radio"
-            value="4">
-          </label>
-        </div> -->
-
       </div>
       <div class="product-desc-wrapper">
         <p class="company-label">Sneaker Company</p>
@@ -179,7 +148,35 @@
   </main>
 
   <div class="lightbox-wrapper">
-    lightbox...
+    <div class="lightbox-outer">
+      <div class="lightbox-helper">
+        <div class="lightbox-large-outer">
+          <div class="lightbox-large-img-wrap" data-lbslide="1" id="lb-lg1">
+            <img src="./images/image-product-1.jpg" alt="Shoes" class="lightbox-large-img">
+          </div>
+          <div hidden class="lightbox-large-img-wrap" data-lbslide="2" id="lb-lg2">
+            <img src="./images/image-product-2.jpg" alt="Shoes" class="lightbox-large-img">
+          </div>
+          <div hidden class="lightbox-large-img-wrap" data-lbslide="3" id="lb-lg3">
+            <img src="./images/image-product-3.jpg" alt="Shoes" class="lightbox-large-img">
+          </div>
+          <div hidden class="lightbox-large-img-wrap" data-lbslide="4" id="lb-lg4">
+            <img src="./images/image-product-4.jpg" alt="Shoes" class="lightbox-large-img">
+          </div>
+        </div>
+        <div class="lightbox-controls">
+          <button id="btn-lb-slideprev" class="btn-lb-control">Previous slide</button>
+          <button id="btn-lb-slidenext" class="btn-lb-control">Next slide</button>
+        </div>
+      </div>
+      <div class="lightbox-thumbnails-wrapper">
+        <button aria-selected="true" class="lightbox-thumbnail-btn" data-lightboxslide="1">1</button>
+        <button aria-selected="false" class="lightbox-thumbnail-btn" data-lightboxslide="2">2</button>
+        <button aria-selected="false" class="lightbox-thumbnail-btn" data-lightboxslide="3">3</button>
+        <button aria-selected="false" class="lightbox-thumbnail-btn" data-lightboxslide="4">4</button>
+      </div>
+      <button id="lightbox-close-btn">Close</button>
+    </div>
   </div>
 
   <footer>
