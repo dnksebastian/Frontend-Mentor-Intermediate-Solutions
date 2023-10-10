@@ -1010,12 +1010,62 @@ box-shadow: inset 0rem 0rem 0rem .3rem hsl(var(--cs-orange));
   background-size: 60%;
   background-position: center;
   filter: brightness(0) saturate(100%) invert(100%);
+  transition: 0s;
 }
 
 #lightbox-close-btn:hover,
 #lightbox-close-btn:focus-visible {
   filter: brightness(0) saturate(100%) invert(59%) sepia(14%) saturate(5857%) hue-rotate(345deg);
 }
+
+}
+
+@media screen and (min-width: 875px) and (max-height: 899px) and (max-width: 1275px) {
+
+  body {
+    grid-template-rows: 5rem 1fr 2rem;
+  }
+
+  .cart-box-wrapper {
+    right: max(5%, 2rem);
+  }
+
+  .product-large-img-wrap {
+    max-width: 26.5rem;
+  }
+
+  #product-thumbnails-wrap {
+    margin-top: 1.5rem;
+  }
+
+  .product-desc-wrapper {
+    padding: 1rem 1.5rem 2rem 1.5rem;
+  }
+
+  .company-label {
+    font-size: 1.25rem;
+  }
+
+  .product-name {
+    font-size: 2.6rem;
+  }
+
+  .product-desc {
+    font-size: 1.3rem;
+  }
+
+  .lightbox-outer {
+    margin-top: 7rem;
+    max-width: 26.5rem;
+    gap: 1rem;
+  }
+
+  .lightbox-thumbnail-btn {
+    min-width: 4rem;
+    min-height: 4rem;
+  }
+
+
 }
 
 
