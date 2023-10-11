@@ -1,0 +1,191 @@
+/* Global, reset & typography */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  cursor: pointer;
+  font: inherit;
+  transition: 0.3s;
+  border: 1px solid grey;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --cs-main-font: "Josefin Sans", sans-serif;
+
+  /* ## Colors */
+
+  /* ### Primary */
+
+  --cs-bright-blue: hsl(220, 98%, 61%);
+  --cs--check-background: linear-gradient hsl(192, 100%, 67%) to
+    hsl(280, 87%, 65%);
+
+/* ### Neutral */
+/* ### Light Theme */
+
+--cs-very-light-gray-lm: hsl(0, 0%, 98%);
+--cs-very-light-grayish-blue-lm: hsl(236, 33%, 92%);
+--cs-light-grayish-blue-lm: hsl(233, 11%, 84%);
+--cs-dark-grayish-blue-lm: hsl(236, 9%, 61%);
+--cs-very-dark-grayish-blue-lm: hsl(235, 19%, 35%);
+
+/* ### Neutral */
+/* ### Dark Theme */
+
+--cs-very-dark-blue-dm: hsl(235, 21%, 11%);
+--cs-very-dark-desaturated-blue-dm: hsl(235, 24%, 19%);
+--cs-light-grayish-blue-dm1: hsl(234, 39%, 85%);
+--cs-light-grayish-blue-dm2: hsl(236, 33%, 92%); /* hover */
+--cs-dark-grayish-blue-dm: hsl(234, 11%, 52%);
+--cs-very-dark-grayish-blue-dm1: hsl(233, 14%, 35%);
+--cs-very-dark-grayish-blue-dm2: hsl(237, 14%, 26%);
+}
+
+html {
+  font-family: var(--cs-main-font);
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  min-height: 100vh; /*fallback*/
+  overflow-x: hidden;
+}
+
+html,
+body {
+  min-width: 25rem;
+}
+
+/* Dark & Light theme */
+
+body.light-theme {
+  --cs-background: var(--cs-very-light-gray-lm);
+  --cs-elements: var(--cs-very-light-grayish-blue-lm);
+  --cs-text-base: var(--cs-dark-grayish-blue-lm);
+  --cs-text-secondary: var(--cs-very-dark-grayish-blue-lm);
+  --cs-text-completed: var(--cs-light-grayish-blue-lm);
+
+  --cs-background-img-mobile: url(./images/bg-mobile-light.jpg);
+  --cs-background-img-desktop: url(./images/bg-desktop-light.jpg);
+}
+
+body.dark-theme {
+--cs-background: var(--cs-very-dark-blue-dm);
+--cs-elements: var(--cs-very-dark-desaturated-blue-dm);
+--cs-text-base: var(--cs-dark-grayish-blue-dm);
+--cs-text-secondary: var(--cs-very-dark-grayish-blue-dm1);
+--cs-text-completed: var(--cs-light-grayish-blue-dm1);
+
+--cs-background-img-mobile: url(./images/bg-mobile-dark.jpg);
+--cs-background-img-desktop: url(./images/bg-desktop-dark.jpg);
+}
+
+/* Utility classes */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+
+/* Mobile styles */
+
+body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3rem;
+    justify-items: center;
+
+    background-color: var(--cs-background);
+    background-image: var(--cs-background-img-mobile);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 20rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem .5rem;
+    background-color: rgba(255, 192, 203, 0.367);
+    width: 100%;
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.todo-outer-wrap {
+    margin-top: max(5%, 2rem);
+    width: 95%;
+    max-width: 45rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: rgba(0, 128, 0, 0.589);
+}
+
+.todo-top-box {
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    text-transform: uppercase;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: .8rem;
+}
+
+.darkmode-toggle-wrap {
+    cursor: pointer;
+    max-width: 1.75rem;
+    transform: translate(0, -.2rem);
+}
+
+
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 128, 128, 0.336);
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
