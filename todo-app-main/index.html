@@ -18,7 +18,7 @@
 
   <script src="./main.js" defer></script>
 
-  <script src="//unpkg.com/alpinejs" defer></script>
+  <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
 </head>
 
 <body class="light-theme">
@@ -37,33 +37,57 @@
   
       <div class="todo-main-box">
         <div class="todo-top-helper">
-          todo input...
+          <div class="el-wrapper">
+            <label class="el-status-checkbox">
+              <input type="checkbox">
+            </label>
+            <input id="add-todo" type="text" class="basic-element" placeholder="Create a new todo...">
+          </div>
         </div>
   
         <div class="todo-bot-helper">
-          <ul class="todo-list">
-            todos...
+          <ul class="todo-list" id="todos-container">
+            <!-- Todos added dynamically -->
           </ul>
           <div class="todo-controls-box">
             <p class="item-counter">
-              <!-- Add dynamic number --> items left
+              <!-- Add dynamic number --> 5 items left
             </p>
-            <div class="controls-helper">
-              All
-              Active
-              Completed
-            
-              Clear Completed
+            <div class="basic-element todo-filters">
+              <label for="filter-all">
+                <span>All</span>
+                <input type="radio" id="filter-all">
+              </label>
+              <label for="filter-active">
+                <span>Active</span>
+                <input type="radio" id="filter-active">
+              </label>
+              <label for="filter-completed">
+                <span>Completed</span>
+                <input type="radio" id="filter-completed">
+              </label>
             </div>
+            <button id="clear-completed-btn">Clear Completed</button>
           </div>
         </div>
       </div>
-  
+
       <p class="todo-reorder-label">Drag and drop to reorder list</p>
+  
     </div>
 
 
   </main>
+
+  <template id="todo-element-template">
+    <li class="basic-element todo-el">
+      <label class="el-status-checkbox">
+        <input type="checkbox">
+      </label>
+      <p class="todo-text"></p>
+      <button class="todo-remove">Remove todo</button>
+    </li>
+  </template>
 
   <footer>
     <p class="attribution">
