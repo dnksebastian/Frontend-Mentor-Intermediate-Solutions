@@ -38,8 +38,8 @@
       <div class="todo-main-box">
         <div class="todo-top-helper">
           <div class="el-wrapper">
-            <label class="el-status-checkbox">
-              <input type="checkbox">
+            <label class="el-status-checkbox-label">
+              <input type="checkbox" class="add-todo-checkbox">
             </label>
             <input id="add-todo" type="text" class="basic-element" placeholder="Create a new todo...">
           </div>
@@ -50,24 +50,26 @@
             <!-- Todos added dynamically -->
           </ul>
           <div class="todo-controls-box">
-            <p class="item-counter">
-              <!-- Add dynamic number --> 5 items left
-            </p>
-            <div class="basic-element todo-filters">
-              <label for="filter-all">
-                <span>All</span>
-                <input type="radio" id="filter-all">
-              </label>
-              <label for="filter-active">
-                <span>Active</span>
-                <input type="radio" id="filter-active">
-              </label>
-              <label for="filter-completed">
-                <span>Completed</span>
-                <input type="radio" id="filter-completed">
-              </label>
+            <div class="controls-helper">
+              <p class="item-counter">
+                <!-- Add dynamic number --> 5 items left
+              </p>
+              <div class="basic-element todo-filters">
+                <label class="filter-label">
+                  <span>All</span>
+                  <input type="radio" id="filter-all" name="filters" class="filter-radio" value="all" checked>
+                </label>
+                <label class="filter-label">
+                  <span>Active</span>
+                  <input type="radio" id="filter-active" name="filters" class="filter-radio" value="active">
+                </label>
+                <label class="filter-label">
+                  <span>Completed</span>
+                  <input type="radio" id="filter-completed" name="filters" class="filter-radio" value="completed">
+                </label>
+              </div>
+              <button id="clear-completed-btn">Clear Completed</button>
             </div>
-            <button id="clear-completed-btn">Clear Completed</button>
           </div>
         </div>
       </div>
@@ -81,8 +83,8 @@
 
   <template id="todo-element-template">
     <li class="basic-element todo-el">
-      <label class="el-status-checkbox">
-        <input type="checkbox">
+      <label class="el-status-checkbox-label">
+        <input type="checkbox" class="status-checkbox">
       </label>
       <p class="todo-text"></p>
       <button class="todo-remove">Remove todo</button>
