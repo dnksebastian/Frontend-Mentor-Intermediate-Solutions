@@ -39,8 +39,8 @@ ol {
   /* ### Primary */
 
   --cs-bright-blue: hsl(220, 98%, 61%);
-  --cs--check-background: linear-gradient hsl(192, 100%, 67%) to
-    hsl(280, 87%, 65%);
+  /* --cs--check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%); */
+  --cs--check-background: linear-gradient(180deg, hsl(192, 100%, 67%) 0%, hsl(280, 87%, 65%) 100%);;
 
 /* ### Neutral */
 /* ### Light Theme */
@@ -133,36 +133,76 @@ body.dark-theme {
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translate(2.2rem, -50%);
+  /* width: 2rem; */
+  /* height: 2rem; */
+  border: none;
+  border-radius: 50%;
+  transform: translate(2rem, -50%);
+  display: grid;
+  place-content: center;
+  background-color: var(--cs-text-secondary);
+  transition: .3s;
 }
 
 .status-checkbox {
+  position: relative;
   display: grid;
   place-content: center;
   appearance: none;
   background-color: #fff;
   margin: 0;
   font: inherit;
-  color: red;
-  width: 1.5rem;
-  height: 1.5rem;
+  color: var(--cs-text-completed);
+  min-width: 2rem;
+  min-height: 2rem;
+  border: none;
   border-radius: 50%;
-  border: .15rem solid blue;
+  transition: .3s all;
+}
+
+.status-checkbox::before,
+.status-checkbox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: none;
+  border-radius: 50%;
+  z-index: 0;
 }
 
 .status-checkbox::before {
-  content: "";
-  width: 0.5rem;
-  height: 0.5rem;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em orange;
+  transform: scale(1.1);
+  background: var(--cs-text-secondary);
+  z-index: -1;
+}
+
+.status-checkbox:hover::before {
+  background: var(--cs--check-background);
 }
 
 .status-checkbox:checked::before {
+  background: transparent;
+}
+
+.status-checkbox::after {
+  content: "";
+  min-width: 2rem;
+  min-height: 2rem;
+  z-index: 1;
+  background:url(./images/icon-check.svg), var(--cs--check-background);
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(0);
+  transition: .3s;
+}
+
+.status-checkbox:checked:after {
   transform: scale(1);
 }
 
+.status-checkbox:disabled::before {
+  background: var(--cs-text-secondary);
+}
 
 /* Mobile styles */
 
@@ -317,6 +357,7 @@ main {
 .filter-label {
   font-size: 1.5rem;
   position: relative;
+  cursor: pointer;
 }
 
 .filter-radio {
