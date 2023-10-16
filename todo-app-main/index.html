@@ -39,7 +39,7 @@
         <div class="todo-top-helper">
           <div class="el-wrapper">
             <label class="el-status-checkbox-label">
-              <input type="checkbox" class="add-todo-checkbox status-checkbox" disabled>
+              <input type="checkbox" class="add-todo-checkbox" disabled>
             </label>
             <input id="add-todo" type="text" class="basic-element" placeholder="Create a new todo...">
           </div>
@@ -52,20 +52,20 @@
           <div class="todo-controls-box">
             <div class="controls-helper">
               <p class="item-counter">
-                <!-- Add dynamic number --> 5 items left
+                <!-- Add dynamic number -->
               </p>
               <div class="basic-element todo-filters">
                 <label class="filter-label">
+                  <input type="radio" id="filter-all" name="filters" class="filter-radio" value="all">
                   <span>All</span>
-                  <input type="radio" id="filter-all" name="filters" class="filter-radio" value="all" checked>
                 </label>
                 <label class="filter-label">
-                  <span>Active</span>
                   <input type="radio" id="filter-active" name="filters" class="filter-radio" value="active">
+                  <span>Active</span>
                 </label>
                 <label class="filter-label">
-                  <span>Completed</span>
                   <input type="radio" id="filter-completed" name="filters" class="filter-radio" value="completed">
+                  <span>Completed</span>
                 </label>
               </div>
               <button id="clear-completed-btn">Clear Completed</button>
@@ -82,7 +82,7 @@
   </main>
 
   <template id="todo-element-template">
-    <li class="basic-element todo-el">
+    <li class="basic-element todo-el" data-completed="false">
       <label class="el-status-checkbox-label">
         <input type="checkbox" class="status-checkbox">
       </label>

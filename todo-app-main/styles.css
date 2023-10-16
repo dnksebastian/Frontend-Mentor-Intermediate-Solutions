@@ -25,12 +25,13 @@ input {
   transition: 0.3s;
   border: 1px solid var(--cs-borders);
   background-color: var(--cs-elements);
-  color: var(--cs-text-bright);
+  color: var(--cs-text-normal);
   caret-color: var(--cs-bright-blue);
 }
 
 input::placeholder {
-  color: var(--cs-text-bright);
+  color: var(--cs-text-normal);
+  font-weight: 700;
 }
 
 ul,
@@ -95,10 +96,18 @@ body.light-theme {
   --cs-background: var(--cs-very-light-gray-lm);
   --cs-elements: hsl(0, 0%, 100%);
   --cs-borders: var(--cs-very-light-grayish-blue-lm);
-  --cs-text-base: var(--cs-dark-grayish-blue-lm);
-  --cs-text-secondary: var(--cs-very-dark-grayish-blue-lm);
-  --cs-text-bright: var(--cs-light-grayish-blue-lm);
+  --cs-shadow: var(--cs-very-light-grayish-blue-lm);
 
+  --cs-text-add: var(--cs-very-dark-grayish-blue-lm);
+  --cs-text-todo: var(--cs-dark-grayish-blue-lm);
+  --cs-text-completed: var(--cs-text-bright);
+  
+  --cs-text-dark: var(--cs-very-dark-grayish-blue-lm);
+  --cs-text-normal: var(--cs-dark-grayish-blue-lm);
+  --cs-text-bright: var(--cs-light-grayish-blue-lm);
+  --cs-hover:var(--cs-very-dark-grayish-blue-lm);
+  
+  
   --cs-background-img-mobile: url(./images/bg-mobile-light.jpg);
   --cs-background-img-desktop: url(./images/bg-desktop-light.jpg);
 }
@@ -107,15 +116,23 @@ body.dark-theme {
 --cs-background: var(--cs-very-dark-blue-dm);
 --cs-elements: var(--cs-very-dark-desaturated-blue-dm);
 --cs-borders: var(--cs-very-dark-grayish-blue-dm2);
---cs-text-base: var(--cs-dark-grayish-blue-dm);
---cs-text-secondary: var(--cs-very-dark-grayish-blue-dm1);
+--cs-shadow: var(--cs-very-dark-blue-dm);
+
+--cs-text-add: var(--cs-light-grayish-blue-dm1);
+--cs-text-todo: var(--cs-dark-grayish-blue-dm);
+--cs-text-completed: var(--cs-text-dark);
+
+--cs-text-dark: var(--cs-very-dark-grayish-blue-dm1);
+--cs-text-normal: var(--cs-dark-grayish-blue-dm);
 --cs-text-bright: var(--cs-light-grayish-blue-dm1);
+--cs-hover: var(--cs-light-grayish-blue-dm2);
 
 --cs-background-img-mobile: url(./images/bg-mobile-dark.jpg);
 --cs-background-img-desktop: url(./images/bg-desktop-dark.jpg);
 }
 
 /* Utility classes */
+
 
 .sr-only {
   position: absolute;
@@ -153,7 +170,7 @@ body.dark-theme {
   transition: .3s;
 }
 
-.status-checkbox {
+.status-checkbox, .add-todo-checkbox {
   position: relative;
   display: grid;
   place-content: center;
@@ -169,7 +186,9 @@ body.dark-theme {
 }
 
 .status-checkbox::before,
-.status-checkbox::after {
+.status-checkbox::after,
+.add-todo-checkbox::before,
+.add-todo-checkbox::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -178,21 +197,25 @@ body.dark-theme {
   z-index: 0;
 }
 
-.status-checkbox::before {
+.status-checkbox::before,
+.add-todo-checkbox::before {
   transform: scale(1.1);
   background: var(--cs-borders);
   z-index: -1;
 }
 
-.status-checkbox:hover::before {
+.status-checkbox:hover::before,
+.add-todo-checkbox:hover::before {
   background: var(--cs--check-background);
 }
 
-.status-checkbox:checked::before {
+.status-checkbox:checked::before,
+.add-todo-checkbox:checked::before {
   background: transparent;
 }
 
-.status-checkbox::after {
+.status-checkbox::after,
+.add-todo-checkbox::after {
   content: "";
   min-width: 2rem;
   min-height: 2rem;
@@ -204,11 +227,13 @@ body.dark-theme {
   transition: .3s;
 }
 
-.status-checkbox:checked:after {
+.status-checkbox:checked:after,
+.add-todo-checkbox:checked:after {
   transform: scale(1);
 }
 
-.status-checkbox:disabled::before {
+.status-checkbox:disabled::before,
+.add-todo-checkbox:disabled:before {
   background: var(--cs-borders);
 }
 
@@ -287,6 +312,8 @@ main {
 #add-todo {
   padding-left: 5rem;
   border: none;
+  color: var(--cs-text-add);
+  font-weight: 700;
 }
 
 .todo-bot-helper {
@@ -314,12 +341,16 @@ main {
   /* border-bottom: 1px solid var(--cs-text-completed); */
   background-color: var(--cs-elements);
   border-bottom: 1px solid var(--cs-borders);
-  color: var(--cs-text-bright);
+  color: var(--cs-text-todo);
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.todo-el.completed {
-  color: var(--cs-text-secondary);
+.todo-el[data-completed="true"] .todo-text {
+  text-decoration: line-through;
+  color: var(--cs-text-completed);
 }
+
 
 
 .todo-remove {
@@ -331,7 +362,7 @@ main {
   background-color: transparent;
   background-image: url(./images/icon-cross.svg);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 80%;
   background-position: center;
 }
 
@@ -357,10 +388,11 @@ main {
   grid-column: 1/3;
   background-color: var(--cs-elements);
   border-radius: 0rem 0rem .7rem .7rem;
+  box-shadow: 0rem 1.5rem 1rem -1rem var(--cs-shadow);
 }
 
 .item-counter {
-  color: var(--cs-text-base);
+  color: var(--cs-text-normal);
 }
 
 .todo-filters {
@@ -374,14 +406,26 @@ main {
   justify-content: center;
   gap: 2rem;
   background-color: var(--cs-elements);
-  color: var(--cs-text-base);
+  color: var(--cs-text-normal);
+  font-weight: 700;
   border-radius: .7rem;
+  box-shadow: 0rem 1.5rem 1rem -1rem var(--cs-shadow);
 }
 
 .filter-label {
   font-size: 1.5rem;
   position: relative;
   cursor: pointer;
+  transition: .3s;
+}
+
+.filter-radio:checked + span {
+  color: var(--cs-bright-blue);
+}
+
+.filter-label:hover,
+.filter-label:focus-visible {
+  color: var(--cs-hover);
 }
 
 .filter-radio {
@@ -397,8 +441,12 @@ main {
 #clear-completed-btn {
   background-color: transparent;
   border: none;
-  color: var(--cs-text-base);
+  color: var(--cs-text-normal);
   /* background-color: teal; */
+}
+
+#clear-completed-btn:hover {
+  color: var(--cs-hover);
 }
 
 
@@ -406,8 +454,7 @@ main {
   margin-top: 2rem;
   font-size: 1.35rem;
   align-self: center;
-  color: var(--cs-text-base);
-  /* background-color: teal; */
+  color: var(--cs-text-normal);
 }
 
 
@@ -420,7 +467,7 @@ footer {
     /* background-color: rgba(0, 128, 128, 0.336); */
     grid-row: 2/3;
     grid-column: 1/2;
-    color: var(--cs-text-base);
+    color: var(--cs-text-normal);
 }
 
 footer a {
