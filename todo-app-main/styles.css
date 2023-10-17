@@ -132,6 +132,20 @@ body.dark-theme {
 }
 
 /* Utility classes */
+.blue-bg {
+  position: relative;
+  filter: blur(.1rem);
+}
+
+.blue-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--cs-bright-blue);
+  opacity: 20%;
+}
 
 
 .sr-only {
@@ -451,10 +465,24 @@ main {
 
 
 .todo-reorder-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   margin-top: 2rem;
   font-size: 1.35rem;
   align-self: center;
   color: var(--cs-text-normal);
+}
+
+#reset-btn {
+  border: none;
+  color: var(--cs-bright-blue);
+  transition: .3s!important;
+}
+
+#reset-btn:hover, #reset-btn:focus-visible {
+  filter: brightness(120%);
 }
 
 

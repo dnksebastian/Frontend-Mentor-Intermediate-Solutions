@@ -60,6 +60,7 @@ toggleIconEl.addEventListener('click', toggleTheme)
 
 
 // TODO scripts
+
 let currentFilter = null;
 let activeCount = 0;
 
@@ -108,13 +109,16 @@ const INITIAL_TODOS = [
 ];
 
 
+let USER_TODOS = [];
 
 
-const populateList = () => {
-    INITIAL_TODOS.forEach((todo) => {
+
+const populateList = (todoArr) => {
+    todoArr.forEach((todo) => {
         const clonedTemplate = todoTemplate.content.cloneNode(true);
 
         clonedTemplate.querySelector('.todo-text').textContent = todo.text
+        clonedTemplate.querySelector('li').dataset.id = todo.id
 
         clonedTemplate.querySelector('li').dataset.completed = todo.isCompleted
 
@@ -127,16 +131,25 @@ const populateList = () => {
     });
 }
 
-populateList()
-
-
-// TODO add/remove scripts
+// populateList()
 
 // TODO styling scripts
 
 
 const allTODOElements = document.querySelectorAll('.todo-el');
-const activeTODOElements = document.querySelectorAll('[data-completed="false"]');
+
+
+// Item counter
+const itemCounterEl = document.querySelector('.item-counter');
+
+const updateActiveCount = () => {
+    const activeTODOElements = document.querySelectorAll('[data-completed="false"]');
+
+    activeCount = activeTODOElements.length;
+    itemCounterEl.textContent = `${activeCount} items left`;
+};
+
+updateActiveCount();
 
 
 
@@ -168,15 +181,91 @@ filterRadios.forEach(el => {
 
 });
 
+// TODO add/remove scripts
+
+// const removeTodoBtns = document.querySelectorAll('.todo-remove');
 
 
-// Item counter
-const itemCounterEl = document.querySelector('.item-counter');
+// removeTodoBtns.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//         btn.closest('li').remove();
+//         updateActiveCount()
+//     })
+// })
 
-const updateActiveCount = () => {
-    activeCount = activeTODOElements.length;
-    itemCounterEl.textContent = `${activeCount} items left`;
+
+const saveCurrentListToStorage = (todoArr) => {
+    const arrToSave = JSON.stringify(todoArr);
+    localStorage.setItem('userTODOs', arrToSave);
+}
+
+const initializeList = () => {
+
+    if (localStorage.hasOwnProperty('userTODOs')) {
+        const modifiedTODOs = JSON.parse(localStorage.getItem('userTODOs'));
+        populateList(modifiedTODOs)
+    } else {
+        populateList(INITIAL_TODOS)
+        USER_TODOS = [...INITIAL_TODOS]; 
+        saveCurrentListToStorage(USER_TODOS);
+    }
+
+    updateActiveCount()
 };
 
-updateActiveCount();
+initializeList()
 
+
+
+
+// Drag & Drop
+const sortableList = Sortable.create(todoContainerEl, {
+    group: 'sortableToDo',
+    sort: true,
+    animation: 150,
+    draggable: '.todo-el',
+    dataIdAttr: 'data-id',
+    ghostClass: 'blue-bg',
+    filter: '.todo-remove',
+    onFilter: (evt) => {
+        const currentToDo = evt.item;
+        ctrl = evt.target;
+
+        if (Sortable.utils.is(ctrl, '.todo-remove')) {
+            currentToDo.parentNode.removeChild(currentToDo);
+            updateActiveCount()
+        }
+
+    },
+    onSort: (evt) => {
+
+        // const item = evt.item;
+        // console.log(item);
+        // console.log(evt.oldIndex);
+        // console.log(evt.oldDraggableIndex);
+        // console.log(evt.newIndex);
+        // console.log(evt.newDraggableIndex);
+    },
+    store: {
+        get: (sortable) => {
+            const order = localStorage.getItem(sortable.options.group.name);
+            return order ? order.split('|') : [];
+        },
+        set: (sortable) => {
+            const order = sortable.toArray();
+            localStorage.setItem(sortable.options.group.name, order.join('|'));
+        }
+	}
+});
+
+// const order = sortableList.toArray();
+// sortableList.sort(order);      
+
+
+
+
+
+const resetEverything = () => {
+    // ustaw user todos na pusty arr
+    // usuń localstorage
+}
