@@ -218,13 +218,11 @@ body.dark-theme {
   z-index: -1;
 }
 
-.status-checkbox:hover::before,
-.add-todo-checkbox:hover::before {
+.status-checkbox:hover::before {
   background: var(--cs--check-background);
 }
 
-.status-checkbox:checked::before,
-.add-todo-checkbox:checked::before {
+.status-checkbox:checked::before {
   background: transparent;
 }
 
@@ -241,8 +239,7 @@ body.dark-theme {
   transition: .3s;
 }
 
-.status-checkbox:checked:after,
-.add-todo-checkbox:checked:after {
+.status-checkbox:checked:after {
   transform: scale(1);
 }
 

@@ -78,32 +78,32 @@ const generateID = () => {
 const INITIAL_TODOS = [
     {
         text: 'Complete online JavaScript course',
-        isCompleted: true,
+        isCompleted: 'true',
         id: 0
     },
     {
         text: 'Jog around the park 3x',
-        isCompleted: false,
+        isCompleted: 'false',
         id: 1
     },
     {
         text: '10 minutes meditation',
-        isCompleted: false,
+        isCompleted: 'false',
         id: 2
     },
     {
         text: 'Read for 1 hour',
-        isCompleted: false,
+        isCompleted: 'false',
         id: 3
     },
     {
         text: 'Pick up groceries',
-        isCompleted: false,
+        isCompleted: 'false',
         id: 4
     },
     {
         text: 'Complete Todo App on Frontend Mentor',
-        isCompleted: false,
+        isCompleted: 'false',
         id: 5
     }
 ];
@@ -111,27 +111,55 @@ const INITIAL_TODOS = [
 
 let USER_TODOS = [];
 
+const makeTodoDOMEl = (el) => {
+    const clonedTemplate = todoTemplate.content.cloneNode(true);
+
+    clonedTemplate.querySelector('.todo-text').textContent = el.text
+    clonedTemplate.querySelector('li').dataset.id = el.id
+
+    clonedTemplate.querySelector('li').dataset.completed = el.isCompleted
+
+    if(el.isCompleted === 'true') {
+        clonedTemplate.querySelector('.status-checkbox').checked = true;
+    }
+
+    todoContainerEl.appendChild(clonedTemplate)
+};
+
+const makeArrFromTODOs = () => {
+    const currentTODOs = todoContainerEl.querySelectorAll('li');
+
+    const newObjArr = [];
+    
+    currentTODOs.forEach(el => {
+        const todoObj = {
+            text: el.querySelector('.todo-text').textContent,
+            isCompleted: el.dataset.completed,
+            id: el.dataset.id
+        }
+
+        newObjArr.push(todoObj)
+    })
+
+    return newObjArr
+
+};
+
+const updateUserTODOs = () => {
+    const newArr = makeArrFromTODOs();
+    USER_TODOS = [...newArr];
+    saveCurrentListToStorage(USER_TODOS)
+
+};
 
 
 const populateList = (todoArr) => {
+
     todoArr.forEach((todo) => {
-        const clonedTemplate = todoTemplate.content.cloneNode(true);
-
-        clonedTemplate.querySelector('.todo-text').textContent = todo.text
-        clonedTemplate.querySelector('li').dataset.id = todo.id
-
-        clonedTemplate.querySelector('li').dataset.completed = todo.isCompleted
-
-        if(todo.isCompleted) {
-            clonedTemplate.querySelector('.status-checkbox').checked = true;
-        }
-
-
-        todoContainerEl.appendChild(clonedTemplate)
+        makeTodoDOMEl(todo)
     });
 }
 
-// populateList()
 
 // TODO styling scripts
 
@@ -152,48 +180,6 @@ const updateActiveCount = () => {
 updateActiveCount();
 
 
-
-const todoStatusCheckboxes = document.querySelectorAll('.status-checkbox');
-
-const filterRadios = document.querySelectorAll('.filter-radio');
-
-
-todoStatusCheckboxes.forEach(el => {
-    el.addEventListener('change', () => {
-        if (el.checked) {
-            el.closest('li').dataset.completed = true;
-        } else {
-            el.closest('li').dataset.completed = false;
-        }
-
-        updateActiveCount()
-    })
-})
-
-
-filterRadios.forEach(el => {
-    el.addEventListener('change', () => {
-
-        currentFilter = el.value
-        
-        console.log(currentFilter);
-    })
-
-});
-
-// TODO add/remove scripts
-
-// const removeTodoBtns = document.querySelectorAll('.todo-remove');
-
-
-// removeTodoBtns.forEach(btn => {
-//     btn.addEventListener('click', () => {
-//         btn.closest('li').remove();
-//         updateActiveCount()
-//     })
-// })
-
-
 const saveCurrentListToStorage = (todoArr) => {
     const arrToSave = JSON.stringify(todoArr);
     localStorage.setItem('userTODOs', arrToSave);
@@ -203,10 +189,11 @@ const initializeList = () => {
 
     if (localStorage.hasOwnProperty('userTODOs')) {
         const modifiedTODOs = JSON.parse(localStorage.getItem('userTODOs'));
-        populateList(modifiedTODOs)
+        USER_TODOS = [...modifiedTODOs];
+        populateList(USER_TODOS)
     } else {
-        populateList(INITIAL_TODOS)
         USER_TODOS = [...INITIAL_TODOS]; 
+        populateList(USER_TODOS);
         saveCurrentListToStorage(USER_TODOS);
     }
 
@@ -214,8 +201,6 @@ const initializeList = () => {
 };
 
 initializeList()
-
-
 
 
 // Drag & Drop
@@ -233,39 +218,135 @@ const sortableList = Sortable.create(todoContainerEl, {
 
         if (Sortable.utils.is(ctrl, '.todo-remove')) {
             currentToDo.parentNode.removeChild(currentToDo);
+            updateUserTODOs()
             updateActiveCount()
         }
-
     },
-    onSort: (evt) => {
-
-        // const item = evt.item;
-        // console.log(item);
-        // console.log(evt.oldIndex);
-        // console.log(evt.oldDraggableIndex);
-        // console.log(evt.newIndex);
-        // console.log(evt.newDraggableIndex);
+    onSort: () => {
+        saveCurrentOrder()
+        updateUserTODOs()
+        updateActiveCount()
     },
     store: {
-        get: (sortable) => {
-            const order = localStorage.getItem(sortable.options.group.name);
+        get: (sortableList) => {
+            const order = localStorage.getItem(sortableList.options.group.name);
             return order ? order.split('|') : [];
         },
-        set: (sortable) => {
-            const order = sortable.toArray();
-            localStorage.setItem(sortable.options.group.name, order.join('|'));
+        set: () => {
+            saveCurrentOrder()
         }
 	}
 });
 
-// const order = sortableList.toArray();
-// sortableList.sort(order);      
+
+
+// TODO add/remove scripts
+
+const addTODOInputEL = document.getElementById('add-todo');
+const addTODOCheckbox = document.querySelector('.add-todo-checkbox');
+
+
+const addToDo = () => {
+    const ToDoValue = addTODOInputEL.value;
+
+    const newToDoObj = {
+        text: ToDoValue,
+        isCompleted: 'false',
+        id: generateID()
+    }
+
+    USER_TODOS.push(newToDoObj);
+
+    makeTodoDOMEl(newToDoObj)
+
+    saveCurrentListToStorage(USER_TODOS);
+    // populateList(USER_TODOS);
+    sortableList.save()
+
+    updateActiveCount()
+    addTODOInputEL.value = '';
+
+};
+
+addTODOInputEL.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        addToDo()
+    }
+});
+
+addTODOCheckbox.addEventListener('click', () => {
+    if(addTODOInputEL.value) {
+        addToDo()
+    }
+});
+
+
+const saveCurrentOrder = () => {
+    const order = sortableList.toArray();
+    localStorage.setItem(sortableList.options.group.name, order.join('|'));
+};
 
 
 
-
+// Reset TODO list
+const resetBtn = document.getElementById('reset-btn');
 
 const resetEverything = () => {
-    // ustaw user todos na pusty arr
-    // usuń localstorage
+    todoContainerEl.replaceChildren();
+    localStorage.removeItem('userTODOs');
+    localStorage.removeItem('sortableToDo');
+    USER_TODOS = [...INITIAL_TODOS]; 
+    populateList(USER_TODOS);
+    saveCurrentListToStorage(USER_TODOS);
+    sortableList.save()
+    updateActiveCount()
 }
+
+resetBtn.addEventListener('click', resetEverything);
+
+
+const todoStatusCheckboxes = document.querySelectorAll('.status-checkbox');
+const filterRadios = document.querySelectorAll('.filter-radio');
+
+
+todoStatusCheckboxes.forEach(el => {
+    el.addEventListener('change', () => {
+        if (el.checked) {
+            el.closest('li').dataset.completed = 'true';
+        } else {
+            el.closest('li').dataset.completed = 'false';
+        }
+
+        updateActiveCount()
+        updateUserTODOs()
+    })
+})
+
+
+const clearCompletedBtn = document.getElementById('clear-completed-btn');
+const completedTODOs = document.querySelectorAll('[data-completed="true"]');
+
+clearCompletedBtn.addEventListener('click', () => {
+    completedTODOs.forEach(el => {
+        el.remove()
+    })
+
+    updateActiveCount()
+    updateUserTODOs()
+    sortableList.save()
+});
+
+
+
+
+
+
+filterRadios.forEach(el => {
+    el.addEventListener('change', () => {
+
+        currentFilter = el.value
+        
+        console.log(currentFilter);
+    })
+
+});
