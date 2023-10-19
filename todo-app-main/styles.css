@@ -47,7 +47,6 @@ ol {
   /* ### Primary */
 
   --cs-bright-blue: hsl(220, 98%, 61%);
-  /* --cs--check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%); */
   --cs--check-background: linear-gradient(
     180deg,
     hsl(192, 100%, 67%) 0%,
@@ -175,8 +174,6 @@ body.dark-theme {
   position: absolute;
   top: 50%;
   left: 0;
-  /* width: 2rem; */
-  /* height: 2rem; */
   border: none;
   border-radius: 50%;
   transform: translate(2rem, -50%);
@@ -270,7 +267,6 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 1rem 0.5rem;
-  /* background-color: rgba(255, 192, 203, 0.367); */
   width: 100%;
   grid-row: 1/2;
   grid-column: 1/2;
@@ -285,11 +281,9 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  /* background-color: rgba(0, 128, 0, 0.589); */
 }
 
 .todo-top-box {
-  /* background-color: blue; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -320,7 +314,6 @@ body.dark-theme .moon {
 }
 
 .todo-main-box {
-  /* background-color: rgba(255, 255, 0, 0.311); */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -343,12 +336,10 @@ body.dark-theme .moon {
 .todo-bot-helper {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid red; */
 }
 
 .todo-list {
   background-color: var(--cs-elements);
-  /* background-color: green; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -360,9 +351,6 @@ body.dark-theme .moon {
   display: flex;
   align-items: center;
   padding-left: 5rem;
-  /* background-color: rgba(255, 0, 0, 0.289); */
-  /* border-bottom: 1px solid var(--cs-text-completed); */
-  /* border-bottom: 1px solid var(--cs-text-completed); */
   background-color: var(--cs-elements);
   border-bottom: 1px solid var(--cs-borders);
   color: var(--cs-text-todo);
@@ -403,11 +391,6 @@ body.dark-theme .moon {
   grid-template-rows: 1fr 1fr;
   row-gap: 1rem;
   align-items: center;
-  /* border: 1px solid yellow; */
-  /* position: relative; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: space-between; */
 }
 
 .controls-helper {
@@ -473,7 +456,6 @@ body.dark-theme .moon {
   background-color: transparent;
   border: none;
   color: var(--cs-text-normal);
-  /* background-color: teal; */
 }
 
 #clear-completed-btn:hover {
@@ -509,7 +491,6 @@ footer {
   justify-content: center;
   text-align: center;
   width: 100%;
-  /* background-color: rgba(0, 128, 128, 0.336); */
   grid-row: 2/3;
   grid-column: 1/2;
   color: var(--cs-text-normal);
@@ -530,11 +511,6 @@ footer a:hover {
     background-size: 100% 30rem;
   }
 
-  .temp {
-    background-color: white;
-    width: 100%;
-    height: 9rem;
-  }
 
   .basic-element {
     padding: 2.2rem;
@@ -559,16 +535,11 @@ footer a:hover {
   }
 
   .todo-outer-wrap {
-    /* background-color: yellow; */
     margin-top: max(3%, 3rem);
     max-width: 60rem;
     padding: 2rem 3rem .5rem 3rem;
     gap: 3rem;
   }
-
-  /* .todo-top-box {
-    background-color: teal;
-  } */
 
   .logo {
     font-size: 4rem;
@@ -580,7 +551,6 @@ footer a:hover {
   }
 
   .todo-main-box {
-    /* background-color: green; */
     gap: 2.5rem;
   }
 
@@ -607,12 +577,10 @@ footer a:hover {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     row-gap: unset;
-    /* background-color: orange; */
   }
 
   .controls-helper {
     width: 100%;
-    /* padding: 1.5rem 2.3rem .5rem 2.3rem; */
     padding: 1.5rem 2.3rem;
     grid-column: 1/4;
   }
@@ -622,16 +590,11 @@ footer a:hover {
     transform: unset;
     width: unset;
     gap: 1.7rem;
-    /* background-color: rgba(255, 192, 203, 0.456); */
     border-radius: unset;
     box-shadow: unset;
     padding: 0;
     margin-left: 4.5rem;
   }
-
-  /* .filter-label {
-    background-color: blue;
-  } */
 
   .item-counter {
     font-size: 1.4rem;

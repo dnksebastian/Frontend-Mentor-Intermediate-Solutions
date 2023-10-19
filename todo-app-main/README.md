@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/html-css-js-todo-app-qWj8CTgmBf](https://www.frontendmentor.io/solutions/html-css-js-todo-app-qWj8CTgmBf)
 - Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/todo-app-main/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/todo-app-main/)
 
 ## My process

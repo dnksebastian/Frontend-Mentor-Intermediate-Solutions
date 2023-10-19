@@ -36,7 +36,7 @@ const setTheme = () => {
   }
 };
 
-// setTheme();
+setTheme();
 
 const toggleTheme = () => {
   if (currentTheme === "light") {
