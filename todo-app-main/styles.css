@@ -301,9 +301,19 @@ main {
 }
 
 .darkmode-toggle-wrap {
+    display: grid;
+    place-items: center;
     cursor: pointer;
     max-width: 1.75rem;
     transform: translate(0, -.2rem);
+}
+
+body.light-theme .sun {
+  display: none;
+}
+
+body.dark-theme .moon {
+  display: none;
 }
 
 .todo-main-box {
@@ -355,11 +365,20 @@ main {
   color: var(--cs-text-todo);
   font-weight: 700;
   cursor: pointer;
+  transition: .3s;
 }
 
 .todo-el[data-completed="true"] .todo-text {
   text-decoration: line-through;
   color: var(--cs-text-completed);
+}
+
+.show-todo {
+  display: flex;
+}
+
+.hide-todo {
+  display: none;
 }
 
 
@@ -502,3 +521,5 @@ footer a {
 footer a:hover {
   filter: brightness(120%);
 }
+
+
