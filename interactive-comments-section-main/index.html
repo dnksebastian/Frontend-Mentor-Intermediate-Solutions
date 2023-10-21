@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive comments section</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./main.js" defer></script>
+
+</head>
+
+<body>
+  <main>
+    <ul id="comments-display-list">
+      <!-- Pull dynamic content from the data.json file -->
+    </ul>
+  </main>
+  
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#/">Sebastian</a>.
+    </div>
+  </footer>
+
+
+  <template id="comment-template">
+    <li class="box-base message-container">
+      <div class="message-wrapper">
+        <div class="likes-controls-wrapper">
+          <button class="increase-likes-btn">+</button>
+          <p class="likes-score"></p>
+          <button class="decrease-likes-btn">-</button>
+        </div>
+        <div class="user-info-wrapper">
+          <div class="user-avatar-wrapper">
+            <img alt="Picture of comment author" class="user-avatar">
+          </div>
+          <p class="user-name"></p>
+          <p class="you-label"></p>
+          <p class="comment-date"></p>
+        </div>
+        <div class="message-content-wrapper">
+          <p class="comment-content"></p>
+        </div>
+        <div class="reply-controls-wrapper">
+          <button class="delete-comment-btn">Delete</button>
+          <button class="edit-comment-btn">Edit</button>
+          <button class="reply-comment-btn">Reply</button>
+        </div>
+      </div>
+      <div class="comment-replies-wrapper">
+
+      </div>
+    </li>
+  </template>
+
+  <template id="new-comment-form-template">
+    <div class="box-base new-comment-form-wrapper">
+      <div class="user-info-box"></div>
+      <form class="new-comment-form">
+        <input placeholder="Add a comment..." type="text" class="new-comment-input">
+        <button type="submit" class="btn send-new-comment-btn">Send</button>
+      </form>
+    </div>
+  </template>
+
+</body>
+
+</html>
