@@ -1,17 +1,3 @@
-// document.addEventListener('alpine:init', () => {
-//     Alpine.store('comments', {
-//         allComments: [],
-//         activeUser: {},
-//         async initialize() {
-//             const res = await fetch('./data.json');
-//             const fetchedData = await res.json();
-//             this.allComments = fetchedData.comments;
-//             this.activeUser = fetchedData.currentUser;
-//             console.log(this.allComments);
-//         },
-//     })
-// })
-
 // General
 let ALL_COMMENTS = [];
 let CURRENT_USER = {};
@@ -59,9 +45,11 @@ const renderBasicElement = (el) => {
 const renderMainCommentElement = (el) => {
     const commentElement = renderBasicElement(el);
 
+    const commentElWrap = commentElement.querySelector('li');
     let commentReplies = commentElement.querySelector('.comment-replies-wrapper');
-
     let elementReplies = el.replies;
+
+    commentElWrap.classList.add('main-comment')
     
     elementReplies.forEach(reply => {
         const replyEl = renderReplyElement(reply);
@@ -73,6 +61,10 @@ const renderMainCommentElement = (el) => {
 
 const renderReplyElement = (el) => {
     const replyElement = renderBasicElement(el)
+
+    const replyElWrap = replyElement.querySelector('li');
+    replyElWrap.classList.add('reply-comment');
+
     return replyElement
 };
 
