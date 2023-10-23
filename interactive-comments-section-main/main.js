@@ -13,6 +13,8 @@ const fetchInitialData = async () => {
 
 
 // DOM Elements
+const componentContainer = document.querySelector('.component-helper');
+
 const commentMainTemplate = document.getElementById('comment-template');
 const newCommentFormTemplate = document.getElementById('new-comment-form-template');
 
@@ -65,10 +67,58 @@ const renderReplyElement = (el) => {
     const replyElWrap = replyElement.querySelector('li');
     replyElWrap.classList.add('reply-comment');
 
+    const commentEl = replyElement.querySelector('.comment-content');
+    const replyToEl = document.createElement('span');
+    commentEl.prepend(replyToEl);
+
+    replyToEl.classList.add('replyto');
+    replyToEl.textContent = `@${el.replyingTo}`
+
+
     return replyElement
 };
 
-const renderAddNewCommentElement = (el) => {};
+const markElementsBySelf = () => {
+    const allElements = document.querySelectorAll('.message-container');
+
+    allElements.forEach(el => {
+        const elUsername = el.querySelector('.user-name').textContent;
+
+        if (elUsername === CURRENT_USER.username) {
+            el.classList.add('by-user')
+        }
+    })
+};
+
+
+
+
+const renderAddNewCommentElement = () => {
+    const formTemplateClone = newCommentFormTemplate.content.cloneNode(true);
+
+    // let formWrapper = formTemplateClone.querySelector('.new-comment-form-wrapper');
+
+    let commentFormEl = formTemplateClone.querySelector('.new-comment-form');
+
+    commentFormEl.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const currentFormEl = e.target;
+        const currentCommentEl = currentFormEl.querySelector('.new-comment-input');
+
+        let currentCommentElVal = currentCommentEl.value;
+
+        console.log(currentCommentElVal);
+
+        commentFormEl.reset()
+    });
+
+    let userAvatar = formTemplateClone.querySelector('.reply-av');
+    userAvatar.src = CURRENT_USER.image.png
+
+
+    return formTemplateClone
+};
 
 
 const populateInitialContent = async () => {
@@ -78,6 +128,12 @@ const populateInitialContent = async () => {
         const renderedComment = renderMainCommentElement(comment);
         commentsContainerList.appendChild(renderedComment)
     })
+
+    markElementsBySelf()
+
+    const mainNewCommentEl = renderAddNewCommentElement()
+    componentContainer.appendChild(mainNewCommentEl);
+
 };
 
 populateInitialContent()
