@@ -22,6 +22,15 @@ const commentsContainerList = document.getElementById('comments-display-list');
 
 // Functions
 
+const generateNewID = () => {
+    return Math.floor(Math.random() * 100000);
+};
+
+const displayCommentTime = (commentPostDate) => {
+    // ... this will change comment timestamp into relative time e.g 'a day ago'
+};
+
+
 const renderBasicElement = (el) => {
     const commentTemplateClone = commentMainTemplate.content.cloneNode(true);
 
@@ -91,8 +100,6 @@ const markElementsBySelf = () => {
 };
 
 
-
-
 const renderAddNewCommentElement = () => {
     const formTemplateClone = newCommentFormTemplate.content.cloneNode(true);
 
@@ -100,18 +107,7 @@ const renderAddNewCommentElement = () => {
 
     let commentFormEl = formTemplateClone.querySelector('.new-comment-form');
 
-    commentFormEl.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const currentFormEl = e.target;
-        const currentCommentEl = currentFormEl.querySelector('.new-comment-input');
-
-        let currentCommentElVal = currentCommentEl.value;
-
-        console.log(currentCommentElVal);
-
-        commentFormEl.reset()
-    });
+    commentFormEl.addEventListener('submit', addNewMainComment);
 
     let userAvatar = formTemplateClone.querySelector('.reply-av');
     userAvatar.src = CURRENT_USER.image.png
@@ -120,23 +116,56 @@ const renderAddNewCommentElement = () => {
     return formTemplateClone
 };
 
+const renderComments = () => {
+    const commentEls = ALL_COMMENTS.map(comment => {
+        const renderedComment = renderMainCommentElement(comment);
+        return renderedComment
+        // commentsContainerList.appendChild(renderedComment)
+    })
+
+    commentsContainerList.replaceChildren(...commentEls)
+
+    markElementsBySelf()
+};
+
 
 const populateInitialContent = async () => {
     await fetchInitialData();
-
-    ALL_COMMENTS.forEach(comment => {
-        const renderedComment = renderMainCommentElement(comment);
-        commentsContainerList.appendChild(renderedComment)
-    })
-
-    markElementsBySelf()
+    renderComments()
 
     const mainNewCommentEl = renderAddNewCommentElement()
     componentContainer.appendChild(mainNewCommentEl);
-
 };
 
 populateInitialContent()
 
 
-// Event listeners
+
+const addNewMainComment = (e) => {
+    e.preventDefault();
+    
+    const commentFormEl = e.target;
+    
+    const currentCommentEl = commentFormEl.querySelector('.new-comment-input');
+    
+    let currentCommentElVal = currentCommentEl.value;
+
+    const newCommentObj = {
+        id: generateNewID(),
+        content: currentCommentElVal,
+        createdAt: 'Just now', //this is temporary
+        score: 0,
+        user: CURRENT_USER,
+        replies: [],
+    }
+
+    // const newCommentEl = renderMainCommentElement(newCommentObj);
+
+    ALL_COMMENTS.push(newCommentObj);
+
+    renderComments()
+
+    console.log(currentCommentElVal);
+
+    commentFormEl.reset()
+};

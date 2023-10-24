@@ -67,15 +67,11 @@
 
   <template id="new-comment-form-template">
     <div class="box-base new-comment-form-wrapper">
-      <div class="user-info-box">
+      <form class="new-comment-form">
         <div class="add-reply-avatar-wrap">
           <img alt="Picture of user" class="reply-av">
         </div>
-      </div>
-        <!-- <textarea placeholder="Add a comment..." class="new-comment-input"></textarea>
-        <button type="submit" class="btn send-new-comment-btn">Send</button> -->
-      <form class="new-comment-form">
-        <textarea placeholder="Add a comment..." class="new-comment-input"></textarea>
+        <textarea placeholder="Add a comment..." class="new-comment-input" name="comment" rows="4" cols="20" minlength="5" required></textarea>
         <button type="submit" class="btn send-new-comment-btn">Send</button>
       </form>
     </div>
