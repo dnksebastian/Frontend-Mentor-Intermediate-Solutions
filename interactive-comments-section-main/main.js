@@ -20,6 +20,7 @@ const newCommentFormTemplate = document.getElementById('new-comment-form-templat
 
 const commentsContainerList = document.getElementById('comments-display-list');
 
+
 // Functions
 
 const generateNewID = () => {
@@ -40,15 +41,22 @@ const renderBasicElement = (el) => {
     let authorNameEl = commentTemplateClone.querySelector('.user-name');
     let commentTime = commentTemplateClone.querySelector('.comment-date');
     let commentScore = commentTemplateClone.querySelector('.likes-score');
-    let commentText = commentTemplateClone.querySelector('.comment-content');   
+    let commentText = commentTemplateClone.querySelector('.comment-content');
+
+    let likeCommentBtn = commentTemplateClone.querySelector('.increase-likes-btn');
+    let unlikeCommentBtn = commentTemplateClone.querySelector('.decrease-likes-btn');
+    let deleteCommentBtn = commentTemplateClone.querySelector('.delete-comment-btn');
 
     authorAvatarEl.src = el.user.image.png;
     authorNameEl.textContent = el.user.username;
     commentTime.textContent = el.createdAt;
     commentScore.textContent = el.score;
     commentText.textContent = el.content;
-
     elementWrapper.id = el.id;
+
+    likeCommentBtn.addEventListener('click', likeSelectedComment);
+    unlikeCommentBtn.addEventListener('click', unlikeSelectedComment);
+    deleteCommentBtn.addEventListener('click', deleteSelectedComment);
 
     return commentTemplateClone;
 };
@@ -103,7 +111,6 @@ const markElementsBySelf = () => {
 const renderAddNewCommentElement = () => {
     const formTemplateClone = newCommentFormTemplate.content.cloneNode(true);
 
-    // let formWrapper = formTemplateClone.querySelector('.new-comment-form-wrapper');
 
     let commentFormEl = formTemplateClone.querySelector('.new-comment-form');
 
@@ -120,7 +127,6 @@ const renderComments = () => {
     const commentEls = ALL_COMMENTS.map(comment => {
         const renderedComment = renderMainCommentElement(comment);
         return renderedComment
-        // commentsContainerList.appendChild(renderedComment)
     })
 
     commentsContainerList.replaceChildren(...commentEls)
@@ -159,7 +165,6 @@ const addNewMainComment = (e) => {
         replies: [],
     }
 
-    // const newCommentEl = renderMainCommentElement(newCommentObj);
 
     ALL_COMMENTS.push(newCommentObj);
 
@@ -168,4 +173,88 @@ const addNewMainComment = (e) => {
     console.log(currentCommentElVal);
 
     commentFormEl.reset()
+};
+
+// Helper functions
+
+const findClosestMainComment = (e) => {
+    const closestMainCommentEl = e.target.closest('.main-comment');
+    return closestMainCommentEl
+};
+
+const findClosestMainObj = (e) => {
+    const closestMainEl = findClosestMainComment(e);
+    const closestMainCommID = +closestMainEl.id
+
+    const mainCommObj = ALL_COMMENTS.find(obj => +obj.id === closestMainCommID)
+    return mainCommObj;
+};
+
+const findClosestRepliesArr = (e) => {
+    const mainComm = findClosestMainObj(e);
+
+    return mainComm.replies
+};
+
+const findCommentObj = (e) => {
+    const currentCommentEl = e.target.closest('.message-container');
+    const currentCommentID = +currentCommentEl.id;
+ 
+    let commentsArrObj
+
+    if (currentCommentEl.classList.contains('reply-comment')) {
+        const repliesArr = findClosestRepliesArr(e)
+
+        commentsArrObj = repliesArr.find(obj => +obj.id === currentCommentID)
+        
+    } else if(currentCommentEl.classList.contains('main-comment')) {
+        
+        commentsArrObj = ALL_COMMENTS.find(obj => +obj.id === currentCommentID);
+    }
+
+    return commentsArrObj;
+};
+
+
+// Like & unlike comments
+
+const likeSelectedComment = (e) => {
+
+    const currentObj = findCommentObj(e);
+
+    currentObj.score++
+    renderComments()
+
+};
+
+const unlikeSelectedComment = (e) => {
+    const currentObj = findCommentObj(e);
+
+    currentObj.score--
+    renderComments()
+};
+
+
+// Delete comment
+
+const deleteSelectedComment = (e) => {
+    const currentCommentEl = e.target.closest('.message-container');
+    const currentCommentID = +currentCommentEl.id;
+
+    
+    if (currentCommentEl.classList.contains('reply-comment')) {
+        const closestMainObj = findClosestMainObj(e);
+        const currentRepliesArr = findClosestRepliesArr(e);
+        const filteredReplies = currentRepliesArr.filter(el => +el.id !== currentCommentID);
+
+        closestMainObj.replies = filteredReplies;
+
+    
+    } else if(currentCommentEl.classList.contains('main-comment')) {
+        const filteredArr = ALL_COMMENTS.filter(el => +el.id !== currentCommentID);
+        ALL_COMMENTS = filteredArr;
+    }
+
+    renderComments()
+
 };
