@@ -8,7 +8,7 @@ const fetchInitialData = async () => {
     ALL_COMMENTS = [...fetchedData.comments];
     CURRENT_USER = {...fetchedData.currentUser}
 
-    console.log(ALL_COMMENTS);
+    // console.log(ALL_COMMENTS);
 };
 
 
@@ -47,6 +47,9 @@ const renderBasicElement = (el) => {
     let unlikeCommentBtn = commentTemplateClone.querySelector('.decrease-likes-btn');
     let deleteCommentBtn = commentTemplateClone.querySelector('.delete-comment-btn');
 
+    // let replyFormWrap = commentTemplateClone.querySelector('.reply-form-wrap');
+    let replyBtn = commentTemplateClone.querySelector('.reply-comment-btn');
+
     authorAvatarEl.src = el.user.image.png;
     authorNameEl.textContent = el.user.username;
     commentTime.textContent = el.createdAt;
@@ -57,6 +60,8 @@ const renderBasicElement = (el) => {
     likeCommentBtn.addEventListener('click', likeSelectedComment);
     unlikeCommentBtn.addEventListener('click', unlikeSelectedComment);
     deleteCommentBtn.addEventListener('click', deleteSelectedComment);
+
+    replyBtn.addEventListener('click', addNewReplyForm);
 
     return commentTemplateClone;
 };
@@ -107,21 +112,32 @@ const markElementsBySelf = () => {
     })
 };
 
-
-const renderAddNewCommentElement = () => {
+const renderAddNewForm = () => {
     const formTemplateClone = newCommentFormTemplate.content.cloneNode(true);
-
-
-    let commentFormEl = formTemplateClone.querySelector('.new-comment-form');
-
-    commentFormEl.addEventListener('submit', addNewMainComment);
 
     let userAvatar = formTemplateClone.querySelector('.reply-av');
     userAvatar.src = CURRENT_USER.image.png
 
+    return formTemplateClone    
+}
 
-    return formTemplateClone
+const renderAddNewCommentElement = () => {
+    const newFormEl = renderAddNewForm();
+    let commentFormEl = newFormEl.querySelector('.new-comment-form');
+    commentFormEl.addEventListener('submit', addNewMainComment);
+
+    return newFormEl
 };
+
+const renderAddNewReplyFormEl = (e) => {
+    const newFormEl = renderAddNewForm();
+    let commentFormEl = newFormEl.querySelector('.new-comment-form');
+    commentFormEl.addEventListener('submit', addNewReply);
+
+    return newFormEl
+};
+
+
 
 const renderComments = () => {
     const commentEls = ALL_COMMENTS.map(comment => {
@@ -145,35 +161,6 @@ const populateInitialContent = async () => {
 
 populateInitialContent()
 
-
-
-const addNewMainComment = (e) => {
-    e.preventDefault();
-    
-    const commentFormEl = e.target;
-    
-    const currentCommentEl = commentFormEl.querySelector('.new-comment-input');
-    
-    let currentCommentElVal = currentCommentEl.value;
-
-    const newCommentObj = {
-        id: generateNewID(),
-        content: currentCommentElVal,
-        createdAt: 'Just now', //this is temporary
-        score: 0,
-        user: CURRENT_USER,
-        replies: [],
-    }
-
-
-    ALL_COMMENTS.push(newCommentObj);
-
-    renderComments()
-
-    console.log(currentCommentElVal);
-
-    commentFormEl.reset()
-};
 
 // Helper functions
 
@@ -213,6 +200,89 @@ const findCommentObj = (e) => {
     }
 
     return commentsArrObj;
+};
+
+
+// Add comments and replies
+
+const addNewReplyForm = (e) => {
+    const currentCommentEl = e.target.closest('.message-container');
+    const closestFormWrap = currentCommentEl.querySelector('.reply-form-wrap');
+
+    const newCommentForm = renderAddNewReplyFormEl(e);
+
+    if (!closestFormWrap.hasChildNodes()) {
+        closestFormWrap.appendChild(newCommentForm);
+    }
+
+};
+
+
+
+const addNewMainComment = (e) => {
+    e.preventDefault();
+    
+    const commentFormEl = e.target;
+    
+    const currentCommentEl = commentFormEl.querySelector('.new-comment-input');
+    
+    let currentCommentElVal = currentCommentEl.value;
+
+    const newCommentObj = {
+        id: generateNewID(),
+        content: currentCommentElVal,
+        createdAt: 'Just now', //this is temporary
+        score: 0,
+        user: CURRENT_USER,
+        replies: [],
+    }
+
+    ALL_COMMENTS.push(newCommentObj);
+
+    renderComments()
+
+    commentFormEl.reset()
+};
+
+
+const addNewReply = (e) => {
+    e.preventDefault();
+
+    const commentFormEl = e.target;
+    const currentInputEl = commentFormEl.querySelector('.new-comment-input');
+    let currentCommentElVal = currentInputEl.value;
+
+    const currentCommentEl = e.target.closest('.message-container');
+    const closestMainObj = findClosestMainObj(e);
+    const currentCommentObj = findCommentObj(e);
+
+    const replyingToVal = currentCommentObj.user.username;
+
+    const newCommentObj = {
+        id: generateNewID(),
+        content: currentCommentElVal,
+        createdAt: 'Just now', //this is temporary
+        score: 0,
+        replyingTo: replyingToVal,
+        user: CURRENT_USER
+    }
+
+    if (currentCommentEl.classList.contains('main-comment')) {
+        currentCommentObj.replies.push(newCommentObj);
+    } else if (currentCommentEl.classList.contains('reply-comment')) {
+        const replyToIndex = closestMainObj.replies.findIndex(obj => obj.id === currentCommentObj.id);
+        // closestMainObj.replies.splice(replyToIndex + 1, 0, newCommentObj);
+        const lastReplyIndex = closestMainObj.replies.findLastIndex(obj => obj.replyingTo === currentCommentObj.replyingTo);
+        if(lastReplyIndex !== -1) {
+            closestMainObj.replies.splice(lastReplyIndex - 1, 0, newCommentObj);
+        } else {
+            closestMainObj.replies.splice(replyToIndex + 1, 0, newCommentObj);
+        }
+    }
+
+    renderComments()
+
+    commentFormEl.reset()
 };
 
 
