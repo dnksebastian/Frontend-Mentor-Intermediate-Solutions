@@ -197,6 +197,62 @@ main {
   word-wrap: break-word;
 }
 
+.edit-form-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: max-content max-content;
+  row-gap: 1rem;
+  grid-column: 1/4;
+  grid-row: 2/3;
+}
+
+.edit-ta {
+  grid-column: 1/4;
+  grid-row: 1/2;
+  font: inherit;
+  resize: none;
+  border-radius: 1rem;
+  border: 1px solid var(--cs-light-gray);
+  padding: 1.2rem 2.5rem;
+  font-size: 1.55rem;
+  /* font-weight: 500; */
+  cursor: pointer;
+  transition: .3s;
+}
+
+.edit-ta:hover {
+  border-color: var(--cs-grayish-blue);
+}
+
+.edit-ta:focus-visible {
+  outline: none;
+  border-color: var(--cs-grayish-blue);
+}
+
+.confirm-edit-btn {
+  grid-column: 3/4;
+  grid-row: 2/3;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  max-width: 10rem;
+  border: none;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  background-color: var(--cs-moderate-blue);
+  color: var(--cs-white);
+  font-weight: 500;
+  transition: .3s;
+}
+
+.confirm-edit-btn:hover,
+.confirm-edit-btn:focus-visible {
+  outline: none;
+  background-color: var(--cs-light-grayish-blue);
+}
+
+
+
 .replyto {
   font-weight: 700;
   color: var(--cs-moderate-blue);

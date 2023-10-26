@@ -17,6 +17,7 @@ const componentContainer = document.querySelector('.component-helper');
 
 const commentMainTemplate = document.getElementById('comment-template');
 const newCommentFormTemplate = document.getElementById('new-comment-form-template');
+const editFormTemplate = document.getElementById('edit-form-template');
 
 const commentsContainerList = document.getElementById('comments-display-list');
 
@@ -46,6 +47,7 @@ const renderBasicElement = (el) => {
     let likeCommentBtn = commentTemplateClone.querySelector('.increase-likes-btn');
     let unlikeCommentBtn = commentTemplateClone.querySelector('.decrease-likes-btn');
     let deleteCommentBtn = commentTemplateClone.querySelector('.delete-comment-btn');
+    let editCommentBtn = commentTemplateClone.querySelector('.edit-comment-btn');
 
     // let replyFormWrap = commentTemplateClone.querySelector('.reply-form-wrap');
     let replyBtn = commentTemplateClone.querySelector('.reply-comment-btn');
@@ -60,6 +62,7 @@ const renderBasicElement = (el) => {
     likeCommentBtn.addEventListener('click', likeSelectedComment);
     unlikeCommentBtn.addEventListener('click', unlikeSelectedComment);
     deleteCommentBtn.addEventListener('click', deleteSelectedComment);
+    editCommentBtn.addEventListener('click', displayEditForm)
 
     replyBtn.addEventListener('click', addNewReplyForm);
 
@@ -323,6 +326,59 @@ const deleteSelectedComment = (e) => {
     } else if(currentCommentEl.classList.contains('main-comment')) {
         const filteredArr = ALL_COMMENTS.filter(el => +el.id !== currentCommentID);
         ALL_COMMENTS = filteredArr;
+    }
+
+    renderComments()
+
+};
+
+
+// Edit comment
+
+const displayEditForm = (e) => {
+    const currentCommentEl = e.target.closest('.message-container');
+    const currentCommentObj = findCommentObj(e);
+
+    const messageWrapper = currentCommentEl.querySelector('.message-content-wrapper');
+
+    const editFormClone = editFormTemplate.content.cloneNode(true);
+
+    const editFormEl = editFormClone.querySelector('.edit-form-wrapper');
+    const editTextareaEl = editFormClone.querySelector('.edit-ta');
+    // const confirmEditBtn = editFormClone.querySelector('.confirm-edit-btn');
+
+    editFormEl.addEventListener('submit', editCurrentComment);
+
+    if (currentCommentObj.replyingTo) {
+        const replyToVal = currentCommentObj.replyingTo;
+
+        editTextareaEl.value = `@${replyToVal}, ${currentCommentObj.content}`;   
+    } else {
+        editTextareaEl.value = currentCommentObj.content;
+    }
+
+    messageWrapper.replaceWith(editFormClone);
+
+};
+
+const editCurrentComment = (e) => {
+    e.preventDefault();
+    const currentCommentObj = findCommentObj(e);
+
+    const updateFormEl = e.target;
+    const currentUpdateTextarea = updateFormEl.querySelector('.edit-ta');
+
+    let newCommentValRaw = currentUpdateTextarea.value;
+
+    if (currentCommentObj.replyingTo) {
+        const replyToVal = currentCommentObj.replyingTo;
+        const toRemove = `@${replyToVal}, `
+
+        const commentValClean = newCommentValRaw.replace(toRemove, "");
+
+        currentCommentObj.content = commentValClean;
+    } else {
+        currentCommentObj.content = newCommentValRaw
     }
 
     renderComments()
