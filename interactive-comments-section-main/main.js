@@ -7,6 +7,8 @@ let clickedComment = null;
 const fetchInitialData = async () => {
     const res = await fetch('./data.json');
     const fetchedData = await res.json()
+
+    changeInitialCommentsTime(fetchedData);
     ALL_COMMENTS = [...fetchedData.comments];
     CURRENT_USER = {...fetchedData.currentUser}
 
@@ -37,11 +39,56 @@ const generateNewID = () => {
 };
 
 const displayCommentTime = (commentPostDate) => {
-    // ... this will change comment timestamp into relative time e.g 'a day ago'
+    const date = (commentPostDate instanceof Date) ? commentPostDate : new Date(commentPostDate);
+    const formatter = new Intl.RelativeTimeFormat('en');
+    
+    const ranges = {
+      years: 3600 * 24 * 365,
+      months: 3600 * 24 * 30,
+      weeks: 3600 * 24 * 7,
+      days: 3600 * 24,
+      hours: 3600,
+      minutes: 60,
+      seconds: 1
+    };
+
+    const secondsElapsed = (date.getTime() - Date.now()) / 1000;
+
+    if (secondsElapsed > -1) {
+        return 'just now'
+    }
+    
+    for (let key in ranges) {
+      if (ranges[key] < Math.abs(secondsElapsed)) {
+        const delta = secondsElapsed / ranges[key];
+
+        return formatter.format(Math.round(delta), key);
+      }
+    }
 };
 
-const changeInitialCommentsTime = () => {
-    // ... this will set initial comments time so that they display correct values dynamically not hardcoded
+const changeInitialCommentsTime = (arr) => {
+    //this will set initial comments time so that they display correct values dynamically not hardcoded
+
+    const oneDayInMs = 24 * 60 * 60 * 1000;
+    const oneWeekInMs = 7 * oneDayInMs;
+    const oneMonthInMs = 4 * oneWeekInMs;
+
+
+    const timeOneMonthAgo = Date.now() - oneMonthInMs -  3 * oneDayInMs;
+    const timeTwoWeeksAgo = Date.now() - 2 * oneWeekInMs;
+    const timeOneWeekAgo = Date.now() - oneWeekInMs;
+    const timeTwoDaysAgo = Date.now() - 2 * oneDayInMs;
+
+    const firstCommentObj = arr.comments.find(el => el.id === 1);
+    const secondCommentObj = arr.comments.find(el => el.id === 2);
+    const thirdCommentObj = secondCommentObj.replies.find(el => el.id === 3);
+    const fourthCommentObj = secondCommentObj.replies.find(el => el.id === 4);
+
+    firstCommentObj.createdAt = new Date(timeOneMonthAgo);
+    secondCommentObj.createdAt = new Date(timeTwoWeeksAgo);
+    thirdCommentObj.createdAt = new Date(timeOneWeekAgo);
+    fourthCommentObj.createdAt = new Date(timeTwoDaysAgo);
 };
 
 // localStorage
@@ -78,7 +125,8 @@ const renderBasicElement = (el) => {
 
     authorAvatarEl.src = el.user.image.png;
     authorNameEl.textContent = el.user.username;
-    commentTime.textContent = el.createdAt;
+    // commentTime.textContent = el.createdAt;
+    commentTime.textContent = displayCommentTime(el.createdAt);
     commentScore.textContent = el.score;
     commentText.textContent = el.content;
     elementWrapper.id = el.id;
@@ -319,7 +367,8 @@ const addNewMainComment = (e) => {
     const newCommentObj = {
         id: generateNewID(),
         content: currentCommentElVal,
-        createdAt: 'Just now', //this is temporary
+        // createdAt: 'Just now',
+        createdAt: new Date(),
         score: 0,
         user: CURRENT_USER,
         replies: [],
@@ -350,7 +399,8 @@ const addNewReply = (e) => {
     const newCommentObj = {
         id: generateNewID(),
         content: currentCommentElVal,
-        createdAt: 'Just now', //this is temporary
+        // createdAt: 'Just now',
+        createdAt: new Date(),
         score: 0,
         replyingTo: replyingToVal,
         user: CURRENT_USER
@@ -499,3 +549,5 @@ confirmFormEl.addEventListener('submit', (e) => {
 dialogCancelBtn.addEventListener('click', () => {
     confirmDialogEl.close();
 })
+
+// confirmDialogEl.showModal()

@@ -42,6 +42,9 @@ Users should be able to:
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Attribution free clear icon](https://uxwing.com/broom-cleaning-icon/) - Free broom icon I've used in the project.
+
+- [Using dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) - Dialog element docs.
+
+- [Relative time formatter](https://stackoverflow.com/a/69122877) - Script to format relative dates.
 
