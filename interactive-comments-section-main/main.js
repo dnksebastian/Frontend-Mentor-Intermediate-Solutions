@@ -2,6 +2,8 @@
 let ALL_COMMENTS = [];
 let CURRENT_USER = {};
 
+let clickedComment = null;
+
 const fetchInitialData = async () => {
     const res = await fetch('./data.json');
     const fetchedData = await res.json()
@@ -21,8 +23,14 @@ const editFormTemplate = document.getElementById('edit-form-template');
 
 const commentsContainerList = document.getElementById('comments-display-list');
 
+const confirmDialogEl = document.getElementById('confirm-dialog');
+const confirmFormEl = document.getElementById('confirm-form');
+const dialogCancelBtn = document.getElementById('btn-dialog-cancel');
+
+const clearAllBtn = document.getElementById('btn-reset');
 
 // Functions
+// Utilities
 
 const generateNewID = () => {
     return Math.floor(Math.random() * 100000);
@@ -31,6 +39,21 @@ const generateNewID = () => {
 const displayCommentTime = (commentPostDate) => {
     // ... this will change comment timestamp into relative time e.g 'a day ago'
 };
+
+const changeInitialCommentsTime = () => {
+    // ... this will set initial comments time so that they display correct values dynamically not hardcoded
+};
+
+// localStorage
+
+const updateLocalStorage = () => {
+    localStorage.setItem('all-comments', JSON.stringify(ALL_COMMENTS))
+    localStorage.setItem('loggedUser', JSON.stringify(CURRENT_USER))
+};
+
+
+
+// Render functions
 
 
 const renderBasicElement = (el) => {
@@ -46,6 +69,7 @@ const renderBasicElement = (el) => {
 
     let likeCommentBtn = commentTemplateClone.querySelector('.increase-likes-btn');
     let unlikeCommentBtn = commentTemplateClone.querySelector('.decrease-likes-btn');
+
     let deleteCommentBtn = commentTemplateClone.querySelector('.delete-comment-btn');
     let editCommentBtn = commentTemplateClone.querySelector('.edit-comment-btn');
 
@@ -61,7 +85,14 @@ const renderBasicElement = (el) => {
 
     likeCommentBtn.addEventListener('click', likeSelectedComment);
     unlikeCommentBtn.addEventListener('click', unlikeSelectedComment);
-    deleteCommentBtn.addEventListener('click', deleteSelectedComment);
+
+    // deleteCommentBtn.addEventListener('click', deleteSelectedComment);
+
+    deleteCommentBtn.addEventListener('click', (e) => {
+        confirmDialogEl.showModal();
+        clickedComment = e;
+    })
+
     editCommentBtn.addEventListener('click', displayEditForm)
 
     replyBtn.addEventListener('click', addNewReplyForm);
@@ -153,9 +184,44 @@ const renderComments = () => {
     markElementsBySelf()
 };
 
+// Init functions
+
+const checkLocalStorage = async () => {
+    const retrievedComments = JSON.parse(localStorage.getItem('all-comments'));
+    const retrievedUser = JSON.parse(localStorage.getItem('loggedUser'));
+
+    if (retrievedUser) {
+        CURRENT_USER = retrievedUser
+    }
+
+    if (retrievedComments) {
+        ALL_COMMENTS = retrievedComments
+    }
+
+    if (!retrievedUser || !retrievedComments || retrievedComments.length === 0) {
+        await fetchInitialData();
+        updateLocalStorage()
+    }
+};
+
+const resetToBasicState = async () => {
+
+    localStorage.removeItem('all-comments');
+    localStorage.removeItem('loggedUser');
+    
+    await checkLocalStorage();
+
+    renderComments()
+};
+
+clearAllBtn.addEventListener('click', resetToBasicState);
+
 
 const populateInitialContent = async () => {
-    await fetchInitialData();
+
+    // await fetchInitialData();
+    await checkLocalStorage();
+
     renderComments()
 
     const mainNewCommentEl = renderAddNewCommentElement()
@@ -167,12 +233,22 @@ populateInitialContent()
 
 // Helper functions
 
-const findClosestMainComment = (e) => {
+const findClosestMainComment = (e, element) => {
+
+    if(element) {
+        e = element
+    }
+
     const closestMainCommentEl = e.target.closest('.main-comment');
     return closestMainCommentEl
 };
 
-const findClosestMainObj = (e) => {
+const findClosestMainObj = (e, element) => {
+
+    if(element) {
+        e = element
+    }
+
     const closestMainEl = findClosestMainComment(e);
     const closestMainCommID = +closestMainEl.id
 
@@ -180,13 +256,22 @@ const findClosestMainObj = (e) => {
     return mainCommObj;
 };
 
-const findClosestRepliesArr = (e) => {
+const findClosestRepliesArr = (e, element) => {
+    if(element) {
+        e = element
+    }
+  
     const mainComm = findClosestMainObj(e);
 
     return mainComm.replies
 };
 
-const findCommentObj = (e) => {
+const findCommentObj = (e, element) => {
+
+    if(element) {
+        e = element
+    }
+
     const currentCommentEl = e.target.closest('.message-container');
     const currentCommentID = +currentCommentEl.id;
  
@@ -241,6 +326,7 @@ const addNewMainComment = (e) => {
     }
 
     ALL_COMMENTS.push(newCommentObj);
+    updateLocalStorage()
 
     renderComments()
 
@@ -283,6 +369,7 @@ const addNewReply = (e) => {
         }
     }
 
+    updateLocalStorage()
     renderComments()
 
     commentFormEl.reset()
@@ -296,6 +383,9 @@ const likeSelectedComment = (e) => {
     const currentObj = findCommentObj(e);
 
     currentObj.score++
+
+    updateLocalStorage()
+
     renderComments()
 
 };
@@ -304,14 +394,23 @@ const unlikeSelectedComment = (e) => {
     const currentObj = findCommentObj(e);
 
     currentObj.score--
+
+    updateLocalStorage()
+
     renderComments()
 };
 
 
 // Delete comment
 
-const deleteSelectedComment = (e) => {
+const deleteSelectedComment = (e, element) => {
+    
+    if(element) {
+        e = element
+    }
+
     const currentCommentEl = e.target.closest('.message-container');
+
     const currentCommentID = +currentCommentEl.id;
 
     
@@ -327,6 +426,8 @@ const deleteSelectedComment = (e) => {
         const filteredArr = ALL_COMMENTS.filter(el => +el.id !== currentCommentID);
         ALL_COMMENTS = filteredArr;
     }
+
+    updateLocalStorage()
 
     renderComments()
 
@@ -381,6 +482,20 @@ const editCurrentComment = (e) => {
         currentCommentObj.content = newCommentValRaw
     }
 
+    updateLocalStorage()
+
     renderComments()
 
 };
+
+// Confirm dialog
+
+confirmFormEl.addEventListener('submit', (e) => {
+
+    deleteSelectedComment(e, clickedComment);
+    clickedComment = null;
+});
+
+dialogCancelBtn.addEventListener('click', () => {
+    confirmDialogEl.close();
+})
