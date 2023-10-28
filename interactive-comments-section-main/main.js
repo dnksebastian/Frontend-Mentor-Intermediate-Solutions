@@ -200,7 +200,7 @@ const renderAddNewForm = () => {
     let userAvatar = formTemplateClone.querySelector('.reply-av');
     userAvatar.src = CURRENT_USER.image.png
 
-    return formTemplateClone    
+    return formTemplateClone
 }
 
 const renderAddNewCommentElement = () => {
@@ -212,8 +212,17 @@ const renderAddNewCommentElement = () => {
 };
 
 const renderAddNewReplyFormEl = (e) => {
+    const currentCommentObj = findCommentObj(e);
+
     const newFormEl = renderAddNewForm();
     let commentFormEl = newFormEl.querySelector('.new-comment-form');
+
+    let newCommInputEl = newFormEl.querySelector('.new-comment-input');
+
+    if (currentCommentObj.user.username) {
+        newCommInputEl.value = `@${currentCommentObj.user.username}, `
+    }
+
     commentFormEl.addEventListener('submit', addNewReply);
 
     return newFormEl
@@ -388,7 +397,6 @@ const addNewReply = (e) => {
 
     const commentFormEl = e.target;
     const currentInputEl = commentFormEl.querySelector('.new-comment-input');
-    let currentCommentElVal = currentInputEl.value;
 
     const currentCommentEl = e.target.closest('.message-container');
     const closestMainObj = findClosestMainObj(e);
@@ -396,15 +404,29 @@ const addNewReply = (e) => {
 
     const replyingToVal = currentCommentObj.user.username;
 
+    let currentInputValRaw = currentInputEl.value;
+    let commentContentClean = ''
+
+    if (replyingToVal) {
+        const toRemove = `@${replyingToVal}, `
+        const commentValClean = currentInputValRaw.replace(toRemove, "");
+        
+        commentContentClean = commentValClean
+    } else {
+        commentContentClean = currentInputValRaw
+    }
+
     const newCommentObj = {
         id: generateNewID(),
-        content: currentCommentElVal,
+        // content: currentCommentElVal,
+        content: commentContentClean,
         // createdAt: 'Just now',
         createdAt: new Date(),
         score: 0,
         replyingTo: replyingToVal,
         user: CURRENT_USER
     }
+
 
     if (currentCommentEl.classList.contains('main-comment')) {
         currentCommentObj.replies.push(newCommentObj);
