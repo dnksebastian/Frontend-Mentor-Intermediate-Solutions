@@ -12,7 +12,6 @@ const fetchInitialData = async () => {
     ALL_COMMENTS = [...fetchedData.comments];
     CURRENT_USER = {...fetchedData.currentUser}
 
-    // console.log(ALL_COMMENTS);
 };
 
 
@@ -120,12 +119,10 @@ const renderBasicElement = (el) => {
     let deleteCommentBtn = commentTemplateClone.querySelector('.delete-comment-btn');
     let editCommentBtn = commentTemplateClone.querySelector('.edit-comment-btn');
 
-    // let replyFormWrap = commentTemplateClone.querySelector('.reply-form-wrap');
     let replyBtn = commentTemplateClone.querySelector('.reply-comment-btn');
 
     authorAvatarEl.src = el.user.image.png;
     authorNameEl.textContent = el.user.username;
-    // commentTime.textContent = el.createdAt;
     commentTime.textContent = displayCommentTime(el.createdAt);
     commentScore.textContent = el.score;
     commentText.textContent = el.content;
@@ -134,7 +131,6 @@ const renderBasicElement = (el) => {
     likeCommentBtn.addEventListener('click', likeSelectedComment);
     unlikeCommentBtn.addEventListener('click', unlikeSelectedComment);
 
-    // deleteCommentBtn.addEventListener('click', deleteSelectedComment);
 
     deleteCommentBtn.addEventListener('click', (e) => {
         confirmDialogEl.showModal();
@@ -381,7 +377,6 @@ const addNewMainComment = (e) => {
     const newCommentObj = {
         id: generateNewID(),
         content: currentCommentElVal,
-        // createdAt: 'Just now',
         createdAt: new Date(),
         score: 0,
         user: CURRENT_USER,
@@ -423,9 +418,7 @@ const addNewReply = (e) => {
 
     const newCommentObj = {
         id: generateNewID(),
-        // content: currentCommentElVal,
         content: commentContentClean,
-        // createdAt: 'Just now',
         createdAt: new Date(),
         score: 0,
         replyingTo: replyingToVal,
@@ -523,7 +516,6 @@ const displayEditForm = (e) => {
 
     const editFormEl = editFormClone.querySelector('.edit-form-wrapper');
     const editTextareaEl = editFormClone.querySelector('.edit-ta');
-    // const confirmEditBtn = editFormClone.querySelector('.confirm-edit-btn');
 
     editFormEl.addEventListener('submit', editCurrentComment);
 
@@ -576,5 +568,3 @@ confirmFormEl.addEventListener('submit', (e) => {
 dialogCancelBtn.addEventListener('click', () => {
     confirmDialogEl.close();
 })
-
-// confirmDialogEl.showModal()

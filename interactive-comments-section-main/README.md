@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/html-css-js-interactive-comments-section-5dz01WkHY_](https://www.frontendmentor.io/solutions/html-css-js-interactive-comments-section-5dz01WkHY_)
 - Live Site URL: [https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/interactive-comments-section-main/](https://dnksebastian.github.io/Frontend-Mentor-Intermediate-Solutions/interactive-comments-section-main/)
 
 ## My process

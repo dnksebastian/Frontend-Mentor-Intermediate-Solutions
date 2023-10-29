@@ -119,14 +119,12 @@ main {
   gap: 1.5rem;
   width: 100%;
   background-color: transparent;
-  /* border: 1px solid red; */
 }
 
 .message-wrapper {
   padding: 1.5rem;
   display: grid;
   grid-template-rows: max-content 1fr max-content;
-  /* grid-template-rows: max-content max-content max-content; */
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 1.5rem;
   background-color: var(--cs-white);
@@ -139,7 +137,6 @@ main {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  /* background-color: rgba(255, 192, 203, 0.612); */
 }
 
 .user-avatar-wrapper {
@@ -176,7 +173,6 @@ main {
 .message-content-wrapper {
   grid-row: 2/3;
   grid-column: 1/4;
-  /* background-color: rgba(0, 128, 0, 0.548); */
   font-size: 1.6rem;
   line-height: 1.5;
   padding-right: 0.5rem;
@@ -206,7 +202,6 @@ main {
   color: var(--cs-dark-blue);
   padding: 1.2rem 2rem;
   font-size: 1.55rem;
-  /* font-weight: 500; */
   cursor: pointer;
   transition: 0.3s;
 }
@@ -254,7 +249,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: rgba(0, 0, 255, 0.414); */
   justify-self: flex-start;
   font-size: 1.8rem;
   border-radius: 1rem;
@@ -272,7 +266,6 @@ main {
 .like-btn {
   border: none;
   padding: 1rem 1rem;
-  /* background-color: rgba(255, 0, 0, 0.599); */
   font-size: 0;
   background-position: center;
   background-size: 35%;
@@ -302,7 +295,6 @@ main {
   gap: 1.5rem;
   grid-row: 3/4;
   grid-column: 2/4;
-  /* background-color: rgba(255, 166, 0, 0.463); */
   justify-self: end;
 }
 
@@ -311,7 +303,6 @@ main {
   font-size: 1.6rem;
   font-weight: 500;
   padding: 1.2rem 0.2rem 1.2rem 2.3rem;
-  /* background-color: rgba(238, 130, 238, 0.258); */
   background-repeat: no-repeat;
   background-size: 20%;
   background-position: left center;
@@ -319,7 +310,6 @@ main {
 }
 
 .rc-btn:hover {
-  /* filter: brightness(120%); */
   opacity: 60%;
 }
 
@@ -349,13 +339,8 @@ main {
   display: block;
 }
 
-/* .main-comment {
-  background-color: rgba(0, 128, 128, 0.226);
-} */
-
 .reply-comment {
   padding-right: unset;
-  /* background-color: rgba(255, 217, 0, 0.258); */
 }
 
 .reply-form-wrap:empty {
@@ -413,13 +398,11 @@ main {
 }
 
 .new-comment-input:hover {
-  /* border-color: var(--cs-grayish-blue); */
   border-color: var(--cs-moderate-blue);
 }
 
 .new-comment-input:focus-visible {
   outline: none;
-  /* border-color: var(--cs-grayish-blue); */
   border-color: var(--cs-moderate-blue);
 }
 
@@ -627,16 +610,11 @@ footer {
 
 @media screen and (min-width: 1000px) {
 
- /* body {
-  grid-template-rows: 1fr 2rem;
- } */
-
  main {
   padding: 5rem 5rem .5rem 5rem;
  }
 
 .component-helper {
-  /* background-color: rgba(0, 128, 128, 0.397); */
   max-width: 75rem;
  }
 
@@ -651,7 +629,6 @@ footer {
 
 .message-wrapper {
   padding: 1.7rem 2rem 2.5rem 2rem;
-  /* background-color: rgba(255, 217, 0, 0.604); */
   grid-template-rows: max-content max-content;
   grid-template-columns: max-content 1fr max-content;
   row-gap: 1rem;
@@ -659,13 +636,11 @@ footer {
 }
 
 .user-info-wrapper {
-  /* background-color: rgba(0, 0, 255, 0.514); */
   grid-row: 1/2;
   grid-column: 2/3;
 }
 
 .message-content-wrapper {
-  /* background-color: rgba(0, 128, 0, 0.489); */
   grid-row: 2/3;
   grid-column: 2/4;
 }
@@ -702,25 +677,21 @@ footer {
 
 .like-btn {
   padding: 1.5rem 1rem;
-  /* background-color: orange; */
   width: 100%;
 }
 
 .likes-score {
   text-align: center;
   width: 100%;
-  /* background-color: purple; */
 }
 
 .reply-controls-wrapper {
-  /* background-color: rgba(255, 192, 203, 0.466); */
   grid-row: 1/2;
   grid-column: 3/4;
   gap: 2.5rem;
 }
 
 .comment-replies-wrapper {
-  /* background-color: rgba(255, 166, 0, 0.423); */
   margin-left: 4.5rem;
   padding-left: 4rem;
   padding-top: .5rem;
@@ -728,7 +699,6 @@ footer {
 }
 
 .new-comment-form-wrapper {
-  /* background-color: rgba(0, 128, 0, 0.426); */
   padding: 2rem 3rem 2.5rem 2.5rem;
 }
 
@@ -737,7 +707,6 @@ footer {
 }
 
 .new-comment-form {
-  /* background-color: rgba(255, 0, 0, 0.458); */
   grid-template-columns: max-content 1fr max-content;
   grid-template-rows: 1fr;
   row-gap: unset;
@@ -785,9 +754,5 @@ footer {
 .dialog-question {
   padding-right: 1rem;
 }
-
-/* footer {
-  background-color: blue;
-} */
  
 }
