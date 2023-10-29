@@ -206,6 +206,7 @@ const renderAddNewForm = () => {
 const renderAddNewCommentElement = () => {
     const newFormEl = renderAddNewForm();
     let commentFormEl = newFormEl.querySelector('.new-comment-form');
+
     commentFormEl.addEventListener('submit', addNewMainComment);
 
     return newFormEl
@@ -218,6 +219,10 @@ const renderAddNewReplyFormEl = (e) => {
     let commentFormEl = newFormEl.querySelector('.new-comment-form');
 
     let newCommInputEl = newFormEl.querySelector('.new-comment-input');
+
+    let replyBtnEl = newFormEl.querySelector('.send-new-comment-btn');
+
+    replyBtnEl.textContent = 'Reply'
 
     if (currentCommentObj.user.username) {
         newCommInputEl.value = `@${currentCommentObj.user.username}, `
